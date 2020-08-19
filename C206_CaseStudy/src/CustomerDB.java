@@ -21,9 +21,13 @@ public class CustomerDB {
 		
 	}
 	public Customer inputCustomerDetails() {
+		Customer newCustomer = new Customer();
+		return newCustomer;
 		
+	
 	}
 	public int selectCustomer() {
-		
+		return 0;
 	}
+	
 }
