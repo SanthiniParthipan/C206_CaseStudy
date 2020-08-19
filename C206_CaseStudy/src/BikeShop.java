@@ -193,7 +193,7 @@ public class BikeShop {
 		
 		Feedback fb = new Feedback (customer,feedback , response);
 		return fb;
-	}
+	} 
 
 	private static void addFeedback(ArrayList<Feedback> feedbackList, Feedback fb) {
 		// TODO Auto-generated method stub
@@ -216,8 +216,28 @@ public class BikeShop {
 
 	
 	
+	private static String retrieveAllBikeParts(ArrayList<BikeParts> BikePartList) {
+		String output = "";
+		
+		for(int i = 0; i < BikePartList.size(); i++) {
+			output += String.format("%-20s %-20s\n" , BikePartList.get(i).getPartName(), BikePartList.get(i).getDescriptions());
+		}
+		return output;
+
+		}
+
 	private static void viewAllBikeParts(ArrayList<BikeParts> BikePartList) {
+
 		//JX
+
+	    String output = "";
+		
+	    output = String.format("%-20s %-20s\n", "PART NAME", "DESCRIPTIONS");
+		output += retrieveAllBikeParts(BikePartList);
+
+		    System.out.println(output);
+
+
 	}
 	
 	
