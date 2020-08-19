@@ -20,7 +20,7 @@ public class BikeParts extends BikePartsDB {
 	public void setDescriptions(String descriptions) {
 		this.descriptions = descriptions;
 	}
-
+	
 	public boolean isAvailable() {
 		return isAvailable;
 	}
