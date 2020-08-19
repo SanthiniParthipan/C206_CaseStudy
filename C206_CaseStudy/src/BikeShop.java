@@ -106,6 +106,8 @@ public class BikeShop {
 				}
 			
 			
+			}else if(option ==4 ){
+				System.out.println("bye");
 			}else {
 				System.out.println("invalid option");
 			}
@@ -119,6 +121,7 @@ public class BikeShop {
 		System.out.println("1. create item");
 		System.out.println("2. view item");
 		System.out.println("3. delete item");
+		System.out.println("4. quit");
 
 		Helper.line(80, "-");
 		;
