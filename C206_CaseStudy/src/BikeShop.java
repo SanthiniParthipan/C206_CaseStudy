@@ -263,19 +263,25 @@ public class BikeShop {
 	// JX
 	
 	private static void deleteBikeParts(ArrayList<BikeParts> BikePartList) {
-	    String output = "";
-	    output = String.format("%-20s %-20s\n", "BIKE PARTS TO BE DELETED", "DESCRIPTIONS");
-	    
-	    String deleteBikeParts = Helper.readString("Enter the bike parts to delete: ");
+		String b = Helper.readString("Enter Bike Parts> ");
+	    boolean exist = false;
+	      
+	      for (BikeParts i : BikePartList) {
 
-	    for (BikeParts b : BikePartList) {
-	      if (b.getPartName().equalsIgnoreCase(deleteBikeParts)) {
-	    	  BikePartList.remove(b);
-	    	  break;
-	      } else {
-	        System.out.println("Bike parts does not exist!");
+	        if (i.getPartName().equalsIgnoreCase(b)) {
+
+	         {
+	        	 BikePartList.remove(i);
+	          exist = true;
+	          break;
+	        } 
 	      }
+	      if (exist == false) {
+	        System.out.println("Bike Parts does not exist");
+	      }
+	      
 	    }
+
 	}
 	
 	// JX
