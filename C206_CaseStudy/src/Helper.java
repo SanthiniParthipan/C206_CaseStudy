@@ -1,5 +1,9 @@
 // Version for AY2013/14 Sem 2
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> branch 'master' of https://github.com/SanthiniParthipan/C206_CaseStudy.git
 import java.util.*;
 
 public class Helper {
