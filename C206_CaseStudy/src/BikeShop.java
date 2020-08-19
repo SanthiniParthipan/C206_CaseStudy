@@ -36,22 +36,23 @@ public class BikeShop {
 					BikeShop.addCustomer(customerList, cc);
 
 				} else if (itemType == 2) {
-					// Add Chromebook
+					// create Chromebook
 					Bike bi = inputBikeInfo();
 					BikeShop.addBikeInfo(bikeList, bi);
 
 				}else if (itemType == 3) {
-					// create a buyer
+					// create a bike parts
 					BikeParts bp = inputBikeParts();
 					BikeShop.addBikeParts(bikeList, bp);
 
 
 				}else if (itemType == 4) {
-					// Add Chromebook
+					// create apppointment
 					Appointment ap = inputAppointment();
 					BikeShop.addAppointment(appointment, ap);
 
 				}else if(itemType == 5) {
+					//create feedback
 					Feedback fb = inputFeedback();
 					BikeShop.addFeedback(feedbackList, fb);
 
@@ -69,7 +70,7 @@ public class BikeShop {
 
 
 			}else if(option ==3 ){
-				// Delete buyers’ information
+				// Delete 
 
 				BikeShop.setHeader("Delete");			
 				BikeShop.setHeader("ITEM TYPES");
@@ -82,20 +83,23 @@ public class BikeShop {
 				int itemType = Helper.readInt("Enter option to select item type > ");
 
 				if (itemType == 1) {
-					// create a buyer
+					// Delete buyers’ information
 					BikeShop.deleteBuyer(customerList);
 
 				} else if (itemType == 2) {
-					// Add Chromebook
+					// delete bike info
 					BikeShop.deleteBikeInfo(bikeList);
+				
 				}else if (itemType == 3) {
-					// create a buyer
+					// delet bike parts
 					BikeShop.deleteBikeParts(bikeList);
 
 				}else if (itemType == 4) {
-					// Add Chromebook
+					// delete appointment
 					BikeShop.deleteAppointment(appointment);
+				
 				}else if(itemType == 5) {
+					// delete feedback
 					BikeShop.deleteFeeback(feedbackList);
 				} else {
 					System.out.println("Invalid type");
