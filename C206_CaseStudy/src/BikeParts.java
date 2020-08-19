@@ -1,5 +1,5 @@
 
-public class BikeParts extends BikePartsDB {
+public class BikeParts {
 	private String partName;
 	private String descriptions;
 	private boolean isAvailable;
