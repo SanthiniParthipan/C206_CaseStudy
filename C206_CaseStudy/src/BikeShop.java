@@ -9,8 +9,8 @@ public class BikeShop {
 		ArrayList<Bike> BikeList = new ArrayList<Bike>();
 		ArrayList<Customer> customerList = new ArrayList<Customer>();
 		ArrayList<Appointment> appointment = new ArrayList<Appointment>();
-		ArrayList<BikeParts> bikeList = new ArrayList<BikeParts>();
-
+		ArrayList<BikeParts> BikePartList = new ArrayList<BikeParts>();
+		
 		int option = 0;
 		while (option !=6) {
 
@@ -36,40 +36,42 @@ public class BikeShop {
 					BikeShop.addCustomer(customerList, cc);
 
 				} else if (itemType == 2) {
-					// Add Chromebook
+					// create Chromebook
 					Bike bi = inputBikeInfo();
-					BikeShop.addBikeInfo(bikeList, bi);
+					BikeShop.addBikeInfo(BikePartList, bi);
 
 				}else if (itemType == 3) {
-					// create a buyer
+					// create a bike parts
 					BikeParts bp = inputBikeParts();
-					BikeShop.addBikeParts(bikeList, bp);
+					BikeShop.addBikeParts(BikePartList, bp);
 
 
 				}else if (itemType == 4) {
-					// Add Chromebook
+					// create apppointment
 					Appointment ap = inputAppointment();
 					BikeShop.addAppointment(appointment, ap);
 
 				}else if(itemType == 5) {
+					//create feedback
 					Feedback fb = inputFeedback();
 					BikeShop.addFeedback(feedbackList, fb);
 
 				} else {
 					System.out.println("Invalid type");
 				}
+				
 			}else if(option ==2) {
 				// view all items
 				BikeShop.viewAllBuyer(customerList );
-				BikeShop.viewAllBikeInfo(bikeList);
-				BikeShop.viewAllBikeParts(bikeList);
+				BikeShop.viewAllBikeInfo(BikePartList);
+				BikeShop.viewAllBikeParts(BikePartList);
 				BikeShop.viewAllAppointment(appointment);
 				BikeShop.viewAllFeedback(feedbackList);
 
 
 
 			}else if(option ==3 ){
-				// Delete buyers’ information
+				// Delete 
 
 				BikeShop.setHeader("Delete");			
 				BikeShop.setHeader("ITEM TYPES");
@@ -82,26 +84,31 @@ public class BikeShop {
 				int itemType = Helper.readInt("Enter option to select item type > ");
 
 				if (itemType == 1) {
-					// create a buyer
+					// Delete buyers’ information
 					BikeShop.deleteBuyer(customerList);
 
 				} else if (itemType == 2) {
-					// Add Chromebook
-					BikeShop.deleteBikeInfo(bikeList);
+					// delete bike info
+					BikeShop.deleteBikeInfo(BikePartList);
+				
 				}else if (itemType == 3) {
-					// create a buyer
-					BikeShop.deleteBikeParts(bikeList);
+					// delete bike parts
+					BikeShop.deleteBikeParts(BikePartList);
 
 				}else if (itemType == 4) {
-					// Add Chromebook
+					// delete appointment
 					BikeShop.deleteAppointment(appointment);
+				
 				}else if(itemType == 5) {
+					// delete feedback
 					BikeShop.deleteFeeback(feedbackList);
 				} else {
 					System.out.println("Invalid type");
 				}
 			
 			
+			}else if(option ==4 ){
+				System.out.println("bye");
 			}else {
 				System.out.println("invalid option");
 			}
@@ -115,6 +122,7 @@ public class BikeShop {
 		System.out.println("1. create item");
 		System.out.println("2. view item");
 		System.out.println("3. delete item");
+		System.out.println("4. quit");
 
 		Helper.line(80, "-");
 		;
@@ -128,33 +136,7 @@ public class BikeShop {
 
 	}
 
-	// ===================================== Option 3
-	// delete===============================
 
-	private static void deleteBuyer(ArrayList<Customer> customerList) {
-		// TODO Auto-generated method stub
-
-	}
-
-	private static void deleteBikeInfo(ArrayList<BikeParts> bikeList) {
-		// TODO Auto-generated method stub
-
-	}
-
-	private static void deleteBikeParts(ArrayList<BikeParts> bikeList) {
-		// TODO Auto-generated method stub
-
-	}
-
-	private static void deleteAppointment(ArrayList<Appointment> appointment) {
-		// TODO Auto-generated method stub
-
-	}
-
-	private static void deleteFeeback(ArrayList<Feedback> feedbackList) {
-		// TODO Auto-generated method stub
-
-	}
 
 	// ================================================= Option 1 create
 	// =====================================
@@ -180,12 +162,16 @@ public class BikeShop {
 	}
 
 	private static BikeParts inputBikeParts() {
-		// TODO Auto-generated method stub
-		return null;
+		String customerName = Helper.readString("Enter your name: ");
+		String bikeParts = Helper.readString("Enter bike parts: ");
+		
+		BikeParts bp = new BikeParts(customerName, bikeParts, false);
+		return bp;
 	}
 
-	private static void addBikeParts(ArrayList<BikeParts> bikeList, BikeParts bp) {
-		// TODO Auto-generated method stub
+	private static void addBikeParts(ArrayList<BikeParts> BikePartList, BikeParts bp) {
+		BikePartList.add(bp);
+		System.out.println("Bike parts has successfully added!");
 
 	}
 
@@ -201,32 +187,24 @@ public class BikeShop {
 
 	private static Feedback inputFeedback() {
 		// TODO Auto-generated method stub
-		return null;
-	}
+		String customer = Helper.readString("Enter your name :");
+		String feedback = Helper.readString("Enter feedback :");
+		String response = Helper.readString("Enter response");
+		
+		Feedback fb = new Feedback (customer,feedback , response);
+		return fb;
+	} 
 
 	private static void addFeedback(ArrayList<Feedback> feedbackList, Feedback fb) {
 		// TODO Auto-generated method stub
+		feedbackList.add(fb);
+		System.out.println("feedback added");
 
 	}
 
-	// =============================================== Option 1 view
+	// =============================================== Option 2 view
 	// =======================================
 	private static void viewAllBuyer(ArrayList<Customer> customerList) {
-		// TODO Auto-generated method stub
-
-	}
-
-	private static void viewAllFeedback(ArrayList<Feedback> feedbackList) {
-		// TODO Auto-generated method stub
-
-	}
-
-	private static void viewAllAppointment(ArrayList<Appointment> appointment) {
-		// TODO Auto-generated method stub
-
-	}
-
-	private static void viewAllBikeParts(ArrayList<BikeParts> bikeList) {
 		// TODO Auto-generated method stub
 
 	}
@@ -235,4 +213,104 @@ public class BikeShop {
 		// TODO Auto-generated method stub
 
 	}
+
+	
+	
+	private static String retrieveAllBikeParts(ArrayList<BikeParts> BikePartList) {
+		String output = "";
+		
+		for(int i = 0; i < BikePartList.size(); i++) {
+			output += String.format("%-20s %-20s\n" , BikePartList.get(i).getPartName(), BikePartList.get(i).getDescriptions());
+		}
+		return output;
+
+		}
+
+	private static void viewAllBikeParts(ArrayList<BikeParts> BikePartList) {
+
+		//JX
+
+	    String output = "";
+		
+	    output = String.format("%-20s %-20s\n", "PART NAME", "DESCRIPTIONS");
+		output += retrieveAllBikeParts(BikePartList);
+
+		    System.out.println(output);
+
+
+	}
+	
+	
+
+	private static void viewAllAppointment(ArrayList<Appointment> appointment) {
+		// TODO Auto-generated method stub
+
+	}
+
+	private static void viewAllFeedback(ArrayList<Feedback> feedbackList) {
+		// TODO Auto-generated method stub
+
+	}
+	
+	// ===================================== Option 3
+	// delete===============================
+
+	private static void deleteBuyer(ArrayList<Customer> customerList) {
+		// TODO Auto-generated method stub
+
+	}
+
+	private static void deleteBikeInfo(ArrayList<BikeParts> bikeList) {
+		// TODO Auto-generated method stub
+
+	}
+	
+	
+	
+
+	private static void deleteBikeParts(ArrayList<BikeParts> BikePartList) {
+		String b = Helper.readString("Enter Bike Parts> ");
+	    boolean exist = false;
+	      
+	      for (BikeParts i : BikePartList) {
+	        if (i.getPartName().equalsIgnoreCase(b)) {
+
+	         {
+	        	 BikePartList.remove(i);
+	          exist = true;
+	          break;
+	        } 
+	      }
+	      if (exist == false) {
+	        System.out.println("Bike Parts does not exist");
+	      }
+	      
+	    }
+	      
+	}
+	
+	
+	private static void deleteAppointment(ArrayList<Appointment> appointment) {
+		// TODO Auto-generated method stub
+
+	}
+
+	private static void deleteFeeback(ArrayList<Feedback> feedbackList) {
+		// TODO Auto-generated method stub
+		
+	    String DeleteFeedback = Helper.readString("Enter feedback to delete: ");
+	    String DeleteCus = Helper.readString("Enter Customer to delete: ");
+	    String DeleteRes = Helper.readString("Enter response to delete: ");
+
+	    for (Feedback fb : feedbackList) {
+	      if (fb.getFeedback().equalsIgnoreCase(DeleteFeedback)){
+	    	 feedbackList.remove(fb);
+	    	  break;
+	      } else {
+	        System.out.println("feedback does not exsit ");
+	      }
+	    }
+
+	}
+
 }
