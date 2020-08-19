@@ -2,6 +2,13 @@ import java.util.ArrayList;
  
 public class BikeShop {
 
+	private static final int DELETE_FEEDBACK = 11;
+	private static final int VIEW_FEEDBACK = 10;
+	private static final int CREATE_FEEDBACK = 9;
+	private static final int DELETE_BIKE_PARTS = 8;
+	private static final int VIEW_BIKE_PARTS = 7;
+	private static final int CREATE_BIKE_PART_INFO = 6;
+	private static final int DELETE_BIKE_INFO = 5;
 	static final int CREATE_BIKE_INFO = 4;
 	static final int DELETE_BUYER_INFO = 3;
 	static final int view_buyers_information = 2;
@@ -36,26 +43,26 @@ public class BikeShop {
 		}else if(option ==CREATE_BIKE_INFO ){
 			
 			// Create bike’s information
-		}else if(option ==5 ){
+		}else if(option ==DELETE_BIKE_INFO ){
 			
 			//  Delete the bike information
-		}else if(option ==6 ){
+		}else if(option ==CREATE_BIKE_PART_INFO ){
 			
 			//  Create the bike part information
-		}else if(option ==7 ){
+		}else if(option ==VIEW_BIKE_PARTS ){
 			
 			//  View the list of bike parts in the store
-		}else if(option ==8) {
+		}else if(option ==DELETE_BIKE_PARTS) {
 			// Delete the particular bike part
 			
-		}else if(option ==9 ){
+		}else if(option ==CREATE_FEEDBACK ){
 			
 			// Create feedback
-		}else if(option ==10 ){
+		}else if(option ==VIEW_FEEDBACK ){
 			
 			// View the list of feedback in the system
-		}else if(option ==11 ){
-			
+		}else if(option ==DELETE_FEEDBACK ){
+			 
 			//  Delete the particular feedback 
 		}
 		}
