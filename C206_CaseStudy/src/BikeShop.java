@@ -247,9 +247,22 @@ public class BikeShop {
 
 	}
 
+	public static String retrieveAllFeedback(ArrayList<Feedback> feedbackList) {
+		String output = "";
+		for (int i = 0; i < feedbackList.size(); i++) {
+
+			output += String.format("%-20s %-30s %-30s\n",feedbackList.get(i).getCustomer(),feedbackList.get(i).getResponse(),feedbackList.get(i).getFeedback());
+				
+		}
+		return output;
+	}
 	private static void viewAllFeedback(ArrayList<Feedback> feedbackList) {
 		// TODO Auto-generated method stub
-
+		BikeShop.setHeader("FEEDBACK LIST");
+		String output = String.format("%-20s %-30s %-30s\n", "Customer", "Response",
+				"Feedback");
+		 output += retrieveAllFeedback(feedbackList);	
+		System.out.println(output);
 	}
 	
 	// ===================================== Option 3
@@ -260,11 +273,11 @@ public class BikeShop {
 
 	}
 
+	
 	private static void deleteBikeInfo(ArrayList<BikeParts> bikeList) {
 		// TODO Auto-generated method stub
 
 	}
-	
 	
 	
 
