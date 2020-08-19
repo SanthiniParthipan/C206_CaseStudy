@@ -92,7 +92,7 @@ public class BikeShop {
 					BikeShop.deleteBikeInfo(BikePartList);
 				
 				}else if (itemType == 3) {
-					// delet bike parts
+					// delete bike parts
 					BikeShop.deleteBikeParts(BikePartList);
 
 				}else if (itemType == 4) {
@@ -298,9 +298,6 @@ public class BikeShop {
 	private static void deleteFeeback(ArrayList<Feedback> feedbackList) {
 		// TODO Auto-generated method stub
 		
-		String output = "";
-	    output = String.format("%-20s %-20s\n", "BIKE PARTS TO BE DELETED", "DESCRIPTIONS");
-	    
 	    String DeleteFeedback = Helper.readString("Enter feedback to delete: ");
 	    String DeleteCus = Helper.readString("Enter Customer to delete: ");
 	    String DeleteRes = Helper.readString("Enter response to delete: ");
