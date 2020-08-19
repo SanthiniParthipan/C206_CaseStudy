@@ -193,7 +193,7 @@ public class BikeShop {
 		
 		Feedback fb = new Feedback (customer,feedback , response);
 		return fb;
-	}
+	} 
 
 	private static void addFeedback(ArrayList<Feedback> feedbackList, Feedback fb) {
 		// TODO Auto-generated method stub
@@ -214,7 +214,7 @@ public class BikeShop {
 
 	}
 
-	//JX
+	
 	
 	private static String retrieveAllBikeParts(ArrayList<BikeParts> BikePartList) {
 		String output = "";
@@ -227,6 +227,9 @@ public class BikeShop {
 		}
 
 	private static void viewAllBikeParts(ArrayList<BikeParts> BikePartList) {
+
+		//JX
+
 	    String output = "";
 		
 	    output = String.format("%-20s %-20s\n", "PART NAME", "DESCRIPTIONS");
@@ -234,9 +237,10 @@ public class BikeShop {
 
 		    System.out.println(output);
 
+
 	}
 	
-	// JX
+	
 
 	private static void viewAllAppointment(ArrayList<Appointment> appointment) {
 		// TODO Auto-generated method stub
@@ -260,14 +264,15 @@ public class BikeShop {
 		// TODO Auto-generated method stub
 
 	}
-	// JX
 	
+	
+	
+
 	private static void deleteBikeParts(ArrayList<BikeParts> BikePartList) {
 		String b = Helper.readString("Enter Bike Parts> ");
 	    boolean exist = false;
 	      
 	      for (BikeParts i : BikePartList) {
-
 	        if (i.getPartName().equalsIgnoreCase(b)) {
 
 	         {
@@ -284,7 +289,7 @@ public class BikeShop {
 
 	}
 	
-	// JX
+	
 	private static void deleteAppointment(ArrayList<Appointment> appointment) {
 		// TODO Auto-generated method stub
 
@@ -292,6 +297,22 @@ public class BikeShop {
 
 	private static void deleteFeeback(ArrayList<Feedback> feedbackList) {
 		// TODO Auto-generated method stub
+		
+		String output = "";
+	    output = String.format("%-20s %-20s\n", "BIKE PARTS TO BE DELETED", "DESCRIPTIONS");
+	    
+	    String DeleteFeedback = Helper.readString("Enter feedback to delete: ");
+	    String DeleteCus = Helper.readString("Enter Customer to delete: ");
+	    String DeleteRes = Helper.readString("Enter response to delete: ");
+
+	    for (Feedback fb : feedbackList) {
+	      if (fb.getFeedback().equalsIgnoreCase(DeleteFeedback)){
+	    	 feedbackList.remove(fb);
+	    	  break;
+	      } else {
+	        System.out.println("feedback does not exsit ");
+	      }
+	    }
 
 	}
 
