@@ -135,33 +135,7 @@ public class BikeShop {
 
 	}
 
-	// ===================================== Option 3
-	// delete===============================
 
-	private static void deleteBuyer(ArrayList<Customer> customerList) {
-		// TODO Auto-generated method stub
-
-	}
-
-	private static void deleteBikeInfo(ArrayList<BikeParts> bikeList) {
-		// TODO Auto-generated method stub
-
-	}
-
-	private static void deleteBikeParts(ArrayList<BikeParts> bikeList) {
-		// TODO Auto-generated method stub
-
-	}
-
-	private static void deleteAppointment(ArrayList<Appointment> appointment) {
-		// TODO Auto-generated method stub
-
-	}
-
-	private static void deleteFeeback(ArrayList<Feedback> feedbackList) {
-		// TODO Auto-generated method stub
-
-	}
 
 	// ================================================= Option 1 create
 	// =====================================
@@ -239,6 +213,34 @@ public class BikeShop {
 	}
 
 	private static void viewAllBikeInfo(ArrayList<BikeParts> bikeList) {
+		// TODO Auto-generated method stub
+
+	}
+	
+	// ===================================== Option 3
+	// delete===============================
+
+	private static void deleteBuyer(ArrayList<Customer> customerList) {
+		// TODO Auto-generated method stub
+
+	}
+
+	private static void deleteBikeInfo(ArrayList<BikeParts> bikeList) {
+		// TODO Auto-generated method stub
+
+	}
+
+	private static void deleteBikeParts(ArrayList<BikeParts> bikeList) {
+		// TODO Auto-generated method stub
+
+	}
+
+	private static void deleteAppointment(ArrayList<Appointment> appointment) {
+		// TODO Auto-generated method stub
+
+	}
+
+	private static void deleteFeeback(ArrayList<Feedback> feedbackList) {
 		// TODO Auto-generated method stub
 
 	}
