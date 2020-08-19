@@ -19,10 +19,11 @@ public class BikeShop {
 		// TODO Auto-generated method stub
 	
 		ArrayList<Feedback> feedbackList = new ArrayList<Feedback>();
-		ArrayList<Bike> bikeList = new ArrayList<Bike>();
+		ArrayList<Bike> BikeList = new ArrayList<Bike>();
 		ArrayList<Customer> customerList = new ArrayList<Customer>();
 		ArrayList<Appointment> appointment = new ArrayList<Appointment>();
-		
+		ArrayList<BikeParts> bikeList = new ArrayList<BikeParts>();
+
 		int option = 0;
 		while (option != OPTION_QUIT) {
 	
