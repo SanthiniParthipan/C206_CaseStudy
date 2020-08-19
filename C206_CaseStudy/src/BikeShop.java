@@ -138,30 +138,33 @@ public class BikeShop {
 
 
 
-	// ================================================= Option 1 create
-	// =====================================
+	// ================================================= Option 1 create =====================================
 
 	private static Customer inputCustomer() {
-		// TODO Auto-generated method stub
+	
+		//Elaine
 		return null;
 	}
 
 	private static void addCustomer(ArrayList<Customer> customerList, Customer cc) {
-		// TODO Auto-generated method stub
+	
+		//Elaine
 
 	}
 
 	private static Bike inputBikeInfo() {
-		// TODO Auto-generated method stub
+		
+		//gabrielle
 		return null;
 	}
 
 	private static void addBikeInfo(ArrayList<BikeParts> bikeList, Bike bi) {
-		// TODO Auto-generated method stub
+		// gabrielle
 
 	}
 
 	private static BikeParts inputBikeParts() {
+		//JX
 		String customerName = Helper.readString("Enter your name: ");
 		String bikeParts = Helper.readString("Enter bike parts: ");
 		
@@ -170,23 +173,24 @@ public class BikeShop {
 	}
 
 	private static void addBikeParts(ArrayList<BikeParts> BikePartList, BikeParts bp) {
+		//JX
 		BikePartList.add(bp);
 		System.out.println("Bike parts has successfully added!");
 
 	}
 
 	private static Appointment inputAppointment() {
-		// TODO Auto-generated method stub
+		// firdaus
 		return null;
 	}
 
 	private static void addAppointment(ArrayList<Appointment> appointment, Appointment ap) {
-		// TODO Auto-generated method stub
+		// firdaus
 
 	}
 
 	private static Feedback inputFeedback() {
-		// TODO Auto-generated method stub
+		// santhini
 		String customer = Helper.readString("Enter your name :");
 		String feedback = Helper.readString("Enter feedback :");
 		String response = Helper.readString("Enter response");
@@ -196,27 +200,28 @@ public class BikeShop {
 	} 
 
 	private static void addFeedback(ArrayList<Feedback> feedbackList, Feedback fb) {
-		// TODO Auto-generated method stub
+		// santhini
 		feedbackList.add(fb);
 		System.out.println("feedback added");
 
 	}
 
-	// =============================================== Option 2 view
-	// =======================================
+	// =============================================== Option 2 view =======================================
+	
 	private static void viewAllBuyer(ArrayList<Customer> customerList) {
-		// TODO Auto-generated method stub
+		// Elaine
 
 	}
 
 	private static void viewAllBikeInfo(ArrayList<BikeParts> bikeList) {
-		// TODO Auto-generated method stub
+		// gabrielle
 
 	}
 
 	
 	
 	private static String retrieveAllBikeParts(ArrayList<BikeParts> BikePartList) {
+		//JX
 		String output = "";
 		
 		for(int i = 0; i < BikePartList.size(); i++) {
@@ -243,10 +248,11 @@ public class BikeShop {
 	
 
 	private static void viewAllAppointment(ArrayList<Appointment> appointment) {
-		// TODO Auto-generated method stub
+		// firdaus
 
 	}
 
+	
 	public static String retrieveAllFeedback(ArrayList<Feedback> feedbackList) {
 		String output = "";
 		for (int i = 0; i < feedbackList.size(); i++) {
@@ -257,7 +263,7 @@ public class BikeShop {
 		return output;
 	}
 	private static void viewAllFeedback(ArrayList<Feedback> feedbackList) {
-		// TODO Auto-generated method stub
+		// santhini
 		BikeShop.setHeader("FEEDBACK LIST");
 		String output = String.format("%-20s %-30s %-30s\n", "Customer", "Response",
 				"Feedback");
@@ -265,23 +271,24 @@ public class BikeShop {
 		System.out.println(output);
 	}
 	
-	// ===================================== Option 3
-	// delete===============================
+	
+	
+	// ===================================== Option 3  delete===============================
 
 	private static void deleteBuyer(ArrayList<Customer> customerList) {
-		// TODO Auto-generated method stub
+		// Elaine
 
 	}
 
 	
 	private static void deleteBikeInfo(ArrayList<BikeParts> bikeList) {
-		// TODO Auto-generated method stub
-
+		// gabrielle
 	}
 	
 	
 
 	private static void deleteBikeParts(ArrayList<BikeParts> BikePartList) {
+		//JX
 		String b = Helper.readString("Enter Bike Parts> ");
 	    boolean exist = false;
 	      
@@ -304,12 +311,12 @@ public class BikeShop {
 	
 	
 	private static void deleteAppointment(ArrayList<Appointment> appointment) {
-		// TODO Auto-generated method stub
+		// firdaus
 
 	}
 
 	private static void deleteFeeback(ArrayList<Feedback> feedbackList) {
-		// TODO Auto-generated method stub
+		// santhini
 		
 	    String DeleteFeedback = Helper.readString("Enter feedback to delete: ");
 	    String DeleteCus = Helper.readString("Enter Customer to delete: ");
