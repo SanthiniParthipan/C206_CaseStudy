@@ -12,7 +12,7 @@ public class BikeParts extends BikePartsDB {
 	public void setPartName(String partName) {
 		this.partName = partName;
 	}
-
+	
 	public String getDescriptions() {
 		return descriptions;
 	}
