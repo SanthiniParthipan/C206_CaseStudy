@@ -273,11 +273,18 @@ public class BikeShop {
 
 	private static Feedback inputFeedback() {
 		// TODO Auto-generated method stub
-		return null;
+		String customer = Helper.readString("Enter your name :");
+		String feedback = Helper.readString("Enter feedback :");
+		String response = Helper.readString("Enter response");
+		
+		Feedback fb = new Feedback (customer,feedback , response);
+		return fb;
 	}
 
 	private static void addFeedback(ArrayList<Feedback> feedbackList, Feedback fb) {
 		// TODO Auto-generated method stub
+		feedbackList.add(fb);
+		System.out.println("feedback added");
 
 	}
 
@@ -288,7 +295,13 @@ public class BikeShop {
 
 	}
 
-	private static void viewAllFeedback(ArrayList<Feedback> feedbackList) {
+	private static void viewAllBikeInfo(ArrayList<BikeParts> bikeList) {
+		// TODO Auto-generated method stub
+
+	}
+
+
+	private static void viewAllBikeParts(ArrayList<BikeParts> bikeList) {
 		// TODO Auto-generated method stub
 
 	}
@@ -298,12 +311,7 @@ public class BikeShop {
 
 	}
 
-	private static void viewAllBikeParts(ArrayList<BikeParts> bikeList) {
-		// TODO Auto-generated method stub
-
-	}
-
-	private static void viewAllBikeInfo(ArrayList<BikeParts> bikeList) {
+	private static void viewAllFeedback(ArrayList<Feedback> feedbackList) {
 		// TODO Auto-generated method stub
 
 	}
