@@ -142,12 +142,15 @@ public class BikeShop {
 	// =====================================
 
 	private static Customer inputCustomer() {
-		// TODO Auto-generated method stub
-		return null;
+		String customerName = Helper.readString("Enter your name");
+		Customer cc = new Customer();
+		return cc;
 	}
 
 	private static void addCustomer(ArrayList<Customer> customerList, Customer cc) {
 		// TODO Auto-generated method stub
+		customerList.add(cc);
+		System.out.println("Customer information has successfully added!");
 
 	}
 
@@ -204,8 +207,26 @@ public class BikeShop {
 
 	// =============================================== Option 2 view
 	// =======================================
+	
+	private static String retrieveAllCustomer(ArrayList<Customer> customerList) {
+		String output = "";
+		
+		for(int i = 0; i < customerList.size(); i++) {
+			output += String.format("%-20s %-20s\n" , customerList.get(i).getName(), customerList.get(i).getEmail(), customerList.get(i).getPhone());
+		}
+		return output;
+
+		}
+	
+	
 	private static void viewAllBuyer(ArrayList<Customer> customerList) {
-		// TODO Auto-generated method stub
+		 String output = "";
+			
+		    output = String.format("%-20s %-20s\n", "NAME, EMAIL", "PHONE");
+			output += retrieveAllCustomer(customerList);
+
+			    System.out.println(output);
+		
 
 	}
 
