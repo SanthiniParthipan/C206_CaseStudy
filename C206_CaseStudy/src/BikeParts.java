@@ -4,6 +4,13 @@ public class BikeParts extends BikePartsDB {
 	private String descriptions;
 	private boolean isAvailable;
 	
+	public BikeParts(String partName, String descriptions, boolean isAvailable) {
+	    super();
+	    this.partName = partName;
+	    this.descriptions = descriptions;
+	    this.isAvailable = isAvailable;
+	  }
+
 	public String getPartName() {
 		return partName;
 		
@@ -29,10 +36,10 @@ public class BikeParts extends BikePartsDB {
 		this.isAvailable = isAvailable;
 	}
 
-	public String toString(){
-		String bikeInfo = super.toString();
-        return String.format("%-63s %-20d", bikeInfo, selectBikeParts());
+	  public String toString() {
+		    String output = "";
+		    return output += "PARTNAME: " + partName + " " + "DESCRIPTIONS: " + descriptions;
 	}
-	
-	
+
 }
+
