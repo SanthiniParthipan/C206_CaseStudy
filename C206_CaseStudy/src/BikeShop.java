@@ -11,6 +11,11 @@ public class BikeShop {
 		ArrayList<Appointment> appointment = new ArrayList<Appointment>();
 		ArrayList<BikeParts> BikePartList = new ArrayList<BikeParts>();
 		
+		//BikeList.add(new Bike("C504", "trinx", 35));
+		//BikeList.add(new Bike("C001", "GT100", 20));
+		//BikeList.add(new Bike("b763", "Polygon", 10));
+		
+		
 		int option = 0;
 		while (option !=6) {
 
@@ -75,11 +80,12 @@ public class BikeShop {
 
 				BikeShop.setHeader("Delete");			
 				BikeShop.setHeader("ITEM TYPES");
-				System.out.println("1. buyer");
-				System.out.println("2. Bike info");
-				System.out.println("3. Bike parts");
-				System.out.println("4. Appointment");
-				System.out.println("5. Feedback");
+		        System.out.println("1. Buyer Registration");
+		        System.out.println("2. Bike Listing and Features");
+		        System.out.println("3. Bike Parts listing and Features");
+		        System.out.println("4. Appointment");
+		        System.out.println("5. Feedback");
+		        System.out.println("6. Quit");
 
 				int itemType = Helper.readInt("Enter option to select item type > ");
 
