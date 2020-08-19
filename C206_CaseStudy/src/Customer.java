@@ -23,7 +23,7 @@ public class Customer {
 	}
 	
 	public String toString() {
-		return String.format("%s %s %s", name, email,phone);
+		return String.format("%s %s %s", name, email, phone);
 	}
 	
 	
