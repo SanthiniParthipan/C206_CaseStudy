@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 
 public class BikeShop {
+	
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -160,7 +161,7 @@ public class BikeShop {
 		// TODO Auto-generated method stub
 
 	}
-
+	
 	private static BikeParts inputBikeParts() {
 		String customerName = Helper.readString("Enter your name: ");
 		String bikeParts = Helper.readString("Enter bike parts: ");
@@ -168,13 +169,13 @@ public class BikeShop {
 		BikeParts bp = new BikeParts(customerName, bikeParts, false);
 		return bp;
 	}
-
+	
 	private static void addBikeParts(ArrayList<BikeParts> BikePartList, BikeParts bp) {
 		BikePartList.add(bp);
 		System.out.println("Bike parts has successfully added!");
 
 	}
-
+	
 	private static Appointment inputAppointment() {
 		// TODO Auto-generated method stub
 		return null;
@@ -213,8 +214,6 @@ public class BikeShop {
 		// TODO Auto-generated method stub
 
 	}
-
-	
 	
 	private static String retrieveAllBikeParts(ArrayList<BikeParts> BikePartList) {
 		String output = "";
@@ -227,21 +226,14 @@ public class BikeShop {
 		}
 
 	private static void viewAllBikeParts(ArrayList<BikeParts> BikePartList) {
-
-		//JX
-
 	    String output = "";
 		
 	    output = String.format("%-20s %-20s\n", "PART NAME", "DESCRIPTIONS");
 		output += retrieveAllBikeParts(BikePartList);
 
 		    System.out.println(output);
-
-
 	}
 	
-	
-
 	private static void viewAllAppointment(ArrayList<Appointment> appointment) {
 		// TODO Auto-generated method stub
 
@@ -265,31 +257,21 @@ public class BikeShop {
 
 	}
 	
-	
-	
-
 	private static void deleteBikeParts(ArrayList<BikeParts> BikePartList) {
 		String b = Helper.readString("Enter Bike Parts> ");
-	    boolean exist = false;
-	      
-	      for (BikeParts i : BikePartList) {
-	        if (i.getPartName().equalsIgnoreCase(b)) {
+		for (BikeParts i :BikePartList) {
+			if(i.getDescriptions().equalsIgnoreCase(b)) {
+				BikePartList.remove(i);
+				System.out.println("Bike Part has deleted!");
 
-	         {
-	        	 BikePartList.remove(i);
-	          exist = true;
-	          break;
-	        } 
-	      }
-	      if (exist == false) {
-	        System.out.println("Bike Parts does not exist");
-	      }
-	      
-	    }
-	      
+				break;
+			}else {
+				System.out.println("Bike Part Not Found!");
+			}
+		}
+	     
 	}
-	
-	
+	    
 	private static void deleteAppointment(ArrayList<Appointment> appointment) {
 		// TODO Auto-generated method stub
 
