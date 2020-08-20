@@ -41,7 +41,7 @@ public class BikeShop {
 					BikeShop.addCustomer(customerList, cc);
 
 				} else if (itemType == 2) {
-					// create Chromebook
+					// create bike info
 					Bike bi = inputBikeInfo();
 					BikeShop.addBikeInfo(BikePartList, bi);
 
@@ -80,7 +80,7 @@ public class BikeShop {
 
 				BikeShop.setHeader("Delete");			
 				BikeShop.setHeader("ITEM TYPES");
-		        System.out.println("1. Buyer Registration");
+		        System.out.println("1. Buyer");
 		        System.out.println("2. Bike Listing and Features");
 		        System.out.println("3. Bike Parts listing and Features");
 		        System.out.println("4. Appointment");
