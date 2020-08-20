@@ -55,7 +55,7 @@ public class C206_CaseStudyTest {
 	@Test
 	public void addBikeInfoTest() {
 		// Item list is not null, so that can add a new item - boundary
-		assertNotNull("Check if there is valid Bike Info arraylist to add to", customerList);
+		assertNotNull("Check if there is valid Bike Info arraylist to add to", BikeList);
 		//Given an empty list, after adding 1 item, the size of the list is 1 - normal
 		//The item just added is as same as the first item of the list
 		BikeShop.addBikeInfo(BikeList , bi1);
@@ -97,7 +97,120 @@ public class C206_CaseStudyTest {
 		
 	}
 	
+	@Test
+	public void retrieveAllCustomerTest() {
+		// Test if Item list is not null but empty -boundary
+		assertNotNull("Test if there is valid Customer arraylist to retrieve item", customerList);
+		
+		//test if the list of customer retrieved from the SourceCentre is empty - boundary
+		String allCustomer= BikeShop.retrieveAllCustomer(customerList);
+		String testOutput = "";
+		assertEquals("Check that ViewAllCustomerlist", testOutput, allCustomer);
+		
+		//Given an empty list, after adding 2 items, test if the size of the list is 1 - normal
+		BikeShop.addCustomer(customerList, cu1);
+		
+		assertEquals("Test that Customer arraylist size is 1", 1, customerList.size());
+		
+		//test if the expected output string same as the list of customer retrieved from the SourceCentre	
+		allCustomer= BikeShop.retrieveAllCustomer(customerList);
+		testOutput = String.format("%-20s %-30s %-10s\n","Tony Tan", "Tonytan@gmail.com", "87940093");
 	
+		assertEquals("Test that ViewAllCustomerlist", testOutput, allCustomer);
+		
+	}
+	/*
+	@Test
+	public void retrieveAllBikeTest() {
+		// Test if Item list is not null but empty -boundary
+		assertNotNull("Test if there is valid Bike Info arraylist to retrieve item", BikeList);
+		
+		//test if the list of bike info retrieved from the SourceCentre is empty - boundary
+		String allBike= BikeShop.retrieveAllBike(BikeList);
+		String testOutput = "";
+		assertEquals("Check that ViewAllBikelist", testOutput, allBike);
+		
+		//Given an empty list, after adding 2 items, test if the size of the list is 1 - normal
+		BikeShop.addBikeInfo(BikeList, bi1);
+		
+		assertEquals("Test that Bike Info arraylist size is 1", 1,BikeList.size());
+		
+		//test if the expected output string same as the list of bike info retrieved from the SourceCentre	
+		allBike= BikeShop.retrieveAllBike(customerList);
+		testOutput = String.format("%-20s %-30s %-10s\n",);
+	
+		assertEquals("Test that ViewAllBikelist", testOutput, allBike);
+		
+	}*/
+	
+	@Test
+	public void retrieveAllBikePartsTest() {
+		// Test if Item list is not null but empty -boundary
+		assertNotNull("Test if there is valid bike Parts arraylist to retrieve item", BikePartList);
+		
+		//test if the list of bike parts retrieved from the SourceCentre is empty - boundary
+		String allBikeparts= BikeShop.retrieveAllBikeParts(BikePartList);
+		String testOutput = "";
+		assertEquals("Check that ViewAllBikePartslist", testOutput, allBikeparts);
+		
+		//Given an empty list, after adding 2 items, test if the size of the list is 1 - normal
+		BikeShop.addBikeParts(BikePartList, bp1);
+		
+		assertEquals("Test that Customer arraylist size is 1", 1, BikePartList.size());
+		
+		//test if the expected output string same as the list of bike parts retrieved from the SourceCentre	
+		allBikeparts= BikeShop.retrieveAllBikeParts(BikePartList);
+		testOutput = String.format("%-20s %-50s %-10s\n","gear", "21 speed gear shifters shimano EF500(3x5)", true);
+	
+		assertEquals("Test that ViewAllBikePartsList", testOutput, allBikeparts);
+		
+	}
+	/*
+	@Test
+	public void retrieveAllAppointmentTest() {
+		// Test if Item list is not null but empty -boundary
+		assertNotNull("Test if there is valid Appointment arraylist to retrieve item", appointment);
+		
+		//test if the list of appointment retrieved from the SourceCentre is empty - boundary
+		String allAppointment= BikeShop.retrieveAllAppointment(appointment);
+		String testOutput = "";
+		assertEquals("Check that ViewAllappointmentlist", testOutput, allAppointment);
+		
+		//Given an empty list, after adding 2 items, test if the size of the list is 1 - normal
+		BikeShop.addAppointment(appointment, ap1);
+		
+		assertEquals("Test that appointment arraylist size is 1", 1, appointment.size());
+		
+		//test if the expected output string same as the list of appointment retrieved from the SourceCentre	
+		allAppointment= BikeShop.retrieveAllFeedback(appointment);
+		testOutput = String.format("%-20s %-30s %-10s\n",);
+	
+		assertEquals("Test that ViewAllAppointmentlist", testOutput, allAppointment);
+		
+	}*/
+	
+	@Test
+	public void retrieveAllFeedbackTest() {
+		// Test if Item list is not null but empty -boundary
+		assertNotNull("Test if there is valid Feedback arraylist to retrieve item", feedbackList);
+		
+		//test if the list of feedback retrieved from the SourceCentre is empty - boundary
+		String allFeedback= BikeShop.retrieveAllFeedback(feedbackList);
+		String testOutput = "";
+		assertEquals("Check that ViewAllCustomerlist", testOutput, allFeedback);
+		
+		//Given an empty list, after adding 2 items, test if the size of the list is 1 - normal
+		BikeShop.addFeedback(feedbackList, fb1);
+		
+		assertEquals("Test that Customer arraylist size is 1", 1,feedbackList.size());
+		
+		//test if the expected output string same as the list of feedback retrieved from the SourceCentre	
+		allFeedback= BikeShop.retrieveAllFeedback(feedbackList);
+		testOutput = String.format("%-20s %-30s %-10s\n","Tony Tan", "Tonytan@gmail.com", "87940093");
+	
+		assertEquals("Test that ViewAllCustomerlist", testOutput, allFeedback);
+		
+	}
 	
 	
 	@After

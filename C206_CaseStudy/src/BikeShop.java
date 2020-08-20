@@ -289,13 +289,35 @@ public class BikeShop {
 		    System.out.println(output);
 	}
 	
+	
+	
 	public static void viewAllAppointment(ArrayList<Appointment> appointment) {
 		// Firdaus
-
+ 
 	}
 
+	
+	
+	public static String retrieveAllFeedback(ArrayList<Feedback> feedbackList) {
+		//santhini
+		String output = "";
+		for (int i = 0; i < feedbackList.size(); i++) {
+
+			output += String.format("%-30s %-30s %-30s\n", feedbackList.get(i).getCustomer(),
+					feedbackList.get(i).getFeedback(), 
+					feedbackList.get(i).getResponse());
+		}
+		
+		return output;
+		
+	}
 	public static void viewAllFeedback(ArrayList<Feedback> feedbackList) {
-		// Firdaus
+		//santhini
+		BikeShop.setHeader("FEEDBACK LIST");
+		String output = String.format("%-30s %-30s %-30s\n", "CUSTOMER NAME", "FEEDBACK",
+				"RESPONSE");
+		 output += retrieveAllFeedback(feedbackList);	
+		System.out.println(output);
 
 	}
 	
