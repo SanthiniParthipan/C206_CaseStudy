@@ -61,7 +61,7 @@ public class BikeShop {
 				} else if (itemType == CREATE_BIKE_INFO) {
 					// create bike info
 					Bike bi = inputBikeInfo();
-					BikeShop.addBikeInfo(BikePartList, bi);
+					BikeShop.addBikeInfo(BikeList, bi);
 
 				}else if (itemType == CREATE_BIKE_PARTS) {
 					// create a bike parts
@@ -186,7 +186,7 @@ public class BikeShop {
 		return null;
 	}
 
-	public static void addBikeInfo(ArrayList<Bike> bikeList, Bike bi1) {
+	public static void addBikeInfo(ArrayList<Bike> bikeList, Bike bi) {
 		// Gabrielle
 		
 	}
