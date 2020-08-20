@@ -86,7 +86,7 @@ public class BikeShop {
 			}else if(option ==VIEW_ITEMS) {
 				// view all items
 				BikeShop.viewAllBuyer(customerList );
-				BikeShop.viewAllBikeInfo(BikePartList);
+				BikeShop.viewAllBikeInfo(BikeList);
 				BikeShop.viewAllBikeParts(BikePartList);
 				BikeShop.viewAllAppointment(appointment);
 				BikeShop.viewAllFeedback(feedbackList);
@@ -106,14 +106,14 @@ public class BikeShop {
 		        System.out.println("5. Feedback");
 
 				int itemType = Helper.readInt("Enter option to select item type > ");
-
+ 
 				if (itemType == DELETE_BUYER) {
 					// Delete buyers’ information
 					BikeShop.deleteBuyer(customerList);
 
 				} else if (itemType == DELETE_BIKE_INFO) {
 					// delete bike info
-					BikeShop.deleteBikeInfo(BikePartList);
+					BikeShop.deleteBikeInfo(BikeList);
 				
 				}else if (itemType == DELETE_BIKE_PARTS) {
 					// delete bike parts
@@ -262,10 +262,11 @@ public class BikeShop {
 
 	}
 
-	public static void viewAllBikeInfo(ArrayList<BikeParts> bikeList) {
+	public static void viewAllBikeInfo(ArrayList<Bike> bikeList) {
 		// Gabrielle
 
 	}
+	
 	
 	public static String retrieveAllBikeParts(ArrayList<BikeParts> BikePartList) {
 		// Jia Xin
@@ -322,7 +323,7 @@ public class BikeShop {
 	  }
 		
 
-	public static void deleteBikeInfo(ArrayList<BikeParts> bikeList) {
+	public static void deleteBikeInfo(ArrayList<Bike> bikeList) {
 		// Gabrielle
 
 	}

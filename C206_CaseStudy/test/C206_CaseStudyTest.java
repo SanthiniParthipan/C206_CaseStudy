@@ -51,7 +51,7 @@ public class C206_CaseStudyTest {
 		assertEquals("Check that Customer arraylist size is 1", 1, customerList.size());
 		assertSame("Check that Customer is added", cu1, customerList.get(0));
 		
-	}
+	} 
 	@Test
 	public void addBikeInfoTest() {
 		// Item list is not null, so that can add a new item - boundary
