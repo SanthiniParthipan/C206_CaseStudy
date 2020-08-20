@@ -186,7 +186,7 @@ public class BikeShop {
 		String bikeModel = Helper.readString("Enter bike model: ");
 		String bikeDesc = Helper.readString("Enter bike description: ");
 		
-		Bike bi = new Bike( bikeModel, bikeDesc ,false);
+		Bike bi = new Bikeinfo( bikeModel, bikeDesc ,false);
 
 		return bi;
 	}
