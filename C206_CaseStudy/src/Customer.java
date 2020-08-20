@@ -2,6 +2,14 @@ public class Customer {
 	private String name;
 	private String email;
 	private String phone;
+	
+	public Customer(String name, String email, String phone) {
+	    super();
+	    this.name = name;
+	    this.email = email;
+	    this.phone = phone;
+	}
+	
 	public String getName() {
 		return name;
 	}

@@ -12,11 +12,6 @@ public class BikeShop {
 		ArrayList<Appointment> appointment = new ArrayList<Appointment>();
 		ArrayList<BikeParts> BikePartList = new ArrayList<BikeParts>();
 		
-		//BikeList.add(new Bike("C504", "trinx", 35));
-		//BikeList.add(new Bike("C001", "GT100", 20));
-		//BikeList.add(new Bike("b763", "Polygon", 10));
-		
-		
 		int option = 0;
 		while (option !=6) {
 
@@ -81,12 +76,20 @@ public class BikeShop {
 
 				BikeShop.setHeader("Delete");			
 				BikeShop.setHeader("ITEM TYPES");
+
 		        System.out.println("1. Buyer");
 		        System.out.println("2. Bike Listing and Features");
 		        System.out.println("3. Bike Parts listing and Features");
 		        System.out.println("4. Appointment");
 		        System.out.println("5. Feedback");
 		        System.out.println("6. Quit");
+
+				System.out.println("1. buyer");
+				System.out.println("2. Bike info");
+				System.out.println("3. Bike parts");
+				System.out.println("4. Appointment");
+				System.out.println("5. Feedback");
+
 
 				int itemType = Helper.readInt("Enter option to select item type > ");
 
@@ -145,30 +148,36 @@ public class BikeShop {
 
 
 
-	// ================================================= Option 1 create =====================================
-
-	private static Customer inputCustomer() {
+	// ================================================= Option 1 create
+	// =====================================
 	
-		//Elaine
-		return null;
+	//ELAINE
+	private static Customer inputCustomer() {
+		String customerName = Helper.readString("Enter your name > ");
+		String customerEmail = Helper.readString("Enter your email > ");
+		String customerPhone = Helper.readString("Enter your phone > ");
+		Customer cc = new Customer(customerName, customerEmail, customerPhone);
+		return cc;
 	}
 
 	private static void addCustomer(ArrayList<Customer> customerList, Customer cc) {
-	
-		//Elaine
+		// TODO Auto-generated method stub
+		customerList.add(cc);
+		System.out.println("Customer information has successfully added!");
 
 	}
 
 	private static Bike inputBikeInfo() {
-		
-		//gabrielle
+		// TODO Auto-generated method stub
 		return null;
 	}
 
 	private static void addBikeInfo(ArrayList<BikeParts> bikeList, Bike bi) {
-		// gabrielle
+
+		// TODO Auto-generated method stub
 
 	}
+
 	
 	private static BikeParts inputBikeParts() {
 		// Jia Xin
@@ -176,9 +185,10 @@ public class BikeShop {
 		String bikeParts = Helper.readString("Enter bike parts: ");
 		
 		BikeParts bp = new BikeParts(customerName, bikeParts, false);
+
 		return bp;
 	}
-	
+
 	private static void addBikeParts(ArrayList<BikeParts> BikePartList, BikeParts bp) {
 		// Jia Xin
 		BikePartList.add(bp);
@@ -186,17 +196,17 @@ public class BikeShop {
 	}
 	
 	private static Appointment inputAppointment() {
-		// firdaus
+		// TODO Auto-generated method stub
 		return null;
 	}
 
 	private static void addAppointment(ArrayList<Appointment> appointment, Appointment ap) {
-		// firdaus
+		// TODO Auto-generated method stub
 
 	}
 
 	private static Feedback inputFeedback() {
-		// santhini
+		// TODO Auto-generated method stub
 		String customer = Helper.readString("Enter your name :");
 		String feedback = Helper.readString("Enter feedback :");
 		String response = Helper.readString("Enter response");
@@ -206,21 +216,41 @@ public class BikeShop {
 	} 
 
 	private static void addFeedback(ArrayList<Feedback> feedbackList, Feedback fb) {
-		// santhini
+		// TODO Auto-generated method stub
 		feedbackList.add(fb);
 		System.out.println("feedback added");
 
 	}
 
-	// =============================================== Option 2 view =======================================
+	// =============================================== Option 2 view
+	// =======================================
+	//ELAINE
+	private static String retrieveAllCustomer(ArrayList<Customer> customerList) {
+		String output = "";
+		
+		for(int i = 0; i < customerList.size(); i++) {
+			output += String.format("%-20s %-20s\n" , customerList.get(i).getName(), customerList.get(i).getEmail(), customerList.get(i).getPhone());
+		}
+		return output;
+
+		}
 	
+	//ELAINE
 	private static void viewAllBuyer(ArrayList<Customer> customerList) {
-		// Elaine
+		Helper.line(60, "-");
+		System.out.println("VIEW CUSTOMER INFORMATION");
+		String output = "";
+			
+		    output = String.format("%-20s %-20s\n", "NAME, EMAIL", "PHONE");
+			output += retrieveAllCustomer(customerList);
+
+			    System.out.println(output);
+		
 
 	}
 
 	private static void viewAllBikeInfo(ArrayList<BikeParts> bikeList) {
-		// gabrielle
+		// TODO Auto-generated method stub
 
 	}
 	
@@ -246,43 +276,45 @@ public class BikeShop {
 	}
 	
 	private static void viewAllAppointment(ArrayList<Appointment> appointment) {
-		// firdaus
+		// TODO Auto-generated method stub
 
 	}
 
-	
-	public static String retrieveAllFeedback(ArrayList<Feedback> feedbackList) {
-		String output = "";
-		for (int i = 0; i < feedbackList.size(); i++) {
-
-			output += String.format("%-20s %-30s %-30s\n",feedbackList.get(i).getCustomer(),feedbackList.get(i).getResponse(),feedbackList.get(i).getFeedback());
-				
-		}
-		return output;
-	}
 	private static void viewAllFeedback(ArrayList<Feedback> feedbackList) {
-		// santhini
-		BikeShop.setHeader("FEEDBACK LIST");
-		String output = String.format("%-20s %-30s %-30s\n", "Customer", "Response",
-				"Feedback");
-		 output += retrieveAllFeedback(feedbackList);	
-		System.out.println(output);
+		// TODO Auto-generated method stub
+
 	}
 	
-	
-	
-	// ===================================== Option 3  delete===============================
+	// ===================================== Option 3
+	// delete===============================
 
 	private static void deleteBuyer(ArrayList<Customer> customerList) {
-		// Elaine
+	    // ELAINE
+		Helper.line(20, "-");
+	    String b = Helper.readString("Enter Buyer's information > ");
+	    
+	    boolean exist = false;
+	    
+	    for (Customer i :customerList) {
+	      if(i.getName().equalsIgnoreCase(b)) {
+	        customerList.remove(i);
+	        exist = true;
+	        System.out.println("Information has been deleted!");
+	        break;
+	      }
+	    }
+	    if (exist == false) {
+	    	System.out.println("Information does not exist!");
+	    }
+	        
+	  }
+		
 
-	}
-
-	
 	private static void deleteBikeInfo(ArrayList<BikeParts> bikeList) {
-		// gabrielle
+		// TODO Auto-generated method stub
+
 	}
-	
+
 	private static void deleteBikeParts(ArrayList<BikeParts> BikePartList) {
 		// Jia Xin
 		String b = Helper.readString("Enter Bike Parts> ");
@@ -300,12 +332,12 @@ public class BikeShop {
 	}
 	    
 	private static void deleteAppointment(ArrayList<Appointment> appointment) {
-		// firdaus
+		// TODO Auto-generated method stub
 
 	}
 
 	private static void deleteFeeback(ArrayList<Feedback> feedbackList) {
-		// santhini
+		// TODO Auto-generated method stub
 		
 	    String DeleteFeedback = Helper.readString("Enter feedback to delete: ");
 	    String DeleteCus = Helper.readString("Enter Customer to delete: ");
