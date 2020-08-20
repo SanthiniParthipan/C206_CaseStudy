@@ -12,6 +12,11 @@ public class BikeShop {
 		ArrayList<Appointment> appointment = new ArrayList<Appointment>();
 		ArrayList<BikeParts> BikePartList = new ArrayList<BikeParts>();
 		
+		//BikeList.add(new Bike("C504", "trinx", 35));
+		//BikeList.add(new Bike("C001", "GT100", 20));
+		//BikeList.add(new Bike("b763", "Polygon", 10));
+		
+		
 		int option = 0;
 		while (option !=6) {
 
@@ -76,11 +81,12 @@ public class BikeShop {
 
 				BikeShop.setHeader("Delete");			
 				BikeShop.setHeader("ITEM TYPES");
-				System.out.println("1. buyer");
-				System.out.println("2. Bike info");
-				System.out.println("3. Bike parts");
-				System.out.println("4. Appointment");
-				System.out.println("5. Feedback");
+		        System.out.println("1. Buyer Registration");
+		        System.out.println("2. Bike Listing and Features");
+		        System.out.println("3. Bike Parts listing and Features");
+		        System.out.println("4. Appointment");
+		        System.out.println("5. Feedback");
+		        System.out.println("6. Quit");
 
 				int itemType = Helper.readInt("Enter option to select item type > ");
 
@@ -139,30 +145,33 @@ public class BikeShop {
 
 
 
-	// ================================================= Option 1 create
-	// =====================================
+	// ================================================= Option 1 create =====================================
 
 	private static Customer inputCustomer() {
-		// TODO Auto-generated method stub
+	
+		//Elaine
 		return null;
 	}
 
 	private static void addCustomer(ArrayList<Customer> customerList, Customer cc) {
-		// TODO Auto-generated method stub
+	
+		//Elaine
 
 	}
 
 	private static Bike inputBikeInfo() {
-		// TODO Auto-generated method stub
+		
+		//gabrielle
 		return null;
 	}
 
 	private static void addBikeInfo(ArrayList<BikeParts> bikeList, Bike bi) {
-		// TODO Auto-generated method stub
+		// gabrielle
 
 	}
 	
 	private static BikeParts inputBikeParts() {
+		// Jia Xin
 		String customerName = Helper.readString("Enter your name: ");
 		String bikeParts = Helper.readString("Enter bike parts: ");
 		
@@ -171,23 +180,23 @@ public class BikeShop {
 	}
 	
 	private static void addBikeParts(ArrayList<BikeParts> BikePartList, BikeParts bp) {
+		// Jia Xin
 		BikePartList.add(bp);
 		System.out.println("Bike parts has successfully added!");
-
 	}
 	
 	private static Appointment inputAppointment() {
-		// TODO Auto-generated method stub
+		// firdaus
 		return null;
 	}
 
 	private static void addAppointment(ArrayList<Appointment> appointment, Appointment ap) {
-		// TODO Auto-generated method stub
+		// firdaus
 
 	}
 
 	private static Feedback inputFeedback() {
-		// TODO Auto-generated method stub
+		// santhini
 		String customer = Helper.readString("Enter your name :");
 		String feedback = Helper.readString("Enter feedback :");
 		String response = Helper.readString("Enter response");
@@ -197,25 +206,26 @@ public class BikeShop {
 	} 
 
 	private static void addFeedback(ArrayList<Feedback> feedbackList, Feedback fb) {
-		// TODO Auto-generated method stub
+		// santhini
 		feedbackList.add(fb);
 		System.out.println("feedback added");
 
 	}
 
-	// =============================================== Option 2 view
-	// =======================================
+	// =============================================== Option 2 view =======================================
+	
 	private static void viewAllBuyer(ArrayList<Customer> customerList) {
-		// TODO Auto-generated method stub
+		// Elaine
 
 	}
 
 	private static void viewAllBikeInfo(ArrayList<BikeParts> bikeList) {
-		// TODO Auto-generated method stub
+		// gabrielle
 
 	}
 	
 	private static String retrieveAllBikeParts(ArrayList<BikeParts> BikePartList) {
+		// Jia Xin
 		String output = "";
 		
 		for(int i = 0; i < BikePartList.size(); i++) {
@@ -226,6 +236,7 @@ public class BikeShop {
 		}
 
 	private static void viewAllBikeParts(ArrayList<BikeParts> BikePartList) {
+		// Jia Xin
 	    String output = "";
 		
 	    output = String.format("%-20s %-20s\n", "PART NAME", "DESCRIPTIONS");
@@ -235,29 +246,45 @@ public class BikeShop {
 	}
 	
 	private static void viewAllAppointment(ArrayList<Appointment> appointment) {
-		// TODO Auto-generated method stub
+		// firdaus
 
 	}
 
-	private static void viewAllFeedback(ArrayList<Feedback> feedbackList) {
-		// TODO Auto-generated method stub
+	
+	public static String retrieveAllFeedback(ArrayList<Feedback> feedbackList) {
+		String output = "";
+		for (int i = 0; i < feedbackList.size(); i++) {
 
+			output += String.format("%-20s %-30s %-30s\n",feedbackList.get(i).getCustomer(),feedbackList.get(i).getResponse(),feedbackList.get(i).getFeedback());
+				
+		}
+		return output;
+	}
+	private static void viewAllFeedback(ArrayList<Feedback> feedbackList) {
+		// santhini
+		BikeShop.setHeader("FEEDBACK LIST");
+		String output = String.format("%-20s %-30s %-30s\n", "Customer", "Response",
+				"Feedback");
+		 output += retrieveAllFeedback(feedbackList);	
+		System.out.println(output);
 	}
 	
-	// ===================================== Option 3
-	// delete===============================
+	
+	
+	// ===================================== Option 3  delete===============================
 
 	private static void deleteBuyer(ArrayList<Customer> customerList) {
-		// TODO Auto-generated method stub
+		// Elaine
 
 	}
 
+	
 	private static void deleteBikeInfo(ArrayList<BikeParts> bikeList) {
-		// TODO Auto-generated method stub
-
+		// gabrielle
 	}
 	
 	private static void deleteBikeParts(ArrayList<BikeParts> BikePartList) {
+		// Jia Xin
 		String b = Helper.readString("Enter Bike Parts> ");
 		for (BikeParts i :BikePartList) {
 			if(i.getDescriptions().equalsIgnoreCase(b)) {
@@ -273,12 +300,12 @@ public class BikeShop {
 	}
 	    
 	private static void deleteAppointment(ArrayList<Appointment> appointment) {
-		// TODO Auto-generated method stub
+		// firdaus
 
 	}
 
 	private static void deleteFeeback(ArrayList<Feedback> feedbackList) {
-		// TODO Auto-generated method stub
+		// santhini
 		
 	    String DeleteFeedback = Helper.readString("Enter feedback to delete: ");
 	    String DeleteCus = Helper.readString("Enter Customer to delete: ");
