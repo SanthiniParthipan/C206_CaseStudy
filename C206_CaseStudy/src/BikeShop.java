@@ -3,6 +3,21 @@ import java.util.ArrayList;
 public class BikeShop {
 	
 
+	static final int DELETE_APPOINTMENT = 4;
+	static final int DELETE_BIKE_INFO = 2;
+	static final int CREATE_APPOINTMENT = 4;
+	static final int CREATE_BIKE_INFO = 2;
+	static final int DELETE_FEEDBACK = 5;
+	static final int DELETE_BIKE_PARTS = 3;
+	static final int DELETE_BUYER = 1;
+	static final int DELETE_ITEMS = 3;
+	static final int VIEW_ITEMS = 2;
+	static final int CREATE_FEEBACK = 5;
+	static final int CREATE_BIKE_PARTS = 3;
+	static final int CREATE_BUYER = 1;
+	static final int OPTION_CREATE_ITEMS = 1;
+	static final int OPTION_QUIT = 6;
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
@@ -12,13 +27,20 @@ public class BikeShop {
 		ArrayList<Appointment> appointment = new ArrayList<Appointment>();
 		ArrayList<BikeParts> BikePartList = new ArrayList<BikeParts>();
 		
+		customerList .add(new Customer("Tony Tan", "Tonytan@gmail.com", "87940093"));
+		//BikeList.add(new Bike(<<TO BE ADDED>>));
+		BikePartList.add(new BikeParts("gear", "21 speed gear shifters shimano EF500(3x5)", true));
+		//appointment.add(new Appointment(<<TO BE ADDED>>));
+		feedbackList.add(new Feedback("Angelia", "good service ", "Thank you for your feedback"));
+
+		
 		int option = 0;
-		while (option !=6) {
+		while (option !=OPTION_QUIT) {
 
 			BikeShop.menu();
 			option = Helper.readInt("Enter an option >");
 
-			if(option == 1) {
+			if(option == OPTION_CREATE_ITEMS) {
 
 				// create items
 				BikeShop.setHeader("CREATE");
@@ -31,28 +53,28 @@ public class BikeShop {
 
 				int itemType = Helper.readInt("Enter option to select item type > ");
 
-				if (itemType == 1) {
+				if (itemType == CREATE_BUYER) {
 					// create a buyer
 					Customer cc = inputCustomer();
 					BikeShop.addCustomer(customerList, cc);
 
-				} else if (itemType == 2) {
+				} else if (itemType == CREATE_BIKE_INFO) {
 					// create bike info
 					Bike bi = inputBikeInfo();
 					BikeShop.addBikeInfo(BikePartList, bi);
 
-				}else if (itemType == 3) {
+				}else if (itemType == CREATE_BIKE_PARTS) {
 					// create a bike parts
 					BikeParts bp = inputBikeParts();
 					BikeShop.addBikeParts(BikePartList, bp);
 
 
-				}else if (itemType == 4) {
+				}else if (itemType == CREATE_APPOINTMENT) {
 					// create apppointment
 					Appointment ap = inputAppointment();
 					BikeShop.addAppointment(appointment, ap);
 
-				}else if(itemType == 5) {
+				}else if(itemType == CREATE_FEEBACK) {
 					//create feedback
 					Feedback fb = inputFeedback();
 					BikeShop.addFeedback(feedbackList, fb);
@@ -61,7 +83,7 @@ public class BikeShop {
 					System.out.println("Invalid type");
 				}
 				
-			}else if(option ==2) {
+			}else if(option ==VIEW_ITEMS) {
 				// view all items
 				BikeShop.viewAllBuyer(customerList );
 				BikeShop.viewAllBikeInfo(BikePartList);
@@ -71,7 +93,7 @@ public class BikeShop {
 
 
 
-			}else if(option ==3 ){
+			}else if(option ==DELETE_ITEMS ){
 				// Delete 
 
 				BikeShop.setHeader("Delete");			
@@ -79,37 +101,29 @@ public class BikeShop {
 
 		        System.out.println("1. Buyer");
 		        System.out.println("2. Bike Listing and Features");
-		        System.out.println("3. Bike Parts listing and Features");
+		        System.out.println("3. Bike Parts listing ");
 		        System.out.println("4. Appointment");
 		        System.out.println("5. Feedback");
-		        System.out.println("6. Quit");
-
-				System.out.println("1. buyer");
-				System.out.println("2. Bike info");
-				System.out.println("3. Bike parts");
-				System.out.println("4. Appointment");
-				System.out.println("5. Feedback");
-
 
 				int itemType = Helper.readInt("Enter option to select item type > ");
 
-				if (itemType == 1) {
+				if (itemType == DELETE_BUYER) {
 					// Delete buyers’ information
 					BikeShop.deleteBuyer(customerList);
 
-				} else if (itemType == 2) {
+				} else if (itemType == DELETE_BIKE_INFO) {
 					// delete bike info
 					BikeShop.deleteBikeInfo(BikePartList);
 				
-				}else if (itemType == 3) {
+				}else if (itemType == DELETE_BIKE_PARTS) {
 					// delete bike parts
 					BikeShop.deleteBikeParts(BikePartList);
 
-				}else if (itemType == 4) {
+				}else if (itemType == DELETE_APPOINTMENT) {
 					// delete appointment
 					BikeShop.deleteAppointment(appointment);
 				
-				}else if(itemType == 5) {
+				}else if(itemType == DELETE_FEEDBACK) {
 					// delete feedback
 					BikeShop.deleteFeeback(feedbackList);
 				} else {
@@ -148,8 +162,7 @@ public class BikeShop {
 
 
 
-	// ================================================= Option 1 create
-	// =====================================
+	// ================================================= Option 1 create =====================================
 	
 	//ELAINE
 	private static Customer inputCustomer() {
@@ -168,13 +181,13 @@ public class BikeShop {
 	}
 
 	private static Bike inputBikeInfo() {
-		// TODO Auto-generated method stub
+		// Gabrielle
 		return null;
 	}
 
 	private static void addBikeInfo(ArrayList<BikeParts> bikeList, Bike bi) {
 
-		// TODO Auto-generated method stub
+		// Gabrielle
 
 	}
 
@@ -196,17 +209,17 @@ public class BikeShop {
 	}
 	
 	private static Appointment inputAppointment() {
-		// TODO Auto-generated method stub
+		// Firdaus
 		return null;
 	}
 
 	private static void addAppointment(ArrayList<Appointment> appointment, Appointment ap) {
-		// TODO Auto-generated method stub
+		// Firdaus
 
 	}
 
 	private static Feedback inputFeedback() {
-		// TODO Auto-generated method stub
+		// santhini
 		String customer = Helper.readString("Enter your name :");
 		String feedback = Helper.readString("Enter feedback :");
 		String response = Helper.readString("Enter response");
@@ -216,14 +229,13 @@ public class BikeShop {
 	} 
 
 	private static void addFeedback(ArrayList<Feedback> feedbackList, Feedback fb) {
-		// TODO Auto-generated method stub
+		// santhini
 		feedbackList.add(fb);
 		System.out.println("feedback added");
 
 	}
 
-	// =============================================== Option 2 view
-	// =======================================
+	// =============================================== Option 2 view =======================================
 	//ELAINE
 	private static String retrieveAllCustomer(ArrayList<Customer> customerList) {
 		String output = "";
@@ -250,7 +262,7 @@ public class BikeShop {
 	}
 
 	private static void viewAllBikeInfo(ArrayList<BikeParts> bikeList) {
-		// TODO Auto-generated method stub
+		// Gabrielle
 
 	}
 	
@@ -276,17 +288,16 @@ public class BikeShop {
 	}
 	
 	private static void viewAllAppointment(ArrayList<Appointment> appointment) {
-		// TODO Auto-generated method stub
+		// Firdaus
 
 	}
 
 	private static void viewAllFeedback(ArrayList<Feedback> feedbackList) {
-		// TODO Auto-generated method stub
+		// Firdaus
 
 	}
 	
-	// ===================================== Option 3
-	// delete===============================
+	// ===================================== Option 3 delete===============================
 
 	private static void deleteBuyer(ArrayList<Customer> customerList) {
 	    // ELAINE
@@ -311,7 +322,7 @@ public class BikeShop {
 		
 
 	private static void deleteBikeInfo(ArrayList<BikeParts> bikeList) {
-		// TODO Auto-generated method stub
+		// Gabrielle
 
 	}
 
@@ -332,7 +343,7 @@ public class BikeShop {
 	}
 	    
 	private static void deleteAppointment(ArrayList<Appointment> appointment) {
-		// TODO Auto-generated method stub
+		// Firdaus
 
 	}
 
