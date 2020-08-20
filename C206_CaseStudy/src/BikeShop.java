@@ -183,11 +183,19 @@ public class BikeShop {
 
 	public static Bike inputBikeInfo() {
 		// Gabrielle
-		return null;
+		String bikeModel = Helper.readString("Enter bike model: ");
+		String bikeDesc = Helper.readString("Enter bike description: ");
+		
+		Bike bi = new Bike( bikeModel, bikeDesc ,false);
+
+		return bi;
 	}
 
 	public static void addBikeInfo(ArrayList<Bike> bikeList, Bike bi) {
 		// Gabrielle
+		
+		bikeList.add(bi);
+		System.out.println("Bike model has successfully added!");
 		
 	}
 
@@ -261,9 +269,27 @@ public class BikeShop {
 		
 
 	}
+	
+	public static String retrieveAllBikeInfo(ArrayList<Bike> bikeList) {
+		// Gabrielle
+		String output = "";
+		
+		for(int i = 0; i < bikeList.size(); i++) {
+			output += String.format("%-20s %-20s\n" , bikeList.get(i).getModel(), bikeList.get(i).getDescription(),bikeList.get(i).getIsAvailable());
+		}
+		return output;
+
+		}
 
 	public static void viewAllBikeInfo(ArrayList<Bike> bikeList) {
 		// Gabrielle
+		
+		String output = "";
+		
+	    output = String.format("%-20s %-20s\n", "MODEL", "DESCRIPTION", "AVAILABLITY");
+		output += retrieveAllBikeInfo(bikeList);
+
+		    System.out.println(output);
 
 	}
 	
@@ -347,6 +373,17 @@ public class BikeShop {
 
 	public static void deleteBikeInfo(ArrayList<Bike> bikeList) {
 		// Gabrielle
+		String type = Helper.readString("Enter Bike Model: ");
+		for (Bike i :bikeList) {
+			if(i.getDescription().equalsIgnoreCase(type)) {
+				bikeList.remove(i);
+				System.out.println("Bike Model has been deleted!");
+
+				break;
+			}
+			else {
+				System.out.println("Bike Model Not Found!");
+			}}
 
 	}
 
