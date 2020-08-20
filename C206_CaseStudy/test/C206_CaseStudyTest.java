@@ -1,23 +1,86 @@
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 public class C206_CaseStudyTest {
-
+	
+	private Customer cu1;
+	private Bike bi1;
+	private BikeParts bp1;
+	private Appointment ap1;
+	private Feedback fb1;
+	
+	private ArrayList<Customer> customerList ;
+	private ArrayList<Bike> BikeList ;
+	private ArrayList<BikeParts> BikePartList ;
+	private ArrayList<Appointment> appointment ;
+	private ArrayList<Feedback> feedbackList ;
+	
+	public C206_CaseStudyTest() {
+		super();
+	}
+	 
 	@Before
 	public void setUp() throws Exception {
-	}
+		// prepare test data 
+		
+		cu1=new Customer("Tony Tan", "Tonytan@gmail.com", "87940093");
+		//bi1=new Bike(<<TO BE ADDED>>));
+		bp1= new BikeParts("gear", "21 speed gear shifters shimano EF500(3x5)", true);
+		//ap1=new Appointment(<<TO BE ADDED>>));
+		fb1=new Feedback("Angelia", "good service ", "Thank you for your feedback");
 
-	@After
-	public void tearDown() throws Exception {
+		customerList = new ArrayList<Customer>();
+		BikeList = new ArrayList<Bike>();
+		BikePartList = new ArrayList<BikeParts>();
+		appointment = new ArrayList<Appointment>();
+		feedbackList = new ArrayList<Feedback>();
 	}
 
 	@Test
-	public void c206_test() {
-		//fail("Not yet implemented"); 
-		assertTrue("C206_CaseStudy_SampleTest ",true);
+	public void addCustomerTest() {
+		// Item list is not null, so that can add a new item - boundary
+		assertNotNull("Check if there is valid Customer arraylist to add to", customerList);
+		//Given an empty list, after adding 1 item, the size of the list is 1 - normal
+		//The item just added is as same as the first item of the list
+		BikeShop.addCustomer(customerList, cu1);
+		assertEquals("Check that Customer arraylist size is 1", 1, customerList.size());
+		assertSame("Check that Customer is added", cu1, customerList.get(0));
+		
 	}
+	@Test
+	public void addBikeInfoTest() {
+		// Item list is not null, so that can add a new item - boundary
+		assertNotNull("Check if there is valid Bike Info arraylist to add to", customerList);
+		//Given an empty list, after adding 1 item, the size of the list is 1 - normal
+		//The item just added is as same as the first item of the list
+		BikeShop.addBikeInfo(BikeList , bi1);
+		assertEquals("Check that Bike Info arraylist size is 1", 1, BikeList .size());
+		assertSame("Check that Bike Info is added", cu1, BikeList .get(0));
+		
+	}
+	
+	
+	@After
+	public void tearDown() throws Exception {
+		cu1=null;
+		bi1 = null;
+		bp1= null;
+		ap1=null;
+		fb1=null;
+		customerList = null;
+		BikeList = null;
+		BikePartList = null;
+		appointment = null;
+		feedbackList =null;
+		
+	}
+
+
+
 
 }

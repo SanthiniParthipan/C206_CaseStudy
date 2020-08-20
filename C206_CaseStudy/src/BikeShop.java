@@ -165,7 +165,7 @@ public class BikeShop {
 	// ================================================= Option 1 create =====================================
 	
 	//ELAINE
-	private static Customer inputCustomer() {
+	public static Customer inputCustomer() {
 		String customerName = Helper.readString("Enter your name > ");
 		String customerEmail = Helper.readString("Enter your email > ");
 		String customerPhone = Helper.readString("Enter your phone > ");
@@ -173,26 +173,27 @@ public class BikeShop {
 		return cc;
 	}
 
-	private static void addCustomer(ArrayList<Customer> customerList, Customer cc) {
+	public static void addCustomer(ArrayList<Customer> customerList, Customer cc) {
 		// TODO Auto-generated method stub
-		customerList.add(cc);
-		System.out.println("Customer information has successfully added!");
+		
+			customerList.add(cc);
+			System.out.println("Customer information has successfully added!");
 
 	}
 
-	private static Bike inputBikeInfo() {
+	public static Bike inputBikeInfo() {
 		// Gabrielle
 		return null;
 	}
 
-	private static void addBikeInfo(ArrayList<BikeParts> bikeList, Bike bi) {
-
+	public static void addBikeInfo(ArrayList<Bike> bikeList, Bike bi1) {
 		// Gabrielle
-
+		
 	}
 
+
 	
-	private static BikeParts inputBikeParts() {
+	public static BikeParts inputBikeParts() {
 		// Jia Xin
 		String customerName = Helper.readString("Enter your name: ");
 		String bikeParts = Helper.readString("Enter bike parts: ");
@@ -202,23 +203,23 @@ public class BikeShop {
 		return bp;
 	}
 
-	private static void addBikeParts(ArrayList<BikeParts> BikePartList, BikeParts bp) {
+	public static void addBikeParts(ArrayList<BikeParts> BikePartList, BikeParts bp) {
 		// Jia Xin
 		BikePartList.add(bp);
 		System.out.println("Bike parts has successfully added!");
 	}
 	
-	private static Appointment inputAppointment() {
+	public static Appointment inputAppointment() {
 		// Firdaus
 		return null;
 	}
 
-	private static void addAppointment(ArrayList<Appointment> appointment, Appointment ap) {
+	public static void addAppointment(ArrayList<Appointment> appointment, Appointment ap) {
 		// Firdaus
 
 	}
 
-	private static Feedback inputFeedback() {
+	public static Feedback inputFeedback() {
 		// santhini
 		String customer = Helper.readString("Enter your name :");
 		String feedback = Helper.readString("Enter feedback :");
@@ -228,7 +229,7 @@ public class BikeShop {
 		return fb;
 	} 
 
-	private static void addFeedback(ArrayList<Feedback> feedbackList, Feedback fb) {
+	public static void addFeedback(ArrayList<Feedback> feedbackList, Feedback fb) {
 		// santhini
 		feedbackList.add(fb);
 		System.out.println("feedback added");
@@ -237,7 +238,7 @@ public class BikeShop {
 
 	// =============================================== Option 2 view =======================================
 	//ELAINE
-	private static String retrieveAllCustomer(ArrayList<Customer> customerList) {
+	public static String retrieveAllCustomer(ArrayList<Customer> customerList) {
 		String output = "";
 		
 		for(int i = 0; i < customerList.size(); i++) {
@@ -248,7 +249,7 @@ public class BikeShop {
 		}
 	
 	//ELAINE
-	private static void viewAllBuyer(ArrayList<Customer> customerList) {
+	public static void viewAllBuyer(ArrayList<Customer> customerList) {
 		Helper.line(60, "-");
 		System.out.println("VIEW CUSTOMER INFORMATION");
 		String output = "";
@@ -261,12 +262,12 @@ public class BikeShop {
 
 	}
 
-	private static void viewAllBikeInfo(ArrayList<BikeParts> bikeList) {
+	public static void viewAllBikeInfo(ArrayList<BikeParts> bikeList) {
 		// Gabrielle
 
 	}
 	
-	private static String retrieveAllBikeParts(ArrayList<BikeParts> BikePartList) {
+	public static String retrieveAllBikeParts(ArrayList<BikeParts> BikePartList) {
 		// Jia Xin
 		String output = "";
 		
@@ -277,7 +278,7 @@ public class BikeShop {
 
 		}
 
-	private static void viewAllBikeParts(ArrayList<BikeParts> BikePartList) {
+	public static void viewAllBikeParts(ArrayList<BikeParts> BikePartList) {
 		// Jia Xin
 	    String output = "";
 		
@@ -287,19 +288,19 @@ public class BikeShop {
 		    System.out.println(output);
 	}
 	
-	private static void viewAllAppointment(ArrayList<Appointment> appointment) {
+	public static void viewAllAppointment(ArrayList<Appointment> appointment) {
 		// Firdaus
 
 	}
 
-	private static void viewAllFeedback(ArrayList<Feedback> feedbackList) {
+	public static void viewAllFeedback(ArrayList<Feedback> feedbackList) {
 		// Firdaus
 
 	}
 	
 	// ===================================== Option 3 delete===============================
 
-	private static void deleteBuyer(ArrayList<Customer> customerList) {
+	public static void deleteBuyer(ArrayList<Customer> customerList) {
 	    // ELAINE
 		Helper.line(20, "-");
 	    String b = Helper.readString("Enter Buyer's information > ");
@@ -321,12 +322,12 @@ public class BikeShop {
 	  }
 		
 
-	private static void deleteBikeInfo(ArrayList<BikeParts> bikeList) {
+	public static void deleteBikeInfo(ArrayList<BikeParts> bikeList) {
 		// Gabrielle
 
 	}
 
-	private static void deleteBikeParts(ArrayList<BikeParts> BikePartList) {
+	public static void deleteBikeParts(ArrayList<BikeParts> BikePartList) {
 		// Jia Xin
 		String b = Helper.readString("Enter Bike Parts> ");
 		for (BikeParts i :BikePartList) {
@@ -341,13 +342,13 @@ public class BikeShop {
 		}
 	     
 	}
-	    
-	private static void deleteAppointment(ArrayList<Appointment> appointment) {
+	     
+	public static void deleteAppointment(ArrayList<Appointment> appointment) {
 		// Firdaus
 
 	}
 
-	private static void deleteFeeback(ArrayList<Feedback> feedbackList) {
+	public static void deleteFeeback(ArrayList<Feedback> feedbackList) {
 		// TODO Auto-generated method stub
 		
 	    String DeleteFeedback = Helper.readString("Enter feedback to delete: ");
@@ -364,5 +365,11 @@ public class BikeShop {
 	    }
 
 	}
+
+
+
+
+
+
 
 }
