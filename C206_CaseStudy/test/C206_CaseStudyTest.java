@@ -95,7 +95,7 @@ public class C206_CaseStudyTest {
 		assertEquals("Check that feedback arraylist size is 1", 1, feedbackList.size());
 		assertSame("Check that feedback is added", fb1, feedbackList.get(0));
 		
-	}
+	} 
 	
 	@Test
 	public void retrieveAllCustomerTest() {
@@ -212,6 +212,32 @@ public class C206_CaseStudyTest {
 		
 	}
 	// delete for(all 5)
+
+	public void deleteCustomerTest() {
+	    //normal
+	    assertNotNull("Test if there is valid Customer arraylist to delete to", customerList);
+	    BikeShop.deleteBuyer(customerList,cu1);
+	  }
+	public void deleteBikeInfoTest() {
+	    //normal
+	    assertNotNull("Test if there is valid Customer arraylist to delete to", BikeList);
+	    BikeShop.deleteBikeInfo(BikeList,bi1);
+	  }
+	public void deleteBikePartsTest() {
+	    //normal
+	    assertNotNull("Test if there is valid Customer arraylist to delete to", BikePartList);
+	    BikeShop.deleteBikeParts(BikePartList,bp1);
+	  }
+	public void deleteAppointmentTest() {
+	    //normal
+	    assertNotNull("Test if there is valid Customer arraylist to delete to", appointment);
+	    BikeShop.deleteAppointment(appointment,ap1);
+	  }
+	public void deleteFeedbackTest() {
+	    //normal
+	    assertNotNull("Test if there is valid feedback arraylist to delete to", feedbackList);
+	    BikeShop.deleteFeeback(feedbackList,fb1);
+	  }
 
 	
 	@After
