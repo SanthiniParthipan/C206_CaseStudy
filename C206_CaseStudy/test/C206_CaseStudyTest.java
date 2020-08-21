@@ -28,11 +28,11 @@ public class C206_CaseStudyTest {
 	public void setUp() throws Exception {
 		// prepare test data 
 		
-		cu1=new Customer("Tony Tan", "Tonytan@gmail.com", "87940093");
-		//bi1=new Bike(<<TO BE ADDED>>));
-		bp1= new BikeParts("gear", "21 speed gear shifters shimano EF500(3x5)", true);
+		cu1=new Customer("johnny wong", "Jonnywong@gmail.com", "87940065");
+		bi1=new Bike("Trinx","Mountainbike taiwan brand",true);
+		bp1= new BikeParts("front suspension fork", "front  suspension fork made of trinx brand", true);
 		//ap1=new Appointment(<<TO BE ADDED>>));
-		fb1=new Feedback("Angelia", "good service ", "Thank you for your feedback");
+		fb1=new Feedback("philip", "response time could be improve ", "Thank you for your feedbackwe will take it into considerations");
 
 		customerList = new ArrayList<Customer>();
 		BikeList = new ArrayList<Bike>();
@@ -119,14 +119,14 @@ public class C206_CaseStudyTest {
 		assertEquals("Test that ViewAllCustomerlist", testOutput, allCustomer);
 		
 	}
-	/*
+	
 	@Test
 	public void retrieveAllBikeTest() {
 		// Test if Item list is not null but empty -boundary
 		assertNotNull("Test if there is valid Bike Info arraylist to retrieve item", BikeList);
 		
 		//test if the list of bike info retrieved from the SourceCentre is empty - boundary
-		String allBike= BikeShop.retrieveAllBike(BikeList);
+		String allBike= BikeShop.retrieveAllBikeInfo(BikeList);
 		String testOutput = "";
 		assertEquals("Check that ViewAllBikelist", testOutput, allBike);
 		
@@ -136,12 +136,12 @@ public class C206_CaseStudyTest {
 		assertEquals("Test that Bike Info arraylist size is 1", 1,BikeList.size());
 		
 		//test if the expected output string same as the list of bike info retrieved from the SourceCentre	
-		allBike= BikeShop.retrieveAllBike(customerList);
-		testOutput = String.format("%-20s %-30s %-10s\n",);
+		allBike= BikeShop.retrieveAllBikeInfo(BikeList);
+		testOutput = String.format("%-20s %-30s %-10s\n");
 	
 		assertEquals("Test that ViewAllBikelist", testOutput, allBike);
 		
-	}*/
+	}
 	
 	@Test
 	public void retrieveAllBikePartsTest() {
