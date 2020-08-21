@@ -3,19 +3,26 @@ import java.util.ArrayList;
 public class BikeShop {
 	
 
-	static final int DELETE_APPOINTMENT = 4;
-	static final int DELETE_BIKE_INFO = 2;
-	static final int CREATE_APPOINTMENT = 4;
-	static final int CREATE_BIKE_INFO = 2;
-	static final int DELETE_FEEDBACK = 5;
+
+
+	static final int DELETE_FEEDBACK = 3;
+	static final int VIEW_FEEDBACK = 2;
+	static final int CREATE_FEEDBACK = 1;
+	static final int FEEDBACK = 5;
+	static final int DELETE_APPOINTMENT = 3;
+	static final int VIEW_APPOINTMENT = 2;
+	static final int CREATE_APPOINTMENT = 1;
+	static final int APPOINTMENT = 5;
 	static final int DELETE_BIKE_PARTS = 3;
-	static final int DELETE_BUYER = 1;
-	static final int DELETE_ITEMS = 3;
-	static final int VIEW_ITEMS = 2;
-	static final int CREATE_FEEBACK = 5;
-	static final int CREATE_BIKE_PARTS = 3;
+	static final int VIEW_BIKE_PARTS = 2;
+	static final int BIKE_PARTS = 4;
+	static final int DELETE_BIKE_INFO = 3;
+	static final int VIEW_BIKE_INFO = 2;
+	static final int CREATE_BIKE_INFO = 1;
+	static final int BIKE_INFO = 2;
+	static final int DELETE_BUYER = 3;
+	static final int VIEW_BUYER = 2;
 	static final int CREATE_BUYER = 1;
-	static final int OPTION_CREATE_ITEMS = 1;
 	static final int OPTION_QUIT = 6;
 
 	public static void main(String[] args) {
@@ -30,7 +37,7 @@ public class BikeShop {
 		customerList .add(new Customer("Tony Tan", "Tonytan@gmail.com", "87940093"));
 		BikeList.add(new Bike("projava Funga-3 27.5 ","Mountainbike taiwan brand",true));
 		BikePartList.add(new BikeParts("gear", "21 speed gear shifters shimano EF500(3x5)", true));
-		appointment.add(new Appointment("soh ", 98476301, "S876483R", "20/04/2020"));
+		//appointment.add(new Appointment(<<TO BE ADDED>>));
 		feedbackList.add(new Feedback("Angelia", "good service ", "Thank you for your feedback"));
 
 		
@@ -40,112 +47,194 @@ public class BikeShop {
 			BikeShop.menu();
 			option = Helper.readInt("Enter an option >");
 
-			if(option == OPTION_CREATE_ITEMS) {
+			if(option == 1) {
 
-				// create items
-				BikeShop.setHeader("CREATE");
-				BikeShop.setHeader("ITEM TYPES");
-				System.out.println("1. buyer");
-				System.out.println("2. Bike info");
-				System.out.println("3. Bike parts");
-				System.out.println("4. Appointment");
-				System.out.println("5. Feedback");
+				// buyer
+				
+				BikeShop.Customermenu();
+				
+				int itemType = Helper.readInt("Enter option to select item type for customer > ");
+				
 
-				int itemType = Helper.readInt("Enter option to select item type > ");
 
 				if (itemType == CREATE_BUYER) {
 					// create a buyer
 					Customer cc = inputCustomer();
 					BikeShop.addCustomer(customerList, cc);
 
-				} else if (itemType == CREATE_BIKE_INFO) {
-					// create bike info
+				} else if (itemType == VIEW_BUYER) {
+					// view Buyer
+					BikeShop.viewAllBuyer(customerList );
+
+				}else if (itemType == DELETE_BUYER) {
+					// Delete buyer
+					BikeShop.deleteBuyer(customerList);
+				}else {
+					System.out.println("bye");
+				}
+					
+				
+			}else if(option ==BIKE_INFO) {
+
+				BikeShop.BikeInfomenu();
+				int itemTypeBI = Helper.readInt("Enter option tp select item type for bike info");
+				
+				if (itemTypeBI == CREATE_BIKE_INFO) {
+					// create a BikeInfo
 					Bike bi = inputBikeInfo();
 					BikeShop.addBikeInfo(BikeList, bi);
 
-				}else if (itemType == CREATE_BIKE_PARTS) {
+				} else if (itemTypeBI == VIEW_BIKE_INFO) {
+					// view BikeInfo
+					BikeShop.viewAllBikeInfo(BikeList);
+
+				}else if (itemTypeBI == DELETE_BIKE_INFO) {
+					// Delete BikeInfo
+					BikeShop.deleteBikeInfo(BikeList);
+
+				}else {
+					System.out.println("bye");
+				}
+
+			}else if (option == BIKE_PARTS) {
+				
+				BikeShop.BikePartsmenu();
+				int itemTypeBp = Helper.readInt("Enter option tp select item type for bike parts");
+				
+				if (itemTypeBp == 1) {
+					// create a Bikeparts
 					// create a bike parts
 					BikeParts bp = inputBikeParts();
 					BikeShop.addBikeParts(BikePartList, bp);
 
+				} else if (itemTypeBp == VIEW_BIKE_PARTS) {
+					// view Bikeparts
+					BikeShop.viewAllBikeParts(BikePartList);
 
-				}else if (itemType == CREATE_APPOINTMENT) {
-					// create apppointment
+				}else if (itemTypeBp == DELETE_BIKE_PARTS) {
+					// Delete BikeParts
+					BikeShop.deleteBikeParts(BikePartList);
+
+				}
+
+
+
+			}else if (option == APPOINTMENT) {
+				BikeShop.Appointmentmenu();
+				int itemTypeAp = Helper.readInt("Enter option tp select item type for Appointment");
+				
+				if (itemTypeAp == CREATE_APPOINTMENT) {
+					// create a Appointment
 					Appointment ap = inputAppointment();
 					BikeShop.addAppointment(appointment, ap);
 
-				}else if(itemType == CREATE_FEEBACK) {
-					//create feedback
+				} else if (itemTypeAp == VIEW_APPOINTMENT) {
+					// view Appointment
+					BikeShop.viewAllAppointment(appointment);
+
+				}else if (itemTypeAp == DELETE_APPOINTMENT) {
+					// Delete Appointment
+					BikeShop.deleteAppointment(appointment);
+
+				}else {
+					System.out.println("bye");
+				}
+
+
+			}else if(option == FEEDBACK) {
+				BikeShop.Feedbackmenu();
+				int itemTypeAp = Helper.readInt("Enter option tp select item type for Feedback");
+				
+				if (itemTypeAp == CREATE_FEEDBACK) {
+					// create a Feedback
 					Feedback fb = inputFeedback();
 					BikeShop.addFeedback(feedbackList, fb);
 
-				} else {
-					System.out.println("Invalid type");
-				}
-				
-			}else if(option ==VIEW_ITEMS) {
-				// view all items
-				BikeShop.viewAllBuyer(customerList );
-				BikeShop.viewAllBikeInfo(BikeList);
-				BikeShop.viewAllBikeParts(BikePartList);
-				BikeShop.viewAllAppointment(appointment);
-				BikeShop.viewAllFeedback(feedbackList);
+				} else if (itemTypeAp == VIEW_FEEDBACK) {
+					// view feedback
+					BikeShop.viewAllFeedback(feedbackList);
 
-
-
-			}else if(option ==DELETE_ITEMS ){
-				// Delete 
-
-				BikeShop.setHeader("Delete");			
-				BikeShop.setHeader("ITEM TYPES");
-
-		        System.out.println("1. Buyer");
-		        System.out.println("2. Bike Listing and Features");
-		        System.out.println("3. Bike Parts listing ");
-		        System.out.println("4. Appointment");
-		        System.out.println("5. Feedback");
-
-				int itemType = Helper.readInt("Enter option to select item type > ");
- 
-				if (itemType == DELETE_BUYER) {
-					// Delete buyers’ information
-					BikeShop.deleteBuyer(customerList);
-
-				} else if (itemType == DELETE_BIKE_INFO) {
-					// delete bike info
-					BikeShop.deleteBikeInfo(BikeList);
-				
-				}else if (itemType == DELETE_BIKE_PARTS) {
-					// delete bike parts
-					BikeShop.deleteBikeParts(BikePartList);
-
-				}else if (itemType == DELETE_APPOINTMENT) {
-					// delete appointment
-					BikeShop.deleteAppointment(appointment);
-				
-				}else if(itemType == DELETE_FEEDBACK) {
-					// delete feedback
+				}else if (itemTypeAp == DELETE_FEEDBACK) {
+					// Delete feedback
 					BikeShop.deleteFeeback(feedbackList);
-				} else {
-					System.out.println("Invalid type");
+
+				}else {
+					System.out.println("bye");
 				}
-			
-			
-			}else if(option ==4 ){
+
+			} else {
 				System.out.println("bye");
-			}else {
-				System.out.println("invalid option");
+
+
 			}
 
-		}
+			}
 	}
+	
 
 
 	public static void menu() {
 		BikeShop.setHeader("Bike shop APP");
-		System.out.println("1. create item");
-		System.out.println("2. view item");
-		System.out.println("3. delete item");
+		System.out.println("1. Buyer Registeration");
+		System.out.println("2. Bike info");
+		System.out.println("3. Bike parts");
+		System.out.println("4. Appointment");
+		System.out.println("5. feedback");
+		System.out.println("6. quit");
+		Helper.line(80, "-");
+		;
+
+	}
+	public static void Customermenu() {
+		BikeShop.setHeader("Bike shop APP");
+		System.out.println("1. create Buyer");
+		System.out.println("2. view Buyer");
+		System.out.println("3. delete Buyer");
+		System.out.println("4. Quit");
+
+		Helper.line(80, "-");
+		;
+
+	}
+	public static void BikeInfomenu() {
+		BikeShop.setHeader("Bike shop APP");
+		System.out.println("1. create Bike Info");
+		System.out.println("2. view BIke info");
+		System.out.println("3. delete Bike info");
+		System.out.println("4.Quit");
+	
+
+		Helper.line(80, "-");
+		;
+
+	}
+	public static void BikePartsmenu() {
+		BikeShop.setHeader("Bike shop APP");
+		System.out.println("1. create BikeParts");
+		System.out.println("2. view BikeParts");
+		System.out.println("3. delete BikeParts");
+		System.out.println("4. quit");
+
+		Helper.line(80, "-");
+		;
+
+	}
+	public static void Appointmentmenu() {
+		BikeShop.setHeader("Bike shop APP");
+		System.out.println("1. create Appointment");
+		System.out.println("2. view Appointment");
+		System.out.println("3. delete Appointment");
+		System.out.println("4. quit");
+
+		Helper.line(80, "-");
+		;
+
+	}
+	public static void Feedbackmenu() {
+		BikeShop.setHeader("Bike shop APP");
+		System.out.println("1. create Feedback");
+		System.out.println("2. view Feedback");
+		System.out.println("3. delete Feedback");
 		System.out.println("4. quit");
 
 		Helper.line(80, "-");
@@ -162,7 +251,7 @@ public class BikeShop {
 
 
 
-	// ================================================= Option 1 create =====================================
+	//==================================================Buyer=============================================
 	
 	//ELAINE
 	public static Customer inputCustomer() {
@@ -180,79 +269,7 @@ public class BikeShop {
 			System.out.println("Customer information has successfully added!");
 
 	}
-
-	public static Bike inputBikeInfo() {
-		// Gabrielle
-		String bikeModel = Helper.readString("Enter bike model: ");
-		String bikeDesc = Helper.readString("Enter bike description: ");
-		
-		Bike bi = new Bike( bikeModel, bikeDesc ,false);
-
-		return bi;
-	}
-
-	public static void addBikeInfo(ArrayList<Bike> bikeList, Bike bi) {
-		// Gabrielle
-		
-		bikeList.add(bi);
-		System.out.println("Bike model has successfully added!");
-		
-	}
-
-
 	
-	public static BikeParts inputBikeParts() {
-		// Jia Xin
-		String customerName = Helper.readString("Enter your name: ");
-		String bikeParts = Helper.readString("Enter bike parts: ");
-		
-		BikeParts bp = new BikeParts(customerName, bikeParts, false);
-
-		return bp;
-	}
-
-	public static void addBikeParts(ArrayList<BikeParts> BikePartList, BikeParts bp) {
-		// Jia Xin
-		BikePartList.add(bp);
-		System.out.println("Bike parts has successfully added!");
-	}
-	
-	public static Appointment inputAppointment() {
-		// Firdaus
-		String name = Helper.readString("Enter your name: ");
-		int number = Helper.readInt("Enter your number: ");
-		String ic = Helper.readString("Enter identification number: ");
-		String date = Helper.readString("Enter preferred appointment date: ");
-		
-		Appointment ap = new Appointment(name, number, ic, date);
-		return ap;
-	}
-
-
-	public static void addAppointment(ArrayList<Appointment> appointment, Appointment ap) {
-		// Firdaus
-		 appointment.add(ap);
-		 System.out.println("Appointment succesfully added!");
-	}
-
-	public static Feedback inputFeedback() {
-		// santhini
-		String customer = Helper.readString("Enter your name :");
-		String feedback = Helper.readString("Enter feedback :");
-		String response = Helper.readString("Enter response");
-		
-		Feedback fb = new Feedback (customer,feedback , response);
-		return fb;
-	} 
-
-	public static void addFeedback(ArrayList<Feedback> feedbackList, Feedback fb) {
-		// santhini
-		feedbackList.add(fb);
-		System.out.println("feedback added");
-
-	}
-
-	// =============================================== Option 2 view =======================================
 	
 	
 	//ELAINE
@@ -280,6 +297,52 @@ public class BikeShop {
 
 	}
 	
+
+	public static void deleteBuyer(ArrayList<Customer> customerList) {
+	    // ELAINE
+		Helper.line(20, "-");
+	    String b = Helper.readString("Enter Buyer's information > ");
+	    
+	    boolean exist = false;
+	    
+	    for (Customer i :customerList) {
+	      if(i.getName().equalsIgnoreCase(b)) {
+	        customerList.remove(i);
+	        exist = true;
+	        System.out.println("Information has been deleted!");
+	        break;
+	      }
+	    }
+	    if (exist == false) {
+	    	System.out.println("Information does not exist!");
+	    }
+	        
+	  }
+		
+	
+	// ================================================= Bike Info =====================================
+	
+
+
+	public static Bike inputBikeInfo() {
+		// Gabrielle
+		String bikeModel = Helper.readString("Enter bike model: ");
+		String bikeDesc = Helper.readString("Enter bike description: ");
+		
+		Bike bi = new Bike( bikeModel, bikeDesc ,false);
+
+		return bi;
+	}
+
+	public static void addBikeInfo(ArrayList<Bike> bikeList, Bike bi) {
+		// Gabrielle
+		
+		bikeList.add(bi);
+		System.out.println("Bike model has successfully added!");
+		
+	}
+
+	
 	public static String retrieveAllBikeInfo(ArrayList<Bike> bikeList) {
 		// Gabrielle
 		String output = "";
@@ -303,6 +366,43 @@ public class BikeShop {
 
 	}
 	
+
+	public static void deleteBikeInfo(ArrayList<Bike> bikeList) {
+		// Gabrielle
+		String type = Helper.readString("Enter Bike Model: ");
+		for (Bike i :bikeList) {
+			if(i.getDescription().equalsIgnoreCase(type)) {
+				bikeList.remove(i);
+				System.out.println("Bike Model has been deleted!");
+
+				break;
+			}
+			else {
+				System.out.println("Bike Model Not Found!");
+			}}
+
+	}
+
+	//===================================================== Bike Parts===============================
+	
+	public static BikeParts inputBikeParts() {
+		// Jia Xin
+		String customerName = Helper.readString("Enter your name: ");
+		String bikeParts = Helper.readString("Enter bike parts: ");
+		
+		BikeParts bp = new BikeParts(customerName, bikeParts, false);
+
+		return bp;
+	}
+
+	public static void addBikeParts(ArrayList<BikeParts> BikePartList, BikeParts bp) {
+		// Jia Xin
+		BikePartList.add(bp);
+		System.out.println("Bike parts has successfully added!");
+	}
+	
+
+
 	
 	public static String retrieveAllBikeParts(ArrayList<BikeParts> BikePartList) {
 		// Jia Xin
@@ -324,6 +424,50 @@ public class BikeShop {
 
 		    System.out.println(output);
 	}
+	
+
+
+	public static void deleteBikeParts(ArrayList<BikeParts> BikePartList) {
+		// Jia Xin
+		String b = Helper.readString("Enter Bike Parts> ");
+		for (BikeParts i :BikePartList) {
+			if(i.getDescriptions().equalsIgnoreCase(b)) {
+				BikePartList.remove(i);
+				System.out.println("Bike Part has deleted!");
+
+				break;
+			}else {
+				System.out.println("Bike Part Not Found!");
+			}
+		}
+	     
+	}
+	
+	
+	
+	//========================================================Appointment==================================
+	
+	
+	public static Appointment inputAppointment() {
+		// Firdaus
+		String name = Helper.readString("Enter your name: ");
+		int number = Helper.readInt("Enter your number: ");
+		String ic = Helper.readString("Enter identification number: ");
+		String date = Helper.readString("Enter preferred appointment date: ");
+		
+		Appointment ap = new Appointment(name, number, ic, date);
+		return ap;
+	}
+
+
+	public static void addAppointment(ArrayList<Appointment> appointment, Appointment ap) {
+		// Firdaus
+		 appointment.add(ap);
+		 System.out.println("Appointment succesfully added!");
+	}
+	
+	
+	
 	public static String retrieveAllAppointment(ArrayList<Appointment> appointment) {
 		//Firdaus
 		String output = "";
@@ -345,8 +489,46 @@ public class BikeShop {
 		output += retrieveAllAppointment(appointment);
 		System.out.println(output);
 	}
-
 	
+    
+	public static void deleteAppointment(ArrayList<Appointment> appointment) {
+		// Firdaus
+		String n = Helper.readString("Enter your name: ");
+		
+		for (Appointment ap : appointment) {
+			if(ap.getName().equalsIgnoreCase(n)) {
+				appointment.remove(ap);
+				break;
+			} else {
+				System.out.println("Appointment Not Found!");
+			}
+		}
+	}
+ 
+
+
+
+//====================================================== FeedBack===============================
+	
+	
+
+	public static Feedback inputFeedback() {
+		// santhini
+		String customer = Helper.readString("Enter your name :");
+		String feedback = Helper.readString("Enter feedback :");
+		String response = Helper.readString("Enter response");
+		
+		Feedback fb = new Feedback (customer,feedback , response);
+		return fb;
+	} 
+
+	public static void addFeedback(ArrayList<Feedback> feedbackList, Feedback fb) {
+		// santhini
+		feedbackList.add(fb);
+		System.out.println("feedback added");
+
+	}
+
 	
 	public static String retrieveAllFeedback(ArrayList<Feedback> feedbackList) {
 		//santhini
@@ -371,76 +553,6 @@ public class BikeShop {
 
 	}
 	
-	// ===================================== Option 3 delete===============================
-
-	public static void deleteBuyer(ArrayList<Customer> customerList) {
-	    // ELAINE
-		Helper.line(20, "-");
-	    String b = Helper.readString("Enter Buyer's information > ");
-	    
-	    boolean exist = false;
-	    
-	    for (Customer i :customerList) {
-	      if(i.getName().equalsIgnoreCase(b)) {
-	        customerList.remove(i);
-	        exist = true;
-	        System.out.println("Information has been deleted!");
-	        break;
-	      }
-	    }
-	    if (exist == false) {
-	    	System.out.println("Information does not exist!");
-	    }
-	        
-	  }
-		
-
-	public static void deleteBikeInfo(ArrayList<Bike> bikeList) {
-		// Gabrielle
-		String type = Helper.readString("Enter Bike Model: ");
-		for (Bike i :bikeList) {
-			if(i.getDescription().equalsIgnoreCase(type)) {
-				bikeList.remove(i);
-				System.out.println("Bike Model has been deleted!");
-
-				break;
-			}
-			else {
-				System.out.println("Bike Model Not Found!");
-			}}
-
-	}
-
-	public static void deleteBikeParts(ArrayList<BikeParts> BikePartList) {
-		// Jia Xin
-		String b = Helper.readString("Enter Bike Parts> ");
-		for (BikeParts i :BikePartList) {
-			if(i.getDescriptions().equalsIgnoreCase(b)) {
-				BikePartList.remove(i);
-				System.out.println("Bike Part has deleted!");
-
-				break;
-			}else {
-				System.out.println("Bike Part Not Found!");
-			}
-		}
-	     
-	}
-	     
-	public static void deleteAppointment(ArrayList<Appointment> appointment) {
-		// Firdaus
-		String n = Helper.readString("Enter your name: ");
-		
-		for (Appointment ap : appointment) {
-			if(ap.getName().equalsIgnoreCase(n)) {
-				appointment.remove(ap);
-				break;
-			} else {
-				System.out.println("Appointment Not Found!");
-			}
-		}
-	}
-
 	public static void deleteFeeback(ArrayList<Feedback> feedbackList) {
 		// santhini
 		
