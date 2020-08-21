@@ -219,12 +219,20 @@ public class BikeShop {
 	
 	public static Appointment inputAppointment() {
 		// Firdaus
-		return null;
+		String name = Helper.readString("Enter your name: ");
+		int number = Helper.readInt("Enter your number: ");
+		String ic = Helper.readString("Enter identification number: ");
+		String date = Helper.readString("Enter preferred appointment date: ");
+		
+		Appointment ap = new Appointment(name, number, ic, date);
+		return ap;
 	}
+
 
 	public static void addAppointment(ArrayList<Appointment> appointment, Appointment ap) {
 		// Firdaus
-
+		 appointment.add(ap);
+		 System.out.println("Appointment succesfully added!");
 	}
 
 	public static Feedback inputFeedback() {
@@ -316,12 +324,26 @@ public class BikeShop {
 
 		    System.out.println(output);
 	}
-	
+	public static String retrieveAllAppointment(ArrayList<Appointment> appointment) {
+		//Firdaus
+		String output = "";
+		
+		for(int i=0; i<appointment.size(); i++) {
+			output += String.format("%-20s %-20d %-20s %-20s", appointment.get(i).getName(), appointment.get(i).getNumber(), appointment.get(i).getIc(), appointment.get(i).getDate());
+		}
+		return output;
+	}
 	
 	
 	public static void viewAllAppointment(ArrayList<Appointment> appointment) {
 		// Firdaus
- 
+		System.out.println("Appointment List");
+		Helper.line(60, "-");
+		String output = "";
+		
+		output = String.format("%-20s %-20s %-20s %-20s", "CUSTOMER NAME", "PHONE NUMBER", "IDENTIFICATION CARD NO.", "DATE OF APPOINTMENT");
+		output += retrieveAllAppointment(appointment);
+		System.out.println(output);
 	}
 
 	
@@ -407,7 +429,16 @@ public class BikeShop {
 	     
 	public static void deleteAppointment(ArrayList<Appointment> appointment) {
 		// Firdaus
-
+		String n = Helper.readString("Enter your name: ");
+		
+		for (Appointment ap : appointment) {
+			if(ap.getName().equalsIgnoreCase(n)) {
+				appointment.remove(ap);
+				break;
+			} else {
+				System.out.println("Appointment Not Found!");
+			}
+		}
 	}
 
 	public static void deleteFeeback(ArrayList<Feedback> feedbackList) {
