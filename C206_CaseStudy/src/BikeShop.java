@@ -5,24 +5,27 @@ public class BikeShop {
 
 
 
+	
 	static final int DELETE_FEEDBACK = 3;
 	static final int VIEW_FEEDBACK = 2;
 	static final int CREATE_FEEDBACK = 1;
-	static final int FEEDBACK = 5;
+	
 	static final int DELETE_APPOINTMENT = 3;
 	static final int VIEW_APPOINTMENT = 2;
 	static final int CREATE_APPOINTMENT = 1;
-	static final int APPOINTMENT = 5;
+	
 	static final int DELETE_BIKE_PARTS = 3;
 	static final int VIEW_BIKE_PARTS = 2;
-	static final int BIKE_PARTS = 4;
+	static final int CREATE_BIKE_PARTS = 1;
+
 	static final int DELETE_BIKE_INFO = 3;
 	static final int VIEW_BIKE_INFO = 2;
 	static final int CREATE_BIKE_INFO = 1;
-	static final int BIKE_INFO = 2;
+	
 	static final int DELETE_BUYER = 3;
 	static final int VIEW_BUYER = 2;
 	static final int CREATE_BUYER = 1;
+	
 	static final int OPTION_QUIT = 6;
 
 	public static void main(String[] args) {
@@ -74,7 +77,7 @@ public class BikeShop {
 				}
 					
 				
-			}else if(option ==BIKE_INFO) {
+			}else if(option ==2) {
 
 				BikeShop.BikeInfomenu();
 				int itemTypeBI = Helper.readInt("Enter option tp select item type for bike info");
@@ -96,14 +99,14 @@ public class BikeShop {
 					System.out.println("bye");
 				}
 
-			}else if (option == BIKE_PARTS) {
+			}else if (option == 3) {
 				
 				BikeShop.BikePartsmenu();
 				int itemTypeBp = Helper.readInt("Enter option tp select item type for bike parts");
 				
-				if (itemTypeBp == 1) {
+				if (itemTypeBp == CREATE_BIKE_PARTS) {
 					// create a Bikeparts
-					// create a bike parts
+					
 					BikeParts bp = inputBikeParts();
 					BikeShop.addBikeParts(BikePartList, bp);
 
@@ -119,9 +122,9 @@ public class BikeShop {
 
 
 
-			}else if (option == APPOINTMENT) {
+			}else if (option == 4) {
 				BikeShop.Appointmentmenu();
-				int itemTypeAp = Helper.readInt("Enter option tp select item type for Appointment");
+				int itemTypeAp = Helper.readInt("Enter option to select item type for Appointment");
 				
 				if (itemTypeAp == CREATE_APPOINTMENT) {
 					// create a Appointment
@@ -141,7 +144,7 @@ public class BikeShop {
 				}
 
 
-			}else if(option == FEEDBACK) {
+			}else if(option == 5) {
 				BikeShop.Feedbackmenu();
 				int itemTypeAp = Helper.readInt("Enter option tp select item type for Feedback");
 				
@@ -569,10 +572,6 @@ public class BikeShop {
 	    }
 
 	}
-
-
-
-
 
 
 
