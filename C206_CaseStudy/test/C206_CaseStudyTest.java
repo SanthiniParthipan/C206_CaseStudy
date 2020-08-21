@@ -211,7 +211,7 @@ public class C206_CaseStudyTest {
 		assertEquals("Test that ViewAllCustomerlist", testOutput, allFeedback);
 		
 	}
-	
+	// delete for(all 5)
 
 	
 	@After
