@@ -5,12 +5,15 @@ public class Bike {
 	private String description;
 	private boolean isAvailable;
 	
-	public void Bikeinfo(String model, String description, boolean isAvailable){
-	    this.model = model;
-	    this.description = description;
-	    this.isAvailable = isAvailable;
-	  }
+
 	
+	public Bike(String model, String description, boolean isAvailable) {
+		 
+		this.model = model;
+		this.description = description;
+		this.isAvailable = isAvailable;
+	}
+
 	public String getModel() {
 		return model;
 		

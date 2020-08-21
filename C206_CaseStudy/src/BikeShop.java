@@ -174,7 +174,7 @@ public class BikeShop {
 	}
 
 	public static void addCustomer(ArrayList<Customer> customerList, Customer cc) {
-		// TODO Auto-generated method stub
+		// //ELAINE
 		
 			customerList.add(cc);
 			System.out.println("Customer information has successfully added!");
@@ -245,6 +245,8 @@ public class BikeShop {
 	}
 
 	// =============================================== Option 2 view =======================================
+	
+	
 	//ELAINE
 	public static String retrieveAllCustomer(ArrayList<Customer> customerList) {
 		String output = "";
@@ -409,11 +411,10 @@ public class BikeShop {
 	}
 
 	public static void deleteFeeback(ArrayList<Feedback> feedbackList) {
-		// TODO Auto-generated method stub
+		// santhini
 		
 	    String DeleteFeedback = Helper.readString("Enter feedback to delete: ");
-	    String DeleteCus = Helper.readString("Enter Customer to delete: ");
-	    String DeleteRes = Helper.readString("Enter response to delete: ");
+
 
 	    for (Feedback fb : feedbackList) {
 	      if (fb.getFeedback().equalsIgnoreCase(DeleteFeedback)){
