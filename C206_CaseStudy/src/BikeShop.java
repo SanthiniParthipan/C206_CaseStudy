@@ -30,7 +30,7 @@ public class BikeShop {
 		customerList .add(new Customer("Tony Tan", "Tonytan@gmail.com", "87940093"));
 		BikeList.add(new Bike("projava Funga-3 27.5 ","Mountainbike taiwan brand",true));
 		BikePartList.add(new BikeParts("gear", "21 speed gear shifters shimano EF500(3x5)", true));
-		//appointment.add(new Appointment(<<TO BE ADDED>>));
+		appointment.add(new Appointment("soh ", 98476301, "S876483R", "20/04/2020"));
 		feedbackList.add(new Feedback("Angelia", "good service ", "Thank you for your feedback"));
 
 		

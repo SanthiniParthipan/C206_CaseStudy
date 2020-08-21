@@ -31,7 +31,7 @@ public class C206_CaseStudyTest {
 		cu1=new Customer("johnny wong", "Jonnywong@gmail.com", "87940065");
 		bi1=new Bike("Trinx","Mountainbike taiwan brand",true);
 		bp1= new BikeParts("front suspension fork", "front  suspension fork made of trinx brand", true);
-		//ap1=new Appointment(<<TO BE ADDED>>));
+		ap1=new Appointment("Tan ", 98476303, "S876499R", "24/07/2020");
 		fb1=new Feedback("philip", "response time could be improve ", "Thank you for your feedbackwe will take it into considerations");
 
 		customerList = new ArrayList<Customer>();
@@ -165,7 +165,7 @@ public class C206_CaseStudyTest {
 		assertEquals("Test that ViewAllBikePartsList", testOutput, allBikeparts);
 		
 	}
-	/*
+	
 	@Test
 	public void retrieveAllAppointmentTest() {
 		// Test if Item list is not null but empty -boundary
@@ -182,12 +182,12 @@ public class C206_CaseStudyTest {
 		assertEquals("Test that appointment arraylist size is 1", 1, appointment.size());
 		
 		//test if the expected output string same as the list of appointment retrieved from the SourceCentre	
-		allAppointment= BikeShop.retrieveAllFeedback(appointment);
-		testOutput = String.format("%-20s %-30s %-10s\n",);
+		allAppointment= BikeShop.retrieveAllAppointment(appointment);
+		testOutput = String.format("%-20s %-30s %-10s %-20\n");
 	
 		assertEquals("Test that ViewAllAppointmentlist", testOutput, allAppointment);
 		
-	}*/
+	}
 	
 	@Test
 	public void retrieveAllFeedbackTest() {
