@@ -95,7 +95,7 @@ public class C206_CaseStudyTest {
 		assertEquals("Check that feedback arraylist size is 1", 1, feedbackList.size());
 		assertSame("Check that feedback is added", fb1, feedbackList.get(0));
 		
-	}
+	} 
 	
 	@Test
 	public void retrieveAllCustomerTest() {
@@ -137,7 +137,7 @@ public class C206_CaseStudyTest {
 		
 		//test if the expected output string same as the list of bike info retrieved from the SourceCentre	
 		allBike= BikeShop.retrieveAllBikeInfo(BikeList);
-		testOutput = String.format("%-20s %-30s %-10s\n");
+		testOutput = String.format("%-20s %-30s %-10s\n","Trinx","Mountainbike taiwan brand",true);
 	
 		assertEquals("Test that ViewAllBikelist", testOutput, allBike);
 		
@@ -183,7 +183,7 @@ public class C206_CaseStudyTest {
 		
 		//test if the expected output string same as the list of appointment retrieved from the SourceCentre	
 		allAppointment= BikeShop.retrieveAllAppointment(appointment);
-		testOutput = String.format("%-20s %-30s %-10s %-20\n");
+		testOutput = String.format("%-20s %-20s %-10s %-10s\n","Tan ", 98476303, "S876499R", "24/07/2020");
 	
 		assertEquals("Test that ViewAllAppointmentlist", testOutput, allAppointment);
 		
@@ -227,6 +227,32 @@ public class C206_CaseStudyTest {
 	    ok = C206_CaseStudyTest.deleteBikeParts(BikePartList,"b1111"); 
 	    assertFalse("Test if the same item is NOT ok to delete ?", ok);  
 	    
+	  }
+
+	public void deleteCustomerTest() {
+	    //normal
+	    assertNotNull("Test if there is valid Customer arraylist to delete to", customerList);
+	    BikeShop.deleteBuyer(customerList,cu1);
+	  }
+	public void deleteBikeInfoTest() {
+	    //normal
+	    assertNotNull("Test if there is valid Customer arraylist to delete to", BikeList);
+	    BikeShop.deleteBikeInfo(BikeList,bi1);
+	  }
+	public void deleteBikePartsTest() {
+	    //normal
+	    assertNotNull("Test if there is valid Customer arraylist to delete to", BikePartList);
+	    BikeShop.deleteBikeParts(BikePartList,bp1);
+	  }
+	public void deleteAppointmentTest() {
+	    //normal
+	    assertNotNull("Test if there is valid Customer arraylist to delete to", appointment);
+	    BikeShop.deleteAppointment(appointment,ap1);
+	  }
+	public void deleteFeedbackTest() {
+	    //normal
+	    assertNotNull("Test if there is valid feedback arraylist to delete to", feedbackList);
+	    BikeShop.deleteFeeback(feedbackList,fb1);
 	  }
 
 	

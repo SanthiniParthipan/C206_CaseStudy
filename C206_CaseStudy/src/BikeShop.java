@@ -71,7 +71,7 @@ public class BikeShop {
 
 				}else if (itemType == DELETE_BUYER) {
 					// Delete buyer
-					BikeShop.deleteBuyer(customerList);
+					BikeShop.deleteBuyer(customerList,null);
 				}else {
 					System.out.println("bye");
 				}
@@ -93,7 +93,7 @@ public class BikeShop {
 
 				}else if (itemTypeBI == DELETE_BIKE_INFO) {
 					// Delete BikeInfo
-					BikeShop.deleteBikeInfo(BikeList);
+					BikeShop.deleteBikeInfo(BikeList,null);
 
 				}else {
 					System.out.println("bye");
@@ -116,7 +116,7 @@ public class BikeShop {
 
 				}else if (itemTypeBp == DELETE_BIKE_PARTS) {
 					// Delete BikeParts
-					BikeShop.deleteBikeParts(BikePartList);
+					BikeShop.deleteBikeParts(BikePartList,null);
 
 				}
 
@@ -137,7 +137,7 @@ public class BikeShop {
 
 				}else if (itemTypeAp == DELETE_APPOINTMENT) {
 					// Delete Appointment
-					BikeShop.deleteAppointment(appointment);
+					BikeShop.deleteAppointment(appointment,null);
 
 				}else {
 					System.out.println("bye");
@@ -159,7 +159,7 @@ public class BikeShop {
 
 				}else if (itemTypeAp == DELETE_FEEDBACK) {
 					// Delete feedback
-					BikeShop.deleteFeeback(feedbackList);
+					BikeShop.deleteFeeback(feedbackList,null);
 
 				}else {
 					System.out.println("bye");
@@ -301,7 +301,7 @@ public class BikeShop {
 	}
 	
 
-	public static void deleteBuyer(ArrayList<Customer> customerList) {
+	public static void deleteBuyer(ArrayList<Customer> customerList, Customer cu1) {
 	    // ELAINE
 		Helper.line(20, "-");
 	    String b = Helper.readString("Enter Buyer's information > ");
@@ -370,7 +370,7 @@ public class BikeShop {
 	}
 	
 
-	public static void deleteBikeInfo(ArrayList<Bike> bikeList) {
+	public static void deleteBikeInfo(ArrayList<Bike> bikeList, Bike bi1) {
 		// Gabrielle
 		String type = Helper.readString("Enter Bike Model: ");
 		for (Bike i :bikeList) {
@@ -430,7 +430,7 @@ public class BikeShop {
 	
 
 
-	public static void deleteBikeParts(ArrayList<BikeParts> BikePartList) {
+	public static void deleteBikeParts(ArrayList<BikeParts> BikePartList, BikeParts bp1) {
 		// Jia Xin
 		String b = Helper.readString("Enter Bike Parts> ");
 		for (BikeParts i :BikePartList) {
@@ -494,7 +494,7 @@ public class BikeShop {
 	}
 	
     
-	public static void deleteAppointment(ArrayList<Appointment> appointment) {
+	public static void deleteAppointment(ArrayList<Appointment> appointment, Appointment ap1) {
 		// Firdaus
 		String n = Helper.readString("Enter your name: ");
 		
@@ -545,7 +545,7 @@ public class BikeShop {
 		
 		return output;
 		
-	}
+	} 
 	public static void viewAllFeedback(ArrayList<Feedback> feedbackList) {
 		//santhini
 		BikeShop.setHeader("FEEDBACK LIST");
@@ -556,12 +556,12 @@ public class BikeShop {
 
 	}
 	
-	public static void deleteFeeback(ArrayList<Feedback> feedbackList) {
+	public static void deleteFeeback(ArrayList<Feedback> feedbackList, Feedback fb1) {
 		// santhini
 		
 	    String DeleteFeedback = Helper.readString("Enter feedback to delete: ");
 
-
+ 
 	    for (Feedback fb : feedbackList) {
 	      if (fb.getFeedback().equalsIgnoreCase(DeleteFeedback)){
 	    	 feedbackList.remove(fb);
