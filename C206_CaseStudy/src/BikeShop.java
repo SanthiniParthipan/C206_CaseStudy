@@ -28,7 +28,7 @@ public class BikeShop {
 		ArrayList<BikeParts> BikePartList = new ArrayList<BikeParts>();
 		
 		customerList .add(new Customer("Tony Tan", "Tonytan@gmail.com", "87940093"));
-		//BikeList.add(new Bike(<<TO BE ADDED>>));
+		BikeList.add(new Bike("projava Funga-3 27.5 ","Mountainbike taiwan brand",true));
 		BikePartList.add(new BikeParts("gear", "21 speed gear shifters shimano EF500(3x5)", true));
 		//appointment.add(new Appointment(<<TO BE ADDED>>));
 		feedbackList.add(new Feedback("Angelia", "good service ", "Thank you for your feedback"));
