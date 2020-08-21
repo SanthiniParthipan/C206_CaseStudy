@@ -137,7 +137,7 @@ public class C206_CaseStudyTest {
 		
 		//test if the expected output string same as the list of bike info retrieved from the SourceCentre	
 		allBike= BikeShop.retrieveAllBikeInfo(BikeList);
-		testOutput = String.format("%-20s %-30s %-10s\n");
+		testOutput = String.format("%-20s %-30s %-10s\n","Trinx","Mountainbike taiwan brand",true);
 	
 		assertEquals("Test that ViewAllBikelist", testOutput, allBike);
 		
@@ -183,7 +183,7 @@ public class C206_CaseStudyTest {
 		
 		//test if the expected output string same as the list of appointment retrieved from the SourceCentre	
 		allAppointment= BikeShop.retrieveAllAppointment(appointment);
-		testOutput = String.format("%-20s %-30s %-10s %-20\n");
+		testOutput = String.format("%-20s %-20s %-10s %-10s\n","Tan ", 98476303, "S876499R", "24/07/2020");
 	
 		assertEquals("Test that ViewAllAppointmentlist", testOutput, allAppointment);
 		
