@@ -161,8 +161,17 @@ public class BikeShop {
 					// Delete feedback
 					BikeShop.deleteFeeback(feedbackList,null);
 
+				}else if (itemTypeAp == 4) {
+					// update feedback
+					BikeShop.Updatefeedback(feedbackList,null);
+					
+				}else if (itemTypeAp == 5) {
+					// response to feedback
+					BikeShop.resonsefeedback(feedbackList,null);
+					
 				}else {
-					System.out.println("bye");
+					System.out.println("quit");
+					
 				}
 
 			} else {
@@ -174,6 +183,7 @@ public class BikeShop {
 			}
 	}
 	
+
 
 
 	public static void menu() {
@@ -238,7 +248,9 @@ public class BikeShop {
 		System.out.println("1. create Feedback");
 		System.out.println("2. view Feedback");
 		System.out.println("3. delete Feedback");
-		System.out.println("4. quit");
+		System.out.println("4. update Feedback");
+		System.out.println("5. response to Feedback");
+		System.out.println("6. quit");
 
 		Helper.line(80, "-");
 		;
@@ -519,9 +531,9 @@ public class BikeShop {
 		// santhini
 		String customer = Helper.readString("Enter your name :");
 		String feedback = Helper.readString("Enter feedback :");
-		String response = Helper.readString("Enter response");
 		
-		Feedback fb = new Feedback (customer,feedback , response);
+		
+		Feedback fb = new Feedback (customer,feedback , null);
 		return fb;
 	} 
 
@@ -543,7 +555,7 @@ public class BikeShop {
 					feedbackList.get(i).getResponse());
 		}
 		
-		return output;
+		return output; 
 		
 	} 
 	public static void viewAllFeedback(ArrayList<Feedback> feedbackList) {
@@ -573,6 +585,18 @@ public class BikeShop {
 
 	}
 
+
+	private static void resonsefeedback(ArrayList<Feedback> feedbackList, Object object) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	private static void Updatefeedback(ArrayList<Feedback> feedbackList, Object object) {
+		// TODO Auto-generated method stub
+		
+	}
 
 
 }
