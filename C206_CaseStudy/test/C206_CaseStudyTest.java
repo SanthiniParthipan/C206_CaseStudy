@@ -6,7 +6,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-public class C206_CaseStudyTest { 
+public class C206_CaseStudyTest {
 	
 	private Customer cu1;
 	private Bike bi1;
@@ -213,7 +213,21 @@ public class C206_CaseStudyTest {
 	}
 	// delete for(all 5)
 	
-
+	public void deleteBikePartTest() {
+	    //boundary
+	    assertNotNull("Test if there is valid BikePart arraylist to add to", BikePartList);
+	    C206_CaseStudyTest.addBikeParts(BikePartList, bp1);
+	    //normal
+	    Boolean ok = C206_CaseStudyTest.deleteBikeParts(BikePartList,"b001");
+	    assertTrue("Test if an available item is ok to delete?", ok);    
+	    //error condition
+	    ok = C206_CaseStudyTest.deleteBikeParts(BikePartList,"");
+	    assertFalse("Test if the same item is NOT ok to delete ?", ok);  
+	    //error
+	    ok = C206_CaseStudyTest.deleteBikeParts(BikePartList,"b1111"); 
+	    assertFalse("Test if the same item is NOT ok to delete ?", ok);  
+	    
+	  }
 
 	public void deleteCustomerTest() {
 	    //normal
@@ -241,6 +255,11 @@ public class C206_CaseStudyTest {
 	    BikeShop.deleteFeeback(feedbackList,fb1);
 	  }
 
+	
+
+
+	
+
 	@After
 	public void tearDown() throws Exception {
 		cu1=null;
@@ -255,6 +274,7 @@ public class C206_CaseStudyTest {
 		feedbackList =null;
 		
 	}
+
 
 
 
