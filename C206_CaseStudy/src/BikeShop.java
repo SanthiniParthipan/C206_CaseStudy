@@ -588,7 +588,7 @@ public class BikeShop {
 
 	private static void resonsefeedback(ArrayList<Feedback> feedbackList, Object object) {
 		// santhini
-		BikeShop.viewAllFeedback(feedbackList);
+		
 		String responseName= Helper.readString("Enter name to response");
 		boolean responseb = false;
 		
@@ -599,7 +599,7 @@ public class BikeShop {
 				feedbackList.get(i).setResponse(response);;
 				responseb= true;
 				
-				System.out.println(" send reponse successfully ");
+				System.out.println(" response successfully sent  ");
 				break;
 			}
 		}
@@ -610,10 +610,10 @@ public class BikeShop {
 	}
 
 
- 
+
 	private static void Updatefeedback(ArrayList<Feedback> feedbackList, Object object) {
 		// santhini
-		BikeShop.viewAllFeedback(feedbackList);
+		
 		String updateName= Helper.readString("Enter name to update");
 		boolean updated = false;
 		
