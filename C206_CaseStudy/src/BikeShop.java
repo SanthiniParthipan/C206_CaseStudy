@@ -533,13 +533,13 @@ public class BikeShop {
 		String feedback = Helper.readString("Enter feedback :");
 		
 		
-		Feedback fb = new Feedback (customer,feedback , null);
-		return fb;
-	} 
+		Feedback fba = new Feedback (customer,feedback , null);
+		return fba;
+	}  
 
-	public static void addFeedback(ArrayList<Feedback> feedbackList, Feedback fb) {
+	public static void addFeedback(ArrayList<Feedback> feedbackList, Feedback fba) {
 		// santhini
-		feedbackList.add(fb);
+		feedbackList.add(fba);
 		System.out.println("feedback added");
 
 	}
@@ -594,7 +594,25 @@ public class BikeShop {
 
 
 	private static void Updatefeedback(ArrayList<Feedback> feedbackList, Object object) {
-		// TODO Auto-generated method stub
+		// santhini
+		
+		String updateName= Helper.readString("Enter name to update");
+		boolean updated = false;
+		
+		for (int i=0; i<feedbackList.size();i++) {
+			if(updateName.equalsIgnoreCase(feedbackList.get(i).getCustomer())) {
+				
+				String newfeedback = Helper.readString("Enter new feedback :");
+				feedbackList.get(i).setFeedback(newfeedback);
+				updated= true;
+				
+				System.out.println(" feedback updated ");
+				break;
+			}
+		}
+		if (updated == false) {
+			System.out.println("invalid name ");
+		}	
 		
 	}
 
