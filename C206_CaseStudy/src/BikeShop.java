@@ -80,7 +80,7 @@ public class BikeShop {
 			}else if(option ==2) {
 
 				BikeShop.BikeInfomenu();
-				int itemTypeBI = Helper.readInt("Enter option tp select item type for bike info");
+				int itemTypeBI = Helper.readInt("Enter option to select item type for bike info >");
 				
 				if (itemTypeBI == CREATE_BIKE_INFO) {
 					// create a BikeInfo
@@ -102,7 +102,7 @@ public class BikeShop {
 			}else if (option == 3) {
 				
 				BikeShop.BikePartsmenu();
-				int itemTypeBp = Helper.readInt("Enter option tp select item type for bike parts");
+				int itemTypeBp = Helper.readInt("Enter option to select item type for bike parts >");
 				
 				if (itemTypeBp == CREATE_BIKE_PARTS) {
 					// create a Bikeparts
@@ -146,7 +146,7 @@ public class BikeShop {
 
 			}else if(option == 5) {
 				BikeShop.Feedbackmenu();
-				int itemTypeAp = Helper.readInt("Enter option tp select item type for Feedback");
+				int itemTypeAp = Helper.readInt("Enter option to select item type for Feedback >");
 				
 				if (itemTypeAp == CREATE_FEEDBACK) {
 					// create a Feedback
@@ -534,6 +534,7 @@ public class BikeShop {
 		
 		
 		Feedback fba = new Feedback (customer,feedback , null);
+		
 		return fba;
 	}  
 
@@ -570,25 +571,31 @@ public class BikeShop {
 	
 	public static void deleteFeeback(ArrayList<Feedback> feedbackList, Feedback fb1) {
 		// santhini
+		BikeShop.viewAllFeedback(feedbackList);
+	    String DeleteFeedbackName = Helper.readString("Enter name to delete feedback: ");
+		boolean deleted = false;
 		
-	    String DeleteFeedback = Helper.readString("Enter feedback to delete: ");
+		for (Feedback fb : feedbackList) {
+			if(fb.getCustomer().equalsIgnoreCase(DeleteFeedbackName)){
+				feedbackList.remove(fb);
+		    	 deleted= true;
+				System.out.println(" feedback deleted successfully ");
+				break;
 
- 
-	    for (Feedback fb : feedbackList) {
-	      if (fb.getFeedback().equalsIgnoreCase(DeleteFeedback)){
-	    	 feedbackList.remove(fb);
-	    	  break;
-	      } else { 
-	        System.out.println("feedback does not exsit ");
-	      }
+			}
+		}if (deleted== false) {
+			System.out.println("invalid name ");
+			
+
 	    }
 
 	}
 
 
+
 	private static void resonsefeedback(ArrayList<Feedback> feedbackList, Object object) {
 		// santhini
-		
+		BikeShop.viewAllFeedback(feedbackList);
 		String responseName= Helper.readString("Enter name to response");
 		boolean responseb = false;
 		
@@ -613,7 +620,7 @@ public class BikeShop {
 
 	private static void Updatefeedback(ArrayList<Feedback> feedbackList, Object object) {
 		// santhini
-		
+		BikeShop.viewAllFeedback(feedbackList);
 		String updateName= Helper.readString("Enter name to update");
 		boolean updated = false;
 		
