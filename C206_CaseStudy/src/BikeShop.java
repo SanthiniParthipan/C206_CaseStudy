@@ -587,15 +587,33 @@ public class BikeShop {
 
 
 	private static void resonsefeedback(ArrayList<Feedback> feedbackList, Object object) {
-		// TODO Auto-generated method stub
+		// santhini
+		BikeShop.viewAllFeedback(feedbackList);
+		String responseName= Helper.readString("Enter name to response");
+		boolean responseb = false;
+		
+		for (int i=0; i<feedbackList.size();i++) {
+			if(responseName.equalsIgnoreCase(feedbackList.get(i).getCustomer())) {
+				
+				String response = Helper.readString("Enter response:");
+				feedbackList.get(i).setResponse(response);;
+				responseb= true;
+				
+				System.out.println(" send reponse successfully ");
+				break;
+			}
+		}
+		if (responseb == false) {
+			System.out.println("invalid name ");
+		}	
 		
 	}
 
 
-
+ 
 	private static void Updatefeedback(ArrayList<Feedback> feedbackList, Object object) {
 		// santhini
-		
+		BikeShop.viewAllFeedback(feedbackList);
 		String updateName= Helper.readString("Enter name to update");
 		boolean updated = false;
 		
