@@ -578,7 +578,7 @@ public class BikeShop {
 	      if (fb.getFeedback().equalsIgnoreCase(DeleteFeedback)){
 	    	 feedbackList.remove(fb);
 	    	  break;
-	      } else {
+	      } else { 
 	        System.out.println("feedback does not exsit ");
 	      }
 	    }
