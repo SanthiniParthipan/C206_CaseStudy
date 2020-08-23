@@ -77,7 +77,7 @@ public class BikeShop {
 			}else if(option ==2) {
 
 				BikeShop.BikeInfomenu();
-				int itemTypeBI = Helper.readInt("Enter option tp select item type for bike info");
+				int itemTypeBI = Helper.readInt("Enter option to select item type for bike info >");
 				
 				if (itemTypeBI == CREATE_BIKE_INFO) {
 					// create a BikeInfo
@@ -99,7 +99,7 @@ public class BikeShop {
 			}else if (option == 3) {
 				
 				BikeShop.BikePartsmenu();
-				int itemTypeBp = Helper.readInt("Enter option tp select item type for bike parts");
+				int itemTypeBp = Helper.readInt("Enter option to select item type for bike parts >");
 				
 				if (itemTypeBp == CREATE_BIKE_PARTS) {
 					// create a Bikeparts
@@ -147,7 +147,7 @@ public class BikeShop {
 
 			}else if(option == 5) {
 				BikeShop.Feedbackmenu();
-				int itemTypeAp = Helper.readInt("Enter option tp select item type for Feedback");
+				int itemTypeAp = Helper.readInt("Enter option to select item type for Feedback >");
 				
 				if (itemTypeAp == CREATE_FEEDBACK) {
 					// create a Feedback
@@ -162,8 +162,17 @@ public class BikeShop {
 					// Delete feedback
 					BikeShop.deleteFeeback(feedbackList,null);
 
+				}else if (itemTypeAp == 4) {
+					// update feedback
+					BikeShop.Updatefeedback(feedbackList,null);
+					
+				}else if (itemTypeAp == 5) {
+					// response to feedback
+					BikeShop.resonsefeedback(feedbackList,null);
+					
 				}else {
-					System.out.println("bye");
+					System.out.println("quit");
+					
 				}
 
 			} else {
@@ -175,10 +184,6 @@ public class BikeShop {
 			}
 	}
 	
-
-
-
-
 	public static void menu() {
 		BikeShop.setHeader("Bike shop APP");
 		System.out.println("1. Buyer Registeration");
@@ -242,7 +247,9 @@ public class BikeShop {
 		System.out.println("1. create Feedback");
 		System.out.println("2. view Feedback");
 		System.out.println("3. delete Feedback");
-		System.out.println("4. quit");
+		System.out.println("4. update Feedback");
+		System.out.println("5. response to Feedback");
+		System.out.println("6. quit");
 
 		Helper.line(80, "-");
 		;
@@ -547,15 +554,16 @@ public class BikeShop {
 		// santhini
 		String customer = Helper.readString("Enter your name :");
 		String feedback = Helper.readString("Enter feedback :");
-		String response = Helper.readString("Enter response");
 		
-		Feedback fb = new Feedback (customer,feedback , response);
-		return fb;
-	} 
+		
+		Feedback fba = new Feedback (customer,feedback , null);
+		
+		return fba;
+	}  
 
-	public static void addFeedback(ArrayList<Feedback> feedbackList, Feedback fb) {
+	public static void addFeedback(ArrayList<Feedback> feedbackList, Feedback fba) {
 		// santhini
-		feedbackList.add(fb);
+		feedbackList.add(fba);
 		System.out.println("feedback added");
 
 	}
@@ -571,7 +579,7 @@ public class BikeShop {
 					feedbackList.get(i).getResponse());
 		}
 		
-		return output;
+		return output; 
 		
 	} 
 	public static void viewAllFeedback(ArrayList<Feedback> feedbackList) {
@@ -586,21 +594,75 @@ public class BikeShop {
 	
 	public static void deleteFeeback(ArrayList<Feedback> feedbackList, Feedback fb1) {
 		// santhini
+		BikeShop.viewAllFeedback(feedbackList);
+	    String DeleteFeedbackName = Helper.readString("Enter name to delete feedback: ");
+		boolean deleted = false;
 		
-	    String DeleteFeedback = Helper.readString("Enter feedback to delete: ");
+		for (Feedback fb : feedbackList) {
+			if(fb.getCustomer().equalsIgnoreCase(DeleteFeedbackName)){
+				feedbackList.remove(fb);
+		    	 deleted= true;
+				System.out.println(" feedback deleted successfully ");
+				break;
 
- 
-	    for (Feedback fb : feedbackList) {
-	      if (fb.getFeedback().equalsIgnoreCase(DeleteFeedback)){
-	    	 feedbackList.remove(fb);
-	    	  break;
-	      } else {
-	        System.out.println("feedback does not exsit ");
-	      }
+			}
+		}if (deleted== false) {
+			System.out.println("invalid name ");
+			
+
 	    }
 
 	}
 
+
+
+	private static void resonsefeedback(ArrayList<Feedback> feedbackList, Object object) {
+		// santhini
+		BikeShop.viewAllFeedback(feedbackList);
+		String responseName= Helper.readString("Enter name to response");
+		boolean responseb = false;
+		
+		for (int i=0; i<feedbackList.size();i++) {
+			if(responseName.equalsIgnoreCase(feedbackList.get(i).getCustomer())) {
+				
+				String response = Helper.readString("Enter response:");
+				feedbackList.get(i).setResponse(response);;
+				responseb= true;
+				
+				System.out.println(" response successfully sent  ");
+				break;
+			}
+		}
+		if (responseb == false) {
+			System.out.println("invalid name ");
+		}	
+		
+	}
+
+
+
+	private static void Updatefeedback(ArrayList<Feedback> feedbackList, Object object) {
+		// santhini
+		BikeShop.viewAllFeedback(feedbackList);
+		String updateName= Helper.readString("Enter name to update");
+		boolean updated = false;
+		
+		for (int i=0; i<feedbackList.size();i++) {
+			if(updateName.equalsIgnoreCase(feedbackList.get(i).getCustomer())) {
+				
+				String newfeedback = Helper.readString("Enter new feedback :");
+				feedbackList.get(i).setFeedback(newfeedback);
+				updated= true;
+				
+				System.out.println(" feedback updated ");
+				break;
+			}
+		}
+		if (updated == false) {
+			System.out.println("invalid name ");
+		}	
+		
+	}
 
 
 }

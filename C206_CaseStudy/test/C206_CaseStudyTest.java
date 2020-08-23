@@ -1,3 +1,4 @@
+
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
@@ -213,21 +214,7 @@ public class C206_CaseStudyTest {
 	}
 	// delete for(all 5)
 	
-	public void deleteBikePartTest() {
-	    //boundary
-	    assertNotNull("Test if there is valid BikePart arraylist to add to", BikePartList);
-	    C206_CaseStudyTest.addBikeParts(BikePartList, bp1);
-	    //normal
-	    Boolean ok = C206_CaseStudyTest.deleteBikeParts(BikePartList,"b001");
-	    assertTrue("Test if an available item is ok to delete?", ok);    
-	    //error condition
-	    ok = C206_CaseStudyTest.deleteBikeParts(BikePartList,"");
-	    assertFalse("Test if the same item is NOT ok to delete ?", ok);  
-	    //error
-	    ok = C206_CaseStudyTest.deleteBikeParts(BikePartList,"b1111"); 
-	    assertFalse("Test if the same item is NOT ok to delete ?", ok);  
-	    
-	  }
+
 
 	private static Boolean deleteBikeParts(ArrayList<BikeParts> bikePartList2, String string) {
 		// TODO Auto-generated method stub
@@ -261,10 +248,15 @@ public class C206_CaseStudyTest {
 	  }
 
 	
+<<<<<<< HEAD
 	private static void addBikeParts(ArrayList<BikeParts> bikePartList2, BikeParts bp12) {
 		// TODO Auto-generated method stub
 		
 	}
+=======
+
+
+>>>>>>> branch 'master' of https://github.com/SanthiniParthipan/C206_CaseStudy.git
 	
 
 	@After
@@ -284,4 +276,6 @@ public class C206_CaseStudyTest {
 
 
 
+
 }
+
