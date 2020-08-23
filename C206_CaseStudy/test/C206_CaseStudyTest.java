@@ -248,16 +248,12 @@ public class C206_CaseStudyTest {
 	  }
 
 	
-<<<<<<< HEAD
+
 	private static void addBikeParts(ArrayList<BikeParts> bikePartList2, BikeParts bp12) {
 		// TODO Auto-generated method stub
 		
 	}
-=======
 
-
->>>>>>> branch 'master' of https://github.com/SanthiniParthipan/C206_CaseStudy.git
-	
 
 	@After
 	public void tearDown() throws Exception {
