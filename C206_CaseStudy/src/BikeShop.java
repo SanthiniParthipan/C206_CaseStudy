@@ -2,10 +2,6 @@ import java.util.ArrayList;
 
 public class BikeShop {
 	
-
-
-
-	
 	static final int DELETE_FEEDBACK = 3;
 	static final int VIEW_FEEDBACK = 2;
 	static final int CREATE_FEEDBACK = 1;
@@ -14,10 +10,11 @@ public class BikeShop {
 	static final int VIEW_APPOINTMENT = 2;
 	static final int CREATE_APPOINTMENT = 1;
 	
+	static final int UPDATE_BIKE_PARTS = 4;
 	static final int DELETE_BIKE_PARTS = 3;
 	static final int VIEW_BIKE_PARTS = 2;
 	static final int CREATE_BIKE_PARTS = 1;
-
+	
 	static final int DELETE_BIKE_INFO = 3;
 	static final int VIEW_BIKE_INFO = 2;
 	static final int CREATE_BIKE_INFO = 1;
@@ -118,6 +115,10 @@ public class BikeShop {
 					// Delete BikeParts
 					BikeShop.deleteBikeParts(BikePartList,null);
 
+				}else if (itemTypeBp == UPDATE_BIKE_PARTS) {
+					BikeShop.updateBikeParts(BikePartList,null);
+				}else {
+					System.out.println("bye");
 				}
 
 
@@ -176,6 +177,8 @@ public class BikeShop {
 	
 
 
+
+
 	public static void menu() {
 		BikeShop.setHeader("Bike shop APP");
 		System.out.println("1. Buyer Registeration");
@@ -216,7 +219,8 @@ public class BikeShop {
 		System.out.println("1. create BikeParts");
 		System.out.println("2. view BikeParts");
 		System.out.println("3. delete BikeParts");
-		System.out.println("4. quit");
+		System.out.println("4. update BikeParts");
+		System.out.println("5. quit");
 
 		Helper.line(80, "-");
 		;
@@ -437,14 +441,38 @@ public class BikeShop {
 			if(i.getDescriptions().equalsIgnoreCase(b)) {
 				BikePartList.remove(i);
 				System.out.println("Bike Part has deleted!");
-
 				break;
+				
 			}else {
 				System.out.println("Bike Part Not Found!");
 			}
 		}
 	     
 	}
+	
+	private static void updateBikeParts(ArrayList<BikeParts> bikePartList, BikeParts bp1) {
+		// Jia Xin
+		
+		String updateBikeParts = Helper.readString("Enter the bike part name to update: ");
+		
+		for (BikeParts i :bikePartList) {
+			if(i.getPartName().equalsIgnoreCase(updateBikeParts)) {
+				String newBikePartName = Helper.readString("Enter new bike parts name: ");
+				String newBikePart = Helper.readString("Enter new bike parts information: ");
+				i.setPartName(newBikePartName);
+				i.setDescriptions(newBikePart);
+				System.out.println("Bike Part is updated!");
+				break;
+				
+			}else {
+				if(i.getPartName() != updateBikeParts){
+					System.out.println("Incorrect bike parts !");
+				}
+			}
+		}
+		
+	}
+
 	
 	
 	

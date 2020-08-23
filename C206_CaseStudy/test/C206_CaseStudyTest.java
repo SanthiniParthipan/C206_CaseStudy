@@ -229,6 +229,11 @@ public class C206_CaseStudyTest {
 	    
 	  }
 
+	private static Boolean deleteBikeParts(ArrayList<BikeParts> bikePartList2, String string) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	public void deleteCustomerTest() {
 	    //normal
 	    assertNotNull("Test if there is valid Customer arraylist to delete to", customerList);
@@ -239,11 +244,11 @@ public class C206_CaseStudyTest {
 	    assertNotNull("Test if there is valid Customer arraylist to delete to", BikeList);
 	    BikeShop.deleteBikeInfo(BikeList,bi1);
 	  }
-	public void deleteBikePartsTest() {
-	    //normal
-	    assertNotNull("Test if there is valid Customer arraylist to delete to", BikePartList);
-	    BikeShop.deleteBikeParts(BikePartList,bp1);
-	  }
+//	public void deleteBikePartsTest() {
+//	    //normal
+//	    assertNotNull("Test if there is valid Customer arraylist to delete to", BikePartList);
+//	    BikeShop.deleteBikeParts(BikePartList,bp1);
+//	  }
 	public void deleteAppointmentTest() {
 	    //normal
 	    assertNotNull("Test if there is valid Customer arraylist to delete to", appointment);
@@ -256,11 +261,6 @@ public class C206_CaseStudyTest {
 	  }
 
 	
-	private static Boolean deleteBikeParts(ArrayList<BikeParts> bikePartList2, String string) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 	private static void addBikeParts(ArrayList<BikeParts> bikePartList2, BikeParts bp12) {
 		// TODO Auto-generated method stub
 		
