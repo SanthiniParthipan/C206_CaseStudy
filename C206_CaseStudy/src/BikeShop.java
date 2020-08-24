@@ -92,7 +92,7 @@ public class BikeShop {
 			}else if(option ==2) {
 
 				BikeShop.BikeInfomenu();
-				int itemTypeBI = Helper.readInt("Enter option tp select item type for bike info");
+				int itemTypeBI = Helper.readInt("Enter option to select item type for bike info >");
 				
 				if (itemTypeBI == CREATE_BIKE_INFO) {
 					// create a BikeInfo
@@ -141,7 +141,7 @@ public class BikeShop {
 
 			}else if (option == 4) {
 				BikeShop.Appointmentmenu();
-				int itemTypeAp = Helper.readInt("Enter option to select item type for Appointment");
+				int itemTypeAp = Helper.readInt("Enter option to select item type for Appointment >");
 				
 				if (itemTypeAp == CREATE_APPOINTMENT) {
 					// create a Appointment
@@ -163,32 +163,38 @@ public class BikeShop {
 
 			}else if(option == 5) {
 				BikeShop.Feedbackmenu();
-				int itemTypeAp = Helper.readInt("Enter option tp select item type for Feedback");
+				int itemTypefb = Helper.readInt("Enter option to select item type for Feedback >");
 				
-				if (itemTypeAp == CREATE_FEEDBACK) {
+				if (itemTypefb == CREATE_FEEDBACK) {
 					// create a Feedback
 					Feedback fb = inputFeedback();
 					BikeShop.addFeedback(feedbackList, fb);
 
-				} else if (itemTypeAp == VIEW_FEEDBACK) {
+				} else if (itemTypefb == VIEW_FEEDBACK) {
 					// view feedback
 					BikeShop.viewAllFeedback(feedbackList);
 
-				}else if (itemTypeAp == DELETE_FEEDBACK) {
+				}else if (itemTypefb == DELETE_FEEDBACK) {
 					// Delete feedback
 					BikeShop.deleteFeeback(feedbackList,null);
 
-				}else {
-					System.out.println("bye");
-				}
-
-			} else {
-				System.out.println("bye");
-
-
+				}else if (itemTypefb == 4) {
+					// update feedback
+					BikeShop.Updatefeedback(feedbackList,null);
+					
+				}else if (itemTypefb == 5) {
+					// response to feedback
+					BikeShop.resonsefeedback(feedbackList,null);
+					
+				}else if(itemTypefb == 6){
+					System.out.println("quit");
+				}	
+				
 			}
+		
+			
 
-			}
+			}System.out.println("thank you for using bike shop");
 	}
 	
 
@@ -257,7 +263,9 @@ public class BikeShop {
 		System.out.println("1. create Feedback");
 		System.out.println("2. view Feedback");
 		System.out.println("3. delete Feedback");
-		System.out.println("4. quit");
+		System.out.println("4. update Feedback");
+		System.out.println("5. response to Feedback");
+		System.out.println("6. quit");
 
 		Helper.line(80, "-");
 		;
@@ -634,9 +642,9 @@ public class BikeShop {
 		// santhini
 		String customer = Helper.readString("Enter your name :");
 		String feedback = Helper.readString("Enter feedback :");
-		String response = Helper.readString("Enter response");
 		
-		Feedback fb = new Feedback (customer,feedback , response);
+		
+		Feedback fb = new Feedback (customer,feedback ,null);
 		return fb;
 	} 
 
@@ -671,9 +679,9 @@ public class BikeShop {
 
 	}
 	
-	public static void deleteFeeback(ArrayList<Feedback> feedbackList, Feedback fb1) {
+	public static void deleteFeeback(ArrayList<Feedback> feedbackList, Object object) {
 		// santhini
-		
+		BikeShop.viewAllFeedback(feedbackList);
 	    String DeleteFeedback = Helper.readString("Enter feedback to delete: ");
 
  
@@ -686,6 +694,54 @@ public class BikeShop {
 	      }
 	    }
 
+	}
+	
+	private static void resonsefeedback(ArrayList<Feedback> feedbackList, Object object) {
+		// santhini
+
+		BikeShop.viewAllFeedback(feedbackList);
+		String responseName= Helper.readString("Enter name to response");
+		boolean responseb = false;
+
+		for (int i=0; i<feedbackList.size();i++) {
+			if(responseName.equalsIgnoreCase(feedbackList.get(i).getCustomer())) {
+				
+				String response = Helper.readString("Enter response:");
+				feedbackList.get(i).setResponse(response);;
+				responseb= true;
+				
+				System.out.println(" response successfully sent  ");
+				break;
+			}
+		}
+		if (responseb == false) {
+			System.out.println("invalid name ");
+		}	
+		
+	}
+
+	private static void Updatefeedback(ArrayList<Feedback> feedbackList, Object object) {
+		// santhini
+
+		BikeShop.viewAllFeedback(feedbackList);
+		String updateName= Helper.readString("Enter name to update");
+		boolean updated = false;
+
+		for (int i=0; i<feedbackList.size();i++) {
+			if(updateName.equalsIgnoreCase(feedbackList.get(i).getCustomer())) {
+				
+				String newfeedback = Helper.readString("Enter new feedback :");
+				feedbackList.get(i).setFeedback(newfeedback);
+				updated= true;
+				
+				System.out.println(" feedback updated ");
+				break;
+			}
+		}
+		if (updated == false) {
+			System.out.println("invalid name ");
+		}	
+		
 	}
 
 
