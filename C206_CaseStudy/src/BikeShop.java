@@ -82,7 +82,7 @@ public class BikeShop {
 					BikeShop.updateBuyer(customerList, updateName, updateEmail,updatePhone);
 				}else if (itemType == SEARCH_BUYER) {
 					//SEARCH
-					BikeShop.searchBuyer(customerList, null);
+					BikeShop.searchBuyer(customerList, "name", "phone");
 				}
 				else {
 					System.out.println("bye");
@@ -394,29 +394,30 @@ public class BikeShop {
 		System.out.println(output);
 		
 		}
-	public static void searchBuyer(ArrayList<Customer> customerList, Customer cu1) {
+	public static String searchBuyer(ArrayList<Customer> customerList, String name, String phone) {
 		//ELAINE V2 SEARCH
 		Helper.line(20, "-");
 		System.out.println("SEARCH BUYER INFORMATION");
 		Helper.line(60,  "-");
 		
-		String name = Helper.readString("Enter name to search > ").toLowerCase();
-		String phone = Helper.readString("Enter phone to search > ").toLowerCase();
-		
+		String output =  "";
 		boolean exist = false;
 		
 		for (Customer i : customerList) {
 			if (i.getName().toLowerCase().contains(name) && i.getPhone().toLowerCase().contains(phone)) {
 				exist = true;
-				System.out.println(i.getName());
-				System.out.println(i.getEmail());
-				System.out.println(i.getPhone());
+				output+=i.getName() +"\n";
+				output+=i.getEmail()+"\n";
+				output+=i.getPhone();
 
 			}
 		}
 		if (exist == false) {
-			System.out.println("This name/phone do not exist!");
+			output+="This name/phone do not exist!";
 		}
+		
+		System.out.println(output);
+		return output;
 	}
 		
 	

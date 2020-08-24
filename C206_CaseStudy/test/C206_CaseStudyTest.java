@@ -112,12 +112,14 @@ public class C206_CaseStudyTest {
 		BikeShop.addCustomer(customerList, cu1);
 		
 		assertEquals("Test that Customer arraylist size is 1", 1, customerList.size());
-
-	}
-
+		
+		//test if the expected output string same as the list of customer retrieved from the SourceCentre	
+		allCustomer= BikeShop.retrieveAllCustomer(customerList);
+		testOutput = String.format("%-20s %-30s %-10s\n","Tony Tan", "Tonytan@gmail.com", "87940093");
 	
-	//Given an empty list, after adding 2 items, test if the size of the list is 2 - normal
-
+		assertEquals("Test that ViewAllCustomerlist", testOutput, allCustomer);
+		
+	}
 	
 	@Test
 	public void retrieveAllBikeTest() {
@@ -132,7 +134,13 @@ public class C206_CaseStudyTest {
 		//Given an empty list, after adding 2 items, test if the size of the list is 1 - normal
 		BikeShop.addBikeInfo(BikeList, bi1);
 		
-
+		assertEquals("Test that Bike Info arraylist size is 1", 1,BikeList.size());
+		
+		//test if the expected output string same as the list of bike info retrieved from the SourceCentre	
+		allBike= BikeShop.retrieveAllBikeInfo(BikeList);
+		testOutput = String.format("%-20s %-30s %-10s\n","Trinx","Mountainbike taiwan brand",true);
+	
+		assertEquals("Test that ViewAllBikelist", testOutput, allBike);
 		
 	}
 	
@@ -149,7 +157,13 @@ public class C206_CaseStudyTest {
 		//Given an empty list, after adding 2 items, test if the size of the list is 1 - normal
 		BikeShop.addBikeParts(BikePartList, bp1);
 		
-
+		assertEquals("Test that Customer arraylist size is 1", 1, BikePartList.size());
+		
+		//test if the expected output string same as the list of bike parts retrieved from the SourceCentre	
+		allBikeparts= BikeShop.retrieveAllBikeParts(BikePartList);
+		testOutput = String.format("%-20s %-50s %-10s\n","gear", "21 speed gear shifters shimano EF500(3x5)", true);
+	
+		assertEquals("Test that ViewAllBikePartsList", testOutput, allBikeparts);
 		
 	}
 	
@@ -168,7 +182,11 @@ public class C206_CaseStudyTest {
 		
 		assertEquals("Test that appointment arraylist size is 1", 1, appointment.size());
 		
-
+		//test if the expected output string same as the list of appointment retrieved from the SourceCentre	
+		allAppointment= BikeShop.retrieveAllAppointment(appointment);
+		testOutput = String.format("%-20s %-20s %-10s %-10s\n","Tan ", 98476303, "S876499R", "24/07/2020");
+	
+		assertEquals("Test that ViewAllAppointmentlist", testOutput, allAppointment);
 		
 	}
 	
@@ -187,29 +205,36 @@ public class C206_CaseStudyTest {
 		
 		assertEquals("Test that Customer arraylist size is 1", 1,feedbackList.size());
 		
-
-		
+		//test if the expected output string same as the list of feedback retrieved from the SourceCentre	
+		allFeedback= BikeShop.retrieveAllFeedback(feedbackList);
+		testOutput = String.format("%-20s %-30s %-10s\n","Tony Tan", "Tonytan@gmail.com", "87940093");
+	
+		assertEquals("Test that ViewAllCustomerlist", testOutput, allFeedback);
 		
 	}
 	// delete for(all 5)
 	
+	
+	
+	
+	
 
 
-	public void deleteCustomerTest() {
-	    //normal
-	    assertNotNull("Test if there is valid Customer arraylist to delete to", customerList);
-	    BikeShop.deleteBuyer(customerList,cu1);
-	  }
+	private static Boolean deleteBikeParts(ArrayList<BikeParts> bikePartList2, String string) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	public void deleteBikeInfoTest() {
 	    //normal
 	    assertNotNull("Test if there is valid Customer arraylist to delete to", BikeList);
 	    BikeShop.deleteBikeInfo(BikeList,bi1);
 	  }
-	public void deleteBikePartsTest() {
-	    //normal
-	    assertNotNull("Test if there is valid Customer arraylist to delete to", BikePartList);
-	    BikeShop.deleteBikeParts(BikePartList,bp1);
-	  }
+//	public void deleteBikePartsTest() {
+//	    //normal
+//	    assertNotNull("Test if there is valid Customer arraylist to delete to", BikePartList);
+//	    BikeShop.deleteBikeParts(BikePartList,bp1);
+//	  }
 	public void deleteAppointmentTest() {
 	    //normal
 	    assertNotNull("Test if there is valid Customer arraylist to delete to", appointment);
@@ -223,10 +248,79 @@ public class C206_CaseStudyTest {
 
 	
 
-	public void updateFeedback() {
-		 
+	private static void addBikeParts(ArrayList<BikeParts> bikePartList2, BikeParts bp12) {
+		// TODO Auto-generated method stub
+		
 	}
 	
+	//ELAINE TEST
+	@Test
+	public void deleteCustomerTest() {
+		customerList.add(cu1);
+		//normal
+	    assertNotNull("Test if there is valid Customer arraylist to delete to", customerList);
+	   
+	    
+	    assertNotNull("There are buyers to delete", customerList);
+
+		// If username does not equal to the buyer one, error message.
+		assertEquals(cu1, customerList.get(0));
+
+	    String output = BikeShop.deleteBuyer(customerList, cu1);
+	    
+		//Test that if same username as account, can delete.
+		assertEquals("Test the buyer is deleted", "Information has been deleted!",output);
+
+			}
+	@Test 
+	public void updateBuyerTest() {
+		
+		customerList.add(cu1);
+		//CHECK IF UPDATE IS SUCCESSFULL
+		  String expected = "updated successfully";
+		  String actualOuput =  BikeShop.updateBuyerTest(customerList,"johnny wong", "Jonnywong@gmail.com", "87940065");
+		  assertEquals("Test UPDATED", expected,actualOuput);
+		//CHECK CUSTOMER LIST NOT EMPTY
+		  assertNotNull("Check that the customer list is not empty.", customerList);
+		  
+		}
+	 @Test
+	  public void searchBuyer() {
+	    // If user input is in Customer list
+		 customerList.add(cu1);
+	    
+	    String actual = BikeShop.searchBuyer(customerList, "johnny wong", "87940065");
+	    String expected = "johnny wong\n" + 
+	    		"Jonnywong@gmail.com\n" + 
+	    		"87940065";
+	    assertEquals("Test that the customer exists in the list", expected, actual);
+	    System.out.println("Customer exist");
+	    
+	    //If user input is not in Customer list
+	    String actual2 = BikeShop.searchBuyer(customerList, "elaine tan", "98875345");
+	    String expected2 = "This name/phone do not exist!";
+	    assertEquals("Test that the customer exists in the list", expected2, actual2);
+
+	    // User input should contain string only
+	    assertNotNull("Please input accordingly!", customerList);
+	  }
+
+
+
+	
+
+	 
+
+
+	
+	 
+	    
+	    
+	    
+	    
+
+	
+
 
 	@After
 	public void tearDown() throws Exception {
