@@ -214,6 +214,10 @@ public class C206_CaseStudyTest {
 	}
 	// delete for(all 5)
 	
+	
+	
+	
+	
 
 
 	private static Boolean deleteBikeParts(ArrayList<BikeParts> bikePartList2, String string) {
@@ -221,11 +225,6 @@ public class C206_CaseStudyTest {
 		return null;
 	}
 
-	public void deleteCustomerTest() {
-	    //normal
-	    assertNotNull("Test if there is valid Customer arraylist to delete to", customerList);
-	    BikeShop.deleteBuyer(customerList,cu1);
-	  }
 	public void deleteBikeInfoTest() {
 	    //normal
 	    assertNotNull("Test if there is valid Customer arraylist to delete to", BikeList);
@@ -253,6 +252,61 @@ public class C206_CaseStudyTest {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	//ELAINE TEST
+	@Test
+	public void deleteCustomerTest() {
+		customerList.add(cu1);
+		//normal
+	    assertNotNull("Test if there is valid Customer arraylist to delete to", customerList);
+	   
+	    
+	    assertNotNull("There are buyers to delete", customerList);
+
+		// If username does not equal to the buyer one, error message.
+		assertEquals(cu1, customerList.get(0));
+
+	    String output = BikeShop.deleteBuyer(customerList,cu1.getName());
+	    
+		//Test that if same username as account, can delete.
+		assertEquals("Test the buyer is deleted", "Information has been deleted!",output);
+
+			}
+	@Test 
+	public void updateBuyerTest() {
+		
+		customerList.add(cu1);
+		//CHECK IF UPDATE IS SUCCESSFULL
+		  String expected = "updated successfully";
+		  String actualOuput =  BikeShop.updateBuyerTest(customerList,"johnny wong", "Jonnywong@gmail.com", "87940065");
+		  assertEquals("Test UPDATED", expected,actualOuput);
+		//CHECK CUSTOMER LIST NOT EMPTY
+		  assertNotNull("Check that the customer list is not empty.", customerList);
+		  
+		}
+	 @Test
+	  public void searchBuyer() {
+	    // If user input is in Customer list
+	    String menu1 = Helper.readString("Enter customer name/phone to search: ");
+	    assertSame(menu1.getClass(), menu1);
+	    System.out.println("Customer exist!");
+
+	    // If user input is not in Customer list
+	    String menu2 = Helper.readString("Enter Customer to search: ");
+	    assertSame(menu2.getClass(), menu2);
+	    System.out.println("Customer do not exist!");
+
+	 
+	  }
+
+	
+	 
+	    
+	    
+	    
+	    
+
+	
 
 
 	@After
