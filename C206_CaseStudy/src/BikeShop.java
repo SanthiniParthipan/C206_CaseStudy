@@ -175,7 +175,7 @@ public class BikeShop {
 
 				} else if (itemTypefb == 5) {
 					// response to feedback
-					BikeShop.resonsefeedback(feedbackList, null);
+					BikeShop.resonsefeedback(feedbackList, null,null,null);
 
 				} else if (itemTypefb == 6) {
 					System.out.println("quit");
@@ -659,7 +659,7 @@ public class BikeShop {
 
 	}
 
-	public static void resonsefeedback(ArrayList<Feedback> feedbackList, Object object) {
+	public static String resonsefeedback(ArrayList<Feedback> feedbackList, String name, String feedback, String response) {
 		// santhini
 
 		BikeShop.viewAllFeedback(feedbackList);
@@ -669,8 +669,8 @@ public class BikeShop {
 		for (int i = 0; i < feedbackList.size(); i++) {
 			if (responseName.equalsIgnoreCase(feedbackList.get(i).getCustomer())) {
 
-				String response = Helper.readString("Enter response :");
-				feedbackList.get(i).setResponse(response);
+				String nresponse = Helper.readString("Enter response :");
+				feedbackList.get(i).setResponse(nresponse);
 				;
 				responseb = true;
 
@@ -681,6 +681,7 @@ public class BikeShop {
 		if (responseb == false) {
 			System.out.println("invalid name ");
 		}
+		return null; 
 
 	}
 
@@ -706,7 +707,7 @@ public class BikeShop {
 		if (updated == false) {
 			System.out.println("invalid name ");
 		}
-		return updateName;
+		return null;
 
 	}
 

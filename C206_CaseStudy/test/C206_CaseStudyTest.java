@@ -314,6 +314,19 @@ public class C206_CaseStudyTest {
 
 	}
 
+	@Test 
+	public void resonsefeedbackTest() { 
+		
+  
+		feedbackList.add(fb1);
+		//normal if feedback is updated 
+		String result = " responsed";
+		String actualOuput = BikeShop.resonsefeedback(feedbackList,"philip", "response time could be improve ","thank you");
+		assertEquals("Test UPDATED", result, actualOuput);
+		// boundary 
+		assertNotNull("Check that feedbacklist is not empty.", feedbackList);
+
+	}
 	@After
 	public void tearDown() throws Exception {
 		cu1 = null;
