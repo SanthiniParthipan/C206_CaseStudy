@@ -72,7 +72,7 @@ public class BikeShop {
 
 				} else if (itemType == DELETE_BUYER) {
 					// Delete buyer
-
+ 
 					String b = Helper.readString("Enter Buyer's information > ");
 					BikeShop.deleteBuyer(customerList, null);
 				} else if (itemType == UPDATE_BUYER) {
@@ -81,9 +81,12 @@ public class BikeShop {
 					String updateEmail = Helper.readString("Enter the buyer's email you wish to update: ");
 					String updatePhone = Helper.readString("Enter the buyer's phone you wish to update: ");
 					BikeShop.updateBuyer(customerList, updateName, updateEmail, updatePhone);
-				} else if (itemType == SEARCH_BUYER) {
-					// SEARCH
-					BikeShop.searchBuyer(customerList, null,null);
+				}else if (itemType == SEARCH_BUYER) {
+					//SEARCH
+					String name = Helper.readString("Enter name > ");
+					String num = Helper.readString("Enter phone number > ");
+					BikeShop.searchBuyer(customerList, name, num);
+				
 				} else {
 					System.out.println("bye");
 				}
@@ -394,31 +397,35 @@ public class BikeShop {
 		System.out.println(output);
 		
 		}
-	public static String searchBuyer(ArrayList<Customer> customerList, String Name ,String Email) {
+	public static String searchBuyer(ArrayList<Customer> customerList, String name, String phone) {
 		//ELAINE V2 SEARCH
 		Helper.line(20, "-");
 		System.out.println("SEARCH BUYER INFORMATION");
 		Helper.line(60,  "-");
-
-		String name = Helper.readString("Enter name to search > ").toLowerCase();
-		String phone = Helper.readString("Enter phone to search > ").toLowerCase();
-
+				
+		String output =  "";
 		boolean exist = false;
-
+		
 		for (Customer i : customerList) {
-			if (i.getName().toLowerCase().contains(name) && i.getPhone().toLowerCase().contains(phone)) {
+			if (i.getName().equalsIgnoreCase(name) && i.getPhone().equals(phone)) {
 				exist = true;
-				System.out.println(i.getName());
-				System.out.println(i.getEmail());
-				System.out.println(i.getPhone());
+				output+=i.getName() +"\n";
+				output+=i.getEmail()+"\n";
+				output+=i.getPhone();
+				;
 
 			}
 		}
 		if (exist == false) {
-			System.out.println("This name/phone do not exist!");
+			output+="This name/phone do not exist!";
 		}
-		return null;
+		
+		System.out.println(output);
+		return output;
 	}
+		
+	
+		
 		
 	
 

@@ -121,7 +121,7 @@ public class C206_CaseStudyTest {
 	public void searchBuyer() {
 		// If user input is in Customer list
 		customerList.add(cu1);
-
+ 
 		String actual = BikeShop.searchBuyer(customerList, "johnny wong", "87940065");
 		String expected = "johnny wong\n" + "Jonnywong@gmail.com\n" + "87940065";
 		assertEquals("Test that the customer exists in the list", expected, actual);
