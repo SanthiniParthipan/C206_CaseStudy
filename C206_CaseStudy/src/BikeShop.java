@@ -539,7 +539,7 @@ public class BikeShop {
 		// Jia Xin
 		String b = Helper.readString("Enter Bike Parts> ");
 		for (BikeParts i :BikePartList) {
-			if(i.getDescriptions().equalsIgnoreCase(b)) {
+			if(i.getPartName().equalsIgnoreCase(b)) {
 				BikePartList.remove(i);
 				System.out.println("Bike Part has deleted!");
 				break;
