@@ -494,10 +494,11 @@ public class BikeShop {
 	
 	public static BikeParts inputBikeParts() {
 		// Jia Xin
-		String customerName = Helper.readString("Enter your name: ");
-		String bikeParts = Helper.readString("Enter bike parts: ");
+		String partNumber = Helper.readString("Enter part number: ");
+		String bikePartsName = Helper.readString("Enter part name: ");
+		String bikeParts = Helper.readString("Enter bike parts descriptions: ");
 		
-		BikeParts bp = new BikeParts(customerName, bikeParts, BikePartsCount, bikeParts, false);
+		BikeParts bp = new BikeParts(partNumber, bikePartsName, BikePartsCount, bikeParts, true);
 
 		return bp;
 	}
@@ -507,7 +508,7 @@ public class BikeShop {
 		BikePartList.add(bp);
 		System.out.println("Bike parts has successfully added!");
 	}
-	
+
 
 
 	
