@@ -25,7 +25,7 @@ public class C206_CaseStudyTest {
 		super();
 	}
 
-	@Before
+	@Before 
 	public void setUp() throws Exception {
 		// prepare test data
 
@@ -176,7 +176,7 @@ public class C206_CaseStudyTest {
 		BikeShop.deleteBikeInfo(BikeList, bi1);
 	}
 
-	
+	//==================================================Jia Xin Test========================================================
 	// Jia Xin Test
 
 	@Test
@@ -260,6 +260,7 @@ public class C206_CaseStudyTest {
 		return null;
 	}
 
+	//========================================================== Firdaus Test==================================================
 	// Firdaus Test
 	@Test
 	public void addAppointmentTest() {
@@ -299,6 +300,7 @@ public class C206_CaseStudyTest {
 	}
 
 	
+	// ===============================================================santhini test==============================
 	// santhini Test
 	@Test
 	public void addFeedbackTest() {
@@ -371,6 +373,8 @@ public class C206_CaseStudyTest {
 		assertNotNull("Check that feedbacklist is not empty.", feedbackList);
 
 	}
+	
+	//================================================================================================================
 	@After
 	public void tearDown() throws Exception {
 		cu1 = null;

@@ -83,7 +83,7 @@ public class BikeShop {
 					BikeShop.updateBuyer(customerList, updateName, updateEmail, updatePhone);
 				} else if (itemType == SEARCH_BUYER) {
 					// SEARCH
-					BikeShop.searchBuyer(customerList, "name", "phone");
+					BikeShop.searchBuyer(customerList, null,null);
 				} else {
 					System.out.println("bye");
 				}
@@ -219,7 +219,7 @@ public class BikeShop {
 
 		Helper.line(80, "-");
 		;
-
+ 
 	}
 	//Gabrielle menu
 	public static void BikeInfomenu() {
@@ -239,7 +239,9 @@ public class BikeShop {
 		System.out.println("1. create BikeParts");
 		System.out.println("2. view BikeParts");
 		System.out.println("3. delete BikeParts");
-		System.out.println("4. quit");
+		System.out.println("4. update BikeParts");
+		System.out.println("5. BikeParts availability");
+		System.out.println("6. quit");
 
 		Helper.line(80, "-");
 		;
@@ -392,36 +394,36 @@ public class BikeShop {
 		System.out.println(output);
 		
 		}
-	public static String searchBuyer(ArrayList<Customer> customerList, String name, String phone) {
+	public static String searchBuyer(ArrayList<Customer> customerList, String Name ,String Email) {
 		//ELAINE V2 SEARCH
 		Helper.line(20, "-");
 		System.out.println("SEARCH BUYER INFORMATION");
 		Helper.line(60,  "-");
-		
-		String output =  "";
+
+		String name = Helper.readString("Enter name to search > ").toLowerCase();
+		String phone = Helper.readString("Enter phone to search > ").toLowerCase();
+
 		boolean exist = false;
-		
+
 		for (Customer i : customerList) {
 			if (i.getName().toLowerCase().contains(name) && i.getPhone().toLowerCase().contains(phone)) {
 				exist = true;
-				output+=i.getName() +"\n";
-				output+=i.getEmail()+"\n";
-				output+=i.getPhone();
+				System.out.println(i.getName());
+				System.out.println(i.getEmail());
+				System.out.println(i.getPhone());
 
 			}
 		}
 		if (exist == false) {
-			output+="This name/phone do not exist!";
+			System.out.println("This name/phone do not exist!");
 		}
-		
-		System.out.println(output);
-		return output;
+		return null;
 	}
 		
 	
 
 	// ================================================= Bike Info  =====================================
-	// Gabrielle
+	// Gabrielle 
 	
 	public static Bike inputBikeInfo() {
 		String bikeModel = Helper.readString("Enter bike model: ");
@@ -669,6 +671,7 @@ public class BikeShop {
 
 	}
 
+
 	public static String retrieveAllFeedback(ArrayList<Feedback> feedbackList) {
 		// santhini
 		String output = "";
@@ -762,5 +765,7 @@ public class BikeShop {
 		return null;
 
 	}
+
+
 
 }
