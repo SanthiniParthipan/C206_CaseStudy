@@ -9,6 +9,8 @@ public class BikeShop {
 	static final int DELETE_APPOINTMENT = 3;  
 	static final int VIEW_APPOINTMENT = 2;
 	static final int CREATE_APPOINTMENT = 1;
+	static final int UPDATE_APPOINTMENT = 4;
+	static final int SEARCH_APPOINTMENT = 5;
 
 	static final int AVAILABILITY_BIKE_PARTS = 5;
 	static final int UPDATE_BIKE_PARTS = 4;
@@ -17,7 +19,8 @@ public class BikeShop {
 	static final int CREATE_BIKE_PARTS = 1;
 
 	private static int BikePartsCount = 0;
-	private static BikeParts[] BikeParts = new BikeParts[10]; 
+	private static BikeParts[] BikeParts = new BikeParts[10];
+	private static String updateAppDetails; 
 	
 	static final int DELETE_BIKE_INFO = 3;
 	static final int VIEW_BIKE_INFO = 2;
@@ -158,7 +161,16 @@ public class BikeShop {
 				} else if (itemTypeAp == DELETE_APPOINTMENT) {
 					// Delete Appointment
 					BikeShop.deleteAppointment(appointment, null);
-
+					
+				}else if (itemTypeAp == UPDATE_APPOINTMENT) {
+					//Update Appointment
+					BikeShop.updateBuyerAppointment(appointment,null);
+					
+				}else if (itemTypeAp == SEARCH_APPOINTMENT) {
+					//Search Appointment
+					String name = Helper.readString("Enter name: ");
+					String date = Helper.readString("Enter date: ");
+					BikeShop.searchAppByBuyer(appointment, name, date);
 				} else {
 					System.out.println("bye");
 				}
@@ -256,7 +268,9 @@ public class BikeShop {
 		System.out.println("1. create Appointment");
 		System.out.println("2. view Appointment");
 		System.out.println("3. delete Appointment");
-		System.out.println("4. quit");
+		System.out.println("4. update Appointment");
+		System.out.println("5. search appointment details");
+		System.out.println("6. quit");
 
 		Helper.line(80, "-");
 		;
@@ -642,25 +656,73 @@ public class BikeShop {
 		String output = "";
 
 		output = String.format("%-20s %-20s %-20s %-20s", "CUSTOMER NAME", "PHONE NUMBER", "IDENTIFICATION CARD NO.",
-				"DATE OF APPOINTMENT");
+				"DATE OF APPOINTMENT\n");
 		output += retrieveAllAppointment(appointment);
 		System.out.println(output);
 	}
 
 	public static void deleteAppointment(ArrayList<Appointment> appointment, Appointment ap1) {
+
 		// Firdaus
 		String n = Helper.readString("Enter your name: ");
 
 		for (Appointment ap : appointment) {
 			if (ap.getName().equalsIgnoreCase(n)) {
 				appointment.remove(ap);
+				System.out.println("Appointment deleted");
 				break;
 			} else {
 				System.out.println("Appointment Not Found!");
 			}
 		}
 	}
+	public static void updateBuyerAppointment(ArrayList<Appointment> appointment, Appointment ap1) {
+		//Firdaus
+		String updateAppDetails = Helper.readString("Enter name to update: ");
+		
+		for (Appointment i :appointment) {
+			if(i.getName().equalsIgnoreCase(updateAppDetails)) {
+				int newNumber = Helper.readInt("Enter new contact number: ");
+				i.setNumber(newNumber);
+				System.out.println("Appointment Details is updated!");
+				break;
+			} else {
+				if(i.getName() != updateAppDetails){
+					System.out.println("Invalid Name!");
+				}
+			}
+		}
+	}
+	public static String updateBuyerAppointment(ArrayList<Appointment> appointment) {
+		// Firdaus
+		return null;
+	}
+	public static String searchAppByBuyer(ArrayList<Appointment> appointment, String name, String date) {
+		// Firdaus
+		Helper.line(60, "-");
+		System.out.println("SEARCH BUYER APPOINTMENT");
+		Helper.line(60,"-");
+		
+		String output =  "";
+		boolean exist = false;
+		
+		for (Appointment i : appointment) {
+			if (i.getName().equalsIgnoreCase(name) && i.getDate().equals(date)) {
+				exist = true;
+				output+=i.getName() +"\n";
+				output+=i.getNumber()+"\n";
+				output+=i.getIc()+"\n";
+				output+=i.getDate();
+				;
 
+			}
+			if (exist == false) {
+				output+="This attendee's name or appointment date does not exist!";
+			}
+			System.out.println(output);		
+		}
+		return output;
+	}
 	// ====================================================== FeedBack===============================
 
 	public static Feedback inputFeedback() {
