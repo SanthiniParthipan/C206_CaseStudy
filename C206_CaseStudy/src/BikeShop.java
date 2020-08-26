@@ -646,13 +646,17 @@ public class BikeShop {
 		String DeleteFeedback = Helper.readString("Enter feedback to delete: ");
 
 		for (Feedback fb : feedbackList) {
-			if (fb.getCustomer().equalsIgnoreCase(DeleteFeedback)) {
+			if (DeleteFeedback.equalsIgnoreCase(fb.getCustomer())) {
 				feedbackList.remove(fb);
+				System.out.println("deleted feedback successfully  ");
+				
 				break;
-			} else {
-				System.out.println("feedback does not exsit ");
+			}else {
+				System.out.println("name does not exsist");
+				 
 			}
-		}
+			
+		} 
 
 	}
 
