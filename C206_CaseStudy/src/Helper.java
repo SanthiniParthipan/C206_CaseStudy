@@ -15,7 +15,7 @@ public class Helper {
     int input = 0;
     boolean valid = false;
     while (!valid) {
-      try {
+      try {   
         input = Integer.parseInt(readString(prompt));
         valid = true;
       } catch (NumberFormatException e) {

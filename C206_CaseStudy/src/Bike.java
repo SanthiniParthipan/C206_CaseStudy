@@ -5,7 +5,7 @@ public class Bike {
 	private String description;
 	private boolean isAvailable;
 	
-
+  
 	
 	public Bike(String model, String description, boolean isAvailable) {
 		 

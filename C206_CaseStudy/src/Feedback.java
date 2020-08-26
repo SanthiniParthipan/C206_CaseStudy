@@ -36,7 +36,7 @@ public class Feedback {
 		this.response = response;
 	}
 	
-	public String toString() {
+	public String toString() { 
 	    
         return String.format("%-20s %-30s %-10s %-10s", getCustomer(),
                 getFeedback(),getResponse());

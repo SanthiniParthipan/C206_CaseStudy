@@ -6,7 +6,7 @@ public class BikeShop {
 	static final int VIEW_FEEDBACK = 2;
 	static final int CREATE_FEEDBACK = 1;
 
-	static final int DELETE_APPOINTMENT = 3;
+	static final int DELETE_APPOINTMENT = 3;  
 	static final int VIEW_APPOINTMENT = 2;
 	static final int CREATE_APPOINTMENT = 1;
 
@@ -281,7 +281,7 @@ public class BikeShop {
 
 	// ==================================================Buyer=============================================
 
-	// ELAINE
+	//ELAINE
 	public static Customer inputCustomer() {
 		String customerName = Helper.readString("Enter your name > ");
 		String customerEmail = Helper.readString("Enter your email > ");
@@ -292,126 +292,133 @@ public class BikeShop {
 
 	public static void addCustomer(ArrayList<Customer> customerList, Customer cc) {
 		// //ELAINE
-
-		customerList.add(cc);
-		System.out.println("Customer information has successfully added!");
+		
+			customerList.add(cc);
+			System.out.println("Customer information has successfully added!");
 
 	}
-
-	// ELAINE
+	
+	
+	
+	//ELAINE
 	public static String retrieveAllCustomer(ArrayList<Customer> customerList) {
 		String output = "";
-
-		for (int i = 0; i < customerList.size(); i++) {
-			output += String.format("%-20s %-20s %-20s\n", customerList.get(i).getName(),
-					customerList.get(i).getEmail(), customerList.get(i).getPhone());
+		
+		for(int i = 0; i < customerList.size(); i++) {
+			output += String.format("%-20s %-20s %-20s\n" , customerList.get(i).getName(), customerList.get(i).getEmail(), customerList.get(i).getPhone());
 		}
 		return output;
 
-	}
-
-	// ELAINE
+		}
+	
+	//ELAINE
 	public static void viewAllBuyer(ArrayList<Customer> customerList) {
 		Helper.line(60, "-");
 		System.out.println("VIEW CUSTOMER INFORMATION");
 		String output = "";
+			
+		    output = String.format("%-20s %-20s %-20s\n", "NAME", "EMAIL", "PHONE");
+			output += retrieveAllCustomer(customerList);
 
-		output = String.format("%-20s %-20s %-20s\n", "NAME", "EMAIL", "PHONE");
-		output += retrieveAllCustomer(customerList);
-
-		System.out.println(output);
+			    System.out.println(output);
+		
 
 	}
+	
 
 	public static String deleteBuyer(ArrayList<Customer> customerList, Customer cu1) {
-		// ELAINE
+	    // ELAINE
 		Helper.line(20, "-");
-		String customer = Helper.readString("enter customer to delete :");
-		boolean exist = false;
+	    String customer=Helper.readString("enter customer to delete :");
+	    boolean exist = false;
+	    
+	    for (Customer i :customerList) {
+	      if(i.getName().equalsIgnoreCase(customer)) {
+	        customerList.remove(i);
+	        exist = true;
+	        String output = "Information has been deleted!";
+	        return output;
+	        }
+	    }
+	    if (exist == false) {
+	    	String output = "Information does not exist!";
+	    	return output;
+	    }
+	    
+	    return null;
+	        
+	  }
+	
+	public static String updateBuyerTest(ArrayList<Customer> customerList, String name,String email,String phone) {
+		  //ELAINE V2 UPDATE
+		    Helper.line(20,  "-");
+		    System.out.println("UPDATE BUYER INFORMATION");
+		    Helper.line(60, "-");
 
-		for (Customer i : customerList) {
-			if (i.getName().equalsIgnoreCase(customer)) {
-				customerList.remove(i);
-				exist = true;
-				String output = "Information has been deleted!";
-				return output;
-			}
+		    String output = "";
+
+		    
+		    boolean isFound = false;
+		        
+		    for (Customer i : customerList) {
+		      
+		      if (i.getName().equalsIgnoreCase(name) && i.getEmail().equalsIgnoreCase(email) && i.getPhone().equalsIgnoreCase(phone)) {
+		        String newName = Helper.readString("Enter a new name: ");
+		        String newEmail = Helper.readString("Enter a new email: ");
+		        String newPhone = Helper.readString("Enter a new phone: ");
+		        i.setName(newName);
+		        i.setEmail(newEmail);
+		        i.setPhone(newPhone);
+		        isFound = true;
+		        output = "updated successfully";
+		        System.out.println(output);
+		        break;
+		      }
+		    }
+	        if(isFound == false) {
+	          output = "Incorrect information";
+	          System.out.println(output);
+	        }
+		          
+		       
+		      return output;
 		}
-		if (exist == false) {
-			String output = "Information does not exist!";
-			return output;
-		}
-
-		return null;
-
-	}
-
-	public static String updateBuyerTest(ArrayList<Customer> customerList, String name, String email, String phone) {
-		// ELAINE V2 UPDATE
-		Helper.line(20, "-");
-		System.out.println("UPDATE BUYER INFORMATION");
-		Helper.line(60, "-");
-
-		String output = "";
-
-		boolean isFound = false;
-
-		for (Customer i : customerList) {
-
-			if (i.getName().equalsIgnoreCase(name) && i.getEmail().equalsIgnoreCase(email)
-					&& i.getPhone().equalsIgnoreCase(phone)) {
-				String newName = Helper.readString("Enter a new name: ");
-				String newEmail = Helper.readString("Enter a new email: ");
-				String newPhone = Helper.readString("Enter a new phone: ");
-				i.setName(newName);
-				i.setEmail(newEmail);
-				i.setPhone(newPhone);
-				isFound = true;
-				output = "updated successfully";
-				System.out.println(output);
-				break;
-			}
-		}
-		if (isFound == false) {
-			output = "Incorrect information";
-			System.out.println(output);
-		}
-
-		return output;
-	}
-
-	public static void updateBuyer(ArrayList<Customer> customerList, String name, String email, String phone) {
-		// ELAINE V2 UPDATE
+	
+	
+	
+	public static void updateBuyer(ArrayList<Customer> customerList, String name,String email,String phone) {
+		//ELAINE V2 UPDATE
 		String output = updateBuyerTest(customerList, name, email, phone);
 		System.out.println(output);
-
-	}
-
+		
+		}
 	public static String searchBuyer(ArrayList<Customer> customerList, String name, String phone) {
-		// ELAINE V2 SEARCH
+		//ELAINE V2 SEARCH
 		Helper.line(20, "-");
 		System.out.println("SEARCH BUYER INFORMATION");
-		Helper.line(60, "-");
-
-		String output = "";
+		Helper.line(60,  "-");
+		
+		String output =  "";
 		boolean exist = false;
-
+		
 		for (Customer i : customerList) {
 			if (i.getName().toLowerCase().contains(name) && i.getPhone().toLowerCase().contains(phone)) {
 				exist = true;
-				output += i.getName() + "\n";
-				output += i.getEmail() + "\n";
-				output += i.getPhone();
+				output+=i.getName() +"\n";
+				output+=i.getEmail()+"\n";
+				output+=i.getPhone();
 
 			}
 		}
 		if (exist == false) {
-			output += "This name/phone do not exist!";
+			output+="This name/phone do not exist!";
 		}
-
+		
 		System.out.println(output);
 		return output;
 	}
+		
+	
 
 	// ================================================= Bike Info  =====================================
 	// Gabrielle

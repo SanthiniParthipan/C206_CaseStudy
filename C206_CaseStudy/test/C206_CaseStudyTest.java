@@ -31,7 +31,7 @@ public class C206_CaseStudyTest {
 
 		cu1 = new Customer("johnny wong", "Jonnywong@gmail.com", "87940065");
 		bi1 = new Bike("Trinx", "Mountainbike taiwan brand", true);
-		bp1 = new BikeParts("front suspension fork", "front  suspension fork made of trinx brand", true);
+		bp1=new BikeParts("BP1","gear",10,"21 speed gear shifters shimano EF500(3x5)", true);
 		ap1 = new Appointment("Tan ", 98476303, "S876499R", "24/07/2020");
 		fb1 = new Feedback("philip", "response time could be improve ",null);
 
@@ -42,6 +42,7 @@ public class C206_CaseStudyTest {
 		feedbackList = new ArrayList<Feedback>();
 	}
 
+	//==========================================ELAINE TEST===================================================================
 	// ELAINE TEST
 
 	@Test
@@ -56,6 +57,7 @@ public class C206_CaseStudyTest {
 
 	}
 
+	//ELAINE
 	@Test
 	public void retrieveAllCustomerTest() {
 		// Test if Item list is not null but empty -boundary
@@ -81,7 +83,7 @@ public class C206_CaseStudyTest {
 		assertEquals("Test that ViewAllCustomerlist", testOutput, allCustomer);
 
 	}
-
+	//ELAINE
 	@Test
 	public void deleteCustomerTest() {
 		customerList.add(cu1);
@@ -100,6 +102,7 @@ public class C206_CaseStudyTest {
 
 	}
 
+	//ELAINE
 	@Test
 	public void updateBuyerTest() {
 
@@ -113,6 +116,7 @@ public class C206_CaseStudyTest {
 
 	}
 
+	
 	@Test
 	public void searchBuyer() {
 		// If user input is in Customer list
@@ -132,6 +136,7 @@ public class C206_CaseStudyTest {
 		assertNotNull("Please input accordingly!", customerList);
 	}
 
+	// ===========================================Gabrielle Test===========================================================
 	// Gabrielle Test
 
 	@Test
@@ -145,7 +150,7 @@ public class C206_CaseStudyTest {
 		assertSame("Check that Bike Info is added", bi1, BikeList.get(0));
 
 	}
-
+ 
 	@Test
 	public void retrieveAllBikeTest() {
 		// Test if Item list is not null but empty -boundary
@@ -173,42 +178,81 @@ public class C206_CaseStudyTest {
 
 	
 	// Jia Xin Test
+
 	@Test
 	public void addBikePartsTest() {
 		// Item list is not null, so that can add a new item - boundary
 		assertNotNull("Check if there is valid Bike parts arraylist to add to", BikePartList);
-		// Given an empty list, after adding 1 item, the size of the list is 1 - normal
-		// The item just added is as same as the first item of the list
-		BikeShop.addBikeParts(BikePartList, bp1);
-		assertEquals("Check that Bike parts arraylist size is 1", 1, BikePartList.size());
-		assertSame("Check that Bike parts is added", bp1, BikePartList.get(0));
-
+		//Given an empty list, after adding 1 item, the size of the list is 1 - normal
+		//The item just added is as same as the first item of the list
+		BikeShop.addBikeParts(BikePartList , bp1);
+		assertEquals("Check that Bike parts arraylist size is 1", 1, BikePartList .size());
+		assertSame("Check that Bike parts is added", bp1, BikePartList .get(0));
+		
 	}
+
 
 	@Test
 	public void retrieveAllBikePartsTest() {
 		// Test if Item list is not null but empty -boundary
 		assertNotNull("Test if there is valid bike Parts arraylist to retrieve item", BikePartList);
-
-		// test if the list of bike parts retrieved from the SourceCentre is empty -
-		// boundary
-		String allBikeparts = BikeShop.retrieveAllBikeParts(BikePartList);
+		
+		//test if the list of bike parts retrieved from the SourceCentre is empty - boundary
+		String allBikeparts= BikeShop.retrieveAllBikeParts(BikePartList);
 		String testOutput = "";
 		assertEquals("Check that ViewAllBikePartslist", testOutput, allBikeparts);
-
-		// Given an empty list, after adding 2 items, test if the size of the list is 1
-		// - normal
+		
+		//Given an empty list, after adding 2 items, test if the size of the list is 1 - normal
 		BikeShop.addBikeParts(BikePartList, bp1);
-
+		
 		assertEquals("Test that Customer arraylist size is 1", 1, BikePartList.size());
-
-		// test if the expected output string same as the list of bike parts retrieved
-		// from the SourceCentre
-		allBikeparts = BikeShop.retrieveAllBikeParts(BikePartList);
-		testOutput = String.format("%-20s %-50s %-10s\n", "gear", "21 speed gear shifters shimano EF500(3x5)", true);
-
+		
+		//test if the expected output string same as the list of bike parts retrieved from the SourceCentre	
+		allBikeparts= BikeShop.retrieveAllBikeParts(BikePartList);
+		testOutput = String.format("%-20s %-50s %-10s\n","gear", "21 speed gear shifters shimano EF500(3x5)", true);
+	
 		assertEquals("Test that ViewAllBikePartsList", testOutput, allBikeparts);
+		
+	}
+	public void updateBikeParts() {
+		// Jia Xin
+		
+	    //normal
+	    assertNotNull("Test if there is valid Customer arraylist to update to", BikePartList);
+	    BikeShop.updateBikeParts(BikePartList, bp1);
+	    
+	    //Boundary
+	    assertNotNull("Test if there is valid Customer arraylist to update bikeParts", BikePartList);
 
+		
+	    // Error
+	    String expected = "updated successfully";
+	    String actualOuput =  BikeShop.updateBikeParts(BikePartList);
+	    assertEquals("Test UPDATE", expected,actualOuput);
+	    
+	 }
+
+	public void viewAllBikeParts() {
+		// Jia Xin
+		
+		//normal
+	    Boolean ok = C206_CaseStudyTest.viewAllBikeParts(BikePartList, null);
+	    assertTrue("Test if there an available item to view", ok);  
+		
+	    
+	    //Boundary
+	    ok = C206_CaseStudyTest.viewAllBikeParts(BikePartList,"");
+	    assertFalse("Test if the bike parts availabity can only be yes or no", ok);  
+		
+	    // Error
+	    ok = C206_CaseStudyTest.viewAllBikeParts(BikePartList, null);
+	    assertFalse("Test if the bike parts shown in the sysem", ok);  
+	    
+	}
+	
+	private static Boolean viewAllBikeParts(ArrayList<BikeParts> bikePartList2, String string) {
+		// Jia Xin
+		return null;
 	}
 
 	private static Boolean deleteBikeParts(ArrayList<BikeParts> bikePartList2, String string) {
