@@ -49,7 +49,7 @@ public class BikeShop {
 			BikeShop.menu();
 			option = Helper.readInt("Enter an option >");
 
-			if (option == 1) {
+			if (option == 1) { // Elaine
 
 				// buyer
 
@@ -84,7 +84,7 @@ public class BikeShop {
 					System.out.println("bye");
 				}
 
-			} else if (option == 2) {
+			} else if (option == 2) { // gabrielle
 
 				BikeShop.BikeInfomenu();
 				int itemTypeBI = Helper.readInt("Enter option to select item type for bike info >");
@@ -106,7 +106,7 @@ public class BikeShop {
 					System.out.println("bye");
 				}
 
-			} else if (option == 3) {
+			} else if (option == 3) { // jia xin
 
 				BikeShop.BikePartsmenu();
 				int itemTypeBp = Helper.readInt("Enter option to select item type for bike parts >");
@@ -131,7 +131,7 @@ public class BikeShop {
 					System.out.println("bye");
 				}
 
-			} else if (option == 4) {
+			} else if (option == 4) { //firdaus
 				BikeShop.Appointmentmenu();
 				int itemTypeAp = Helper.readInt("Enter option to select item type for Appointment >");
 
@@ -152,7 +152,7 @@ public class BikeShop {
 					System.out.println("bye");
 				}
 
-			} else if (option == 5) {
+			} else if (option == 5) { //santhini
 				BikeShop.Feedbackmenu();
 				int itemTypefb = Helper.readInt("Enter option to select item type for Feedback >");
 
@@ -199,8 +199,8 @@ public class BikeShop {
 		;
 
 	}
-
-	public static void Customermenu() {
+	// Elaine menu
+	public static void Customermenu() {  
 		BikeShop.setHeader("Bike shop APP");
 		System.out.println("1. create Buyer");
 		System.out.println("2. view Buyer");
@@ -213,7 +213,7 @@ public class BikeShop {
 		;
 
 	}
-
+	//Gabrielle menu
 	public static void BikeInfomenu() {
 		BikeShop.setHeader("Bike shop APP");
 		System.out.println("1. create Bike Info");
@@ -225,7 +225,7 @@ public class BikeShop {
 		;
 
 	}
-
+	// Jia Xin menu
 	public static void BikePartsmenu() {
 		BikeShop.setHeader("Bike shop APP");
 		System.out.println("1. create BikeParts");
@@ -237,7 +237,7 @@ public class BikeShop {
 		;
 
 	}
-
+	//Firdaus menu
 	public static void Appointmentmenu() {
 		BikeShop.setHeader("Bike shop APP");
 		System.out.println("1. create Appointment");
@@ -249,7 +249,7 @@ public class BikeShop {
 		;
 
 	}
-
+	// santhini menu
 	public static void Feedbackmenu() {
 		BikeShop.setHeader("Bike shop APP");
 		System.out.println("1. create Feedback");
@@ -405,11 +405,10 @@ public class BikeShop {
 		return output;
 	}
 
-	// ================================================= Bike Info
-	// =====================================
-
+	// ================================================= Bike Info  =====================================
+	// Gabrielle
+	
 	public static Bike inputBikeInfo() {
-		// Gabrielle
 		String bikeModel = Helper.readString("Enter bike model: ");
 		String bikeDesc = Helper.readString("Enter bike description: ");
 
@@ -466,8 +465,7 @@ public class BikeShop {
 
 	}
 
-	// ===================================================== Bike
-	// Parts===============================
+	// ===================================================== Bike Parts===============================
 
 	public static BikeParts inputBikeParts() {
 		// Jia Xin
@@ -602,8 +600,7 @@ public class BikeShop {
 		}
 	}
 
-	// ======================================================
-	// FeedBack===============================
+	// ====================================================== FeedBack===============================
 
 	public static Feedback inputFeedback() {
 		// santhini
@@ -706,7 +703,7 @@ public class BikeShop {
 		}
 		if (updated == false) {
 			System.out.println("invalid name ");
-		}
+		} 
 		return null;
 
 	}
