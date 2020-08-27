@@ -1,4 +1,4 @@
-//FIRDAUS
+//ELAINE
 public class Customer { 
 	private String name;
 	private String email;
@@ -16,7 +16,7 @@ public class Customer {
 	}
 	public void setName(String name) {
 		this.name = name; 
-	}
+	} 
 	public String getEmail() {
 		return email;
 	}

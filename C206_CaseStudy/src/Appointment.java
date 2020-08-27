@@ -1,5 +1,5 @@
    
-//Elaine
+//Firdaus
 public class Appointment {
   private String name;
 	private int number;
