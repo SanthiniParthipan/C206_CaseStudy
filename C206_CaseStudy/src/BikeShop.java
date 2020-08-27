@@ -581,7 +581,7 @@ public class BikeShop {
 		// Jia Xin
 		String partNumber = Helper.readString("Enter part number: ");
 		String bikePartsName = Helper.readString("Enter part name: ");
-		String bikeParts = Helper.readString("Enter bike parts descriptions: ");
+		String bikeParts = Helper.readString("Enter new bike descriptions: ");
 		
 		BikeParts bp = new BikeParts(partNumber, bikePartsName, BikePartsCount, bikeParts, true);
 
