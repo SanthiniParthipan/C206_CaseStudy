@@ -22,10 +22,16 @@ public class BikeShop {
 	private static BikeParts[] BikeParts = new BikeParts[10];
 	private static String updateAppDetails; 
 	
+	static final int AVAILABILITY_BIKE = 5;
+	static final int UPDATE_BIKE = 4;
 	static final int DELETE_BIKE_INFO = 3;
 	static final int VIEW_BIKE_INFO = 2;
 	static final int CREATE_BIKE_INFO = 1;
-
+	
+	private static int BikeCount = 0;
+	private static Bike[] Bike = new Bike[10];
+	private static String updateAppBikeDetails;
+	
 	static final int SEARCH_BUYER = 5;
 	static final int UPDATE_BUYER = 4;
 	static final int DELETE_BUYER = 3;
@@ -45,7 +51,7 @@ public class BikeShop {
 
 		customerList.add(new Customer("Tony Tan", "Tonytan@gmail.com", "87940093"));
 		customerList.add(new Customer("johnny wong", "Jonnywong@gmail.com", "87940065"));
-		BikeList.add(new Bike("projava Funga-3 27.5 ", "Mountainbike taiwan brand", true));
+		BikeList.add(new Bike("projava Funga-3 27.5 ", "Mountainbike taiwan brand", true,1));
 		BikePartList.add(new BikeParts("BP1","gear",10,"21 speed gear shifters shimano EF500(3x5)", true));
 		appointment.add( new Appointment("Tan ", 98476303, "S876499R", "24/07/2020"));
 		feedbackList.add(new Feedback("Angelia", "good service ", "Thank you for your feedback"));
@@ -94,7 +100,7 @@ public class BikeShop {
 					System.out.println("bye");
 				}
 
-			} else if (option == 2) { // gabrielle
+			} else if (option == 2) { // Gabrielle
 
 				BikeShop.BikeInfomenu();
 				int itemTypeBI = Helper.readInt("Enter option to select item type for bike info >");
@@ -112,7 +118,14 @@ public class BikeShop {
 					// Delete BikeInfo
 					BikeShop.deleteBikeInfo(BikeList, null);
 
-				} else {
+				}else if (itemTypeBI== UPDATE_BIKE) {
+					// update 
+					BikeShop.updateBikeInfo( BikeList,null);
+				} else if(itemTypeBI== AVAILABILITY_BIKE) {
+					// availability
+					BikeShop.viewAllBikeInfo(BikeList,null);
+				}
+				else {
 					System.out.println("bye");
 				}
 
@@ -210,6 +223,8 @@ public class BikeShop {
 		System.out.println("thank you for using bike shop");
 	}
 
+
+
 	public static void menu() {
 		BikeShop.setHeader("Bike shop APP");
 		System.out.println("1. Buyer Registeration");
@@ -242,7 +257,9 @@ public class BikeShop {
 		System.out.println("1. create Bike Info");
 		System.out.println("2. view BIke info");
 		System.out.println("3. delete Bike info");
-		System.out.println("4.Quit");
+		System.out.println("4. update Bike info");
+		System.out.println("5. Bike availability");
+		System.out.println("6.Quit");
 
 		Helper.line(80, "-");
 		;
@@ -439,70 +456,124 @@ public class BikeShop {
 	}
 		
 	
-		
-		
 	
 
 	// ================================================= Bike Info  =====================================
 	// Gabrielle 
 	
+	//Adding bike/Creating new bike information
+	//Gabrielle
+	
 	public static Bike inputBikeInfo() {
-		String bikeModel = Helper.readString("Enter bike model: ");
-		String bikeDesc = Helper.readString("Enter bike description: ");
+	    String model = Helper.readString("Enter model > ");
+	    String description = Helper.readString("Enter description > ");
+	    Boolean isAvailable = Helper.readBoolean("Available or not > ");
+	    int stock = Helper.readInt("In stock >  ");
+	    
+	    Bike bike = new Bike(model, description, isAvailable, stock);
+	    return bike;
+	  }
+	  
+	  
+	  public static void addBikeInfo(ArrayList<Bike> BikeList, Bike bike) {
+	    BikeList.add(bike);
+	    System.out.println("Bike added!");
+	  }
 
-		Bike bi = new Bike(bikeModel, bikeDesc, false);
-
-		return bi;
-	}
-
-	public static void addBikeInfo(ArrayList<Bike> bikeList, Bike bi) {
-		// Gabrielle
-
-		bikeList.add(bi);
-		System.out.println("Bike model has successfully added!");
-
-	}
-
-	public static String retrieveAllBikeInfo(ArrayList<Bike> bikeList) {
+	public static String retrieveAllBikeInfo(ArrayList<Bike> BikeList) {
 		// Gabrielle
 		String output = "";
 
-		for (int i = 0; i < bikeList.size(); i++) {
-			output += String.format("%-20s %-20s\n", bikeList.get(i).getModel(), bikeList.get(i).getDescription(),
-					bikeList.get(i).getIsAvailable());
+		for (int i = 0; i < BikeList.size(); i++) {
+			output += String.format("%-20s %-20s\n", BikeList.get(i).getModel(), BikeList.get(i).getDescription(),
+					BikeList.get(i).getIsAvailable());
 		}
 		return output;
 
 	}
 
-	public static void viewAllBikeInfo(ArrayList<Bike> bikeList) {
+	public static void viewAllBikeInfo(ArrayList<Bike> BikeList) {
 		// Gabrielle
 
 		String output = "";
 
 		output = String.format("%-20s %-20s\n", "MODEL", "DESCRIPTION", "AVAILABLITY");
-		output += retrieveAllBikeInfo(bikeList);
+		output += retrieveAllBikeInfo(BikeList);
 
 		System.out.println(output);
 
 	}
 
-	public static void deleteBikeInfo(ArrayList<Bike> bikeList, Bike bi1) {
+	public static void deleteBikeInfo(ArrayList<Bike> BikeList, Bike bi1) {
 		// Gabrielle
 		String type = Helper.readString("Enter Bike Model: ");
-		for (Bike i : bikeList) {
-			if (i.getDescription().equalsIgnoreCase(type)) {
-				bikeList.remove(i);
+		for (Bike i : BikeList) {
+			if (i.getModel().equalsIgnoreCase(type)) {
+				BikeList.remove(i);
 				System.out.println("Bike Model has been deleted!");
 
 				break;
-			} else {
+			} 
+			else {
 				System.out.println("Bike Model Not Found!");
 			}
 		}
 
 	}
+	
+	public static void updateBikeInfo(ArrayList<Bike> BikeList, Bike bi1) {
+		
+		// Gabrielle
+		
+		String updateBikeInfo = Helper.readString("Enter the bike model to update: ");
+		for (Bike i : BikeList) {
+			if(i.getModel().equalsIgnoreCase(updateBikeInfo)) {
+				String newBikeModel = Helper.readString("Enter new bike model name: ");
+				String newBikeDesc = Helper.readString("Enter new bike parts information: ");
+				int newBikeStock = Helper.readInt("Enter the number of new stock: ");
+				i.setModel(newBikeModel);
+				i.setDescriptions(newBikeDesc);
+				i.setStock(newBikeStock);
+				System.out.println("Bike Model is updated!");
+				
+				BikeShop.viewAllBikeInfo(BikeList);
+				
+			} 
+			
 
+		}
+				
+	}	
+		
+	
+	
+	
+	public static String CheckAvailibility(ArrayList<Bike> BikeList) {
+		// Gabrielle
+		String output = "";
+		
+		for(int i=0; i < BikeList.size(); i++) {
+			int stock = BikeList.get(i).getStock();
+			calculateStock(stock);
+			output += String.format("%-84s \n", BikeList.get(i).toStrings());
+		}
+		return output;
+	}
+	
+	public static void viewAllBikeInfo(ArrayList<Bike> BikeList, BikeParts bi1) {
+		// Gabrielle
+		String output = String.format("%-30s %-10s %10s\n", "MODEL", "IN-Stock", "Available");
+		output += CheckAvailibility(BikeList);
+		System.out.println(output);
+	}
+	
+	private static void calculateStock(int stock) {
+		// Gabrielle
+	}
+	
+		
+	
+	
 	//===================================================== Bike Parts===============================
 	// Jia Xin
 	
@@ -600,7 +671,7 @@ public class BikeShop {
 		
 		for(int i=0; i < BikePartList.size(); i++) {
 			int unit = BikePartList.get(i).getUnit();
-			calculate(unit);
+			calculateStock(unit);
 			output += String.format("%-84s \n", BikePartList.get(i).toStrings());
 		}
 		return output;
@@ -812,7 +883,7 @@ public class BikeShop {
 		return null; 
 
 	}
-
+ 
 	public static String Updatefeedback(ArrayList<Feedback> feedbackList, String name, String feedback,
 			String response) {
 		// santhini 

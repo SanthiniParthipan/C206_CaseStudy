@@ -16,7 +16,7 @@ public class C206_CaseStudyTest {
 	private Feedback fb1;
 
 	private ArrayList<Customer> customerList;
-	private ArrayList<Bike> BikeList;
+	private static ArrayList<Bike> BikeList;
 	private ArrayList<BikeParts> BikePartList;
 	private ArrayList<Appointment> appointment;
 	private ArrayList<Feedback> feedbackList;
@@ -175,6 +175,50 @@ public class C206_CaseStudyTest {
 		assertNotNull("Test if there is valid bike info arraylist to delete to", BikeList);
 		BikeShop.deleteBikeInfo(BikeList, bi1);
 	}
+	
+	public void updateBikeInfo() {
+		// Gabrielle
+		
+	    //normal 
+	    assertNotNull("If the bike information can be updated successfully", BikeList);
+	    BikeShop.updateBikeInfo(BikeList, bi1);
+	    
+	    //Boundary
+	    assertNotNull(" If the bike information does not exist ", BikeList);
+
+		
+	    // Error
+	    String expected = " If the information cannot be updated, the system will print an error message to inform that the update is unsuccessful.";
+	    String actualOuput =  BikeShop.updateBikeParts(BikePartList);
+	    assertEquals("Test UPDATE", expected,actualOuput);
+	    
+	 }
+
+	public static Boolean viewAllBikeInfo(ArrayList<Bike> bikeList2) {
+		// Gabrielle
+		
+		//normal
+	    Boolean ok = C206_CaseStudyTest.viewAllBikeInfo(BikeList);
+	    assertTrue("Test if there an available item to view", ok);  
+		
+	    
+	    //Boundary
+	    ok = C206_CaseStudyTest.viewAllBikeInfo(BikeList,"");
+	    assertFalse("Test if the bike parts availabity can only be yes or no", ok);  
+		
+	    // Error
+	    ok = C206_CaseStudyTest.viewAllBikeInfo(BikeList, null);
+	    assertFalse("Test if the bike parts shown in the sysem", ok);
+		return ok;  
+	    
+	}
+	
+	private static Boolean viewAllBikeInfo(ArrayList<Bike> bikeList2, String string) {
+		// Gabrielle
+		return null;
+	}
+
+
 
 	//==================================================Jia Xin Test========================================================
 	// Jia Xin Test
