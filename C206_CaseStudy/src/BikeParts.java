@@ -1,5 +1,5 @@
 
-public class BikeParts {
+public class BikeParts { 
 	// Jia Xin
 	private String ID;
 	private String partName;

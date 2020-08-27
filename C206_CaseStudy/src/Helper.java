@@ -2,7 +2,7 @@
 
 import java.util.*;
 
-public class Helper {
+public class Helper { 
   
   static Scanner scan = new java.util.Scanner(System.in);
   

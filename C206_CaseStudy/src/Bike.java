@@ -1,7 +1,7 @@
 
 public class Bike {
 	//Gabrielle 
-	private String model;
+	private String model; 
 	private String description;
 	private boolean isAvailable;
 	private int stock;

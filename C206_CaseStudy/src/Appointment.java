@@ -2,7 +2,7 @@
 public class Appointment {
   private String name;
 	private int number;
-	private String ic;
+	private String ic; 
 	private String date;
 	
 	public Appointment(String name, int number, String ic, String date) {

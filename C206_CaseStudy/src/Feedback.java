@@ -1,5 +1,5 @@
 
-public class Feedback {
+public class Feedback { 
 	
 	private String Customer ;
 	private String feedback;
