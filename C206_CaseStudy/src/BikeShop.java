@@ -529,7 +529,7 @@ public class BikeShop {
 		for (Bike i : BikeList) {
 			if(i.getModel().equalsIgnoreCase(updateBikeInfo)) {
 				String newBikeModel = Helper.readString("Enter new bike model name: ");
-				String newBikeDesc = Helper.readString("Enter new bike parts information: ");
+				String newBikeDesc = Helper.readString("Enter new bike information: ");
 				int newBikeStock = Helper.readInt("Enter the number of new stock: ");
 				i.setModel(newBikeModel);
 				i.setDescriptions(newBikeDesc);
@@ -581,7 +581,7 @@ public class BikeShop {
 		// Jia Xin
 		String partNumber = Helper.readString("Enter part number: ");
 		String bikePartsName = Helper.readString("Enter part name: ");
-		String bikeParts = Helper.readString("Enter new bike descriptions: ");
+		String bikeParts = Helper.readString("Enter bike parts descriptions: ");
 		
 		BikeParts bp = new BikeParts(partNumber, bikePartsName, BikePartsCount, bikeParts, true);
 
