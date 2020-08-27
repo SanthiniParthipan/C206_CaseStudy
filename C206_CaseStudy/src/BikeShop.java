@@ -47,7 +47,7 @@ public class BikeShop {
 		customerList.add(new Customer("johnny wong", "Jonnywong@gmail.com", "87940065"));
 		BikeList.add(new Bike("projava Funga-3 27.5 ", "Mountainbike taiwan brand", true));
 		BikePartList.add(new BikeParts("BP1","gear",10,"21 speed gear shifters shimano EF500(3x5)", true));
-		// appointment.add(new Appointment(<<TO BE ADDED>>));
+		appointment.add( new Appointment("Tan ", 98476303, "S876499R", "24/07/2020"));
 		feedbackList.add(new Feedback("Angelia", "good service ", "Thank you for your feedback"));
 
 		int option = 0;
@@ -56,7 +56,7 @@ public class BikeShop {
 			BikeShop.menu();
 			option = Helper.readInt("Enter an option >");
 
-			if (option == 1) { // Elaine
+			if (option == 1) { // Elaine 
 
 				// buyer
 
@@ -504,7 +504,7 @@ public class BikeShop {
 	}
 
 	//===================================================== Bike Parts===============================
-	
+	// Jia Xin
 	
 	public static BikeParts inputBikeParts() {
 		// Jia Xin
@@ -620,7 +620,8 @@ public class BikeShop {
 
 
 	// ========================================================Appointment==================================
-
+	// Firdaus
+	
 	public static Appointment inputAppointment() {
 		// Firdaus
 		String name = Helper.readString("Enter your name: ");
@@ -723,8 +724,10 @@ public class BikeShop {
 		}
 		return output;
 	}
+	
 	// ====================================================== FeedBack===============================
-
+	// santhini
+	
 	public static Feedback inputFeedback() {
 		// santhini
 		String customer = Helper.readString("Enter your name :");
@@ -785,7 +788,7 @@ public class BikeShop {
 	}
 
 	public static String resonsefeedback(ArrayList<Feedback> feedbackList, String name, String feedback, String response) {
-		// santhini
+		// santhini 
 
 		BikeShop.viewAllFeedback(feedbackList);
 		String responseName = Helper.readString("Enter name to response :");
@@ -812,7 +815,7 @@ public class BikeShop {
 
 	public static String Updatefeedback(ArrayList<Feedback> feedbackList, String name, String feedback,
 			String response) {
-		// santhini
+		// santhini 
 
 		BikeShop.viewAllFeedback(feedbackList);
 		String updateName = Helper.readString("Enter name to update :");
