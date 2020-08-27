@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class BikeShop {
+public class BikeShop { 
 
 	static final int DELETE_FEEDBACK = 3;
 	static final int VIEW_FEEDBACK = 2;
