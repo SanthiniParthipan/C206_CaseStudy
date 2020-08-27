@@ -1,4 +1,4 @@
-
+ 
 public class Bike {
 	//Gabrielle 
 	private String model; 

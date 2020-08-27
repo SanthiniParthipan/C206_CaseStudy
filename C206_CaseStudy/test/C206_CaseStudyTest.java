@@ -344,7 +344,7 @@ public class C206_CaseStudyTest {
 	
 	public void updateBuyerAppointment() {
 		// Firdaus
-		
+		 
 	    //normal
 	    assertNotNull("Test if there is valid Customer arraylist to update to", appointment);
 	    BikeShop.updateBuyerAppointment(appointment, ap1);
@@ -354,21 +354,25 @@ public class C206_CaseStudyTest {
 
 	    // Error
 	    String expected = "updated successfully";
-	    String actualOuput =  BikeShop.updateBikeParts(BikePartList);
+	    String actualOuput =  BikeShop.updateBuyerAppointment(appointment);
 	    assertEquals("Test UPDATE", expected,actualOuput);	    
 	 }
 	public void searchAppByBuyer() {
 		//appointment made
 		appointment.add(ap1); 
-		String actual = BikeShop.searchAppByBuyer(appointment, ap1.getName(), ap1.getDate());
-		String expected = ap1.getName() + ap1.getDate() + ap1.getIc() + ap1.getNumber();
+		String actual = BikeShop.searchAppByBuyer(appointment, "Tan", "27/07/2020");
+		String expected = "Tan\n" + "98476303\n" + "S876499R\n" +  "24/07/2020";
 		assertEquals("Test that the customer exists in the list", expected, actual);
 		System.out.println("Customer exist");
 		
 		//havent made appointment       
-		String actual2 = BikeShop.searchAppByBuyer(appointment, "firdaus", "91234567");
+		String actual2 = BikeShop.searchAppByBuyer(appointment, "firdaus", "20/08/2020");
 		String expected2 = "This attendee's name or appointment date does not exist!";
 		assertEquals("Test that the customer exists in the list", expected2, actual2);
+		
+		//String only
+		assertNotNull("Please input correctly",appointment);
+		
 	} 
 
 

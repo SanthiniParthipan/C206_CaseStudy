@@ -715,7 +715,7 @@ public class BikeShop {
 		String output = "";
 
 		for (int i = 0; i < appointment.size(); i++) {
-			output += String.format("%-20s %-20d %-20s %-20s", appointment.get(i).getName(),
+			output += String.format("%-20s %-20d %-20s %-20s\n", appointment.get(i).getName(),
 					appointment.get(i).getNumber(), appointment.get(i).getIc(), appointment.get(i).getDate());
 		}
 		return output;
@@ -883,7 +883,7 @@ public class BikeShop {
 		return null; 
 
 	}
- 
+  
 	public static String Updatefeedback(ArrayList<Feedback> feedbackList, String name, String feedback,
 			String response) {
 		// santhini 
